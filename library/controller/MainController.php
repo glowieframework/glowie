@@ -1,6 +1,6 @@
 <?php
 
-    class GlowieController extends Glowie{
+    class MainController extends Glowie{
 
        public function defaultAction(){
 

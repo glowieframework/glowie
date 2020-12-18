@@ -11,16 +11,16 @@
     $glowieConfig['errorReporting'] = E_ALL;
 
     // Database connection settings
-    $glowieConfig['database'] = array(
+    $glowieConfig['database'] = [
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
         'db' => 'glowie',
         'port' => 3306
-    );
+    ];
 
-    $glowieConfig['routes'] = array(
+    $glowieConfig['routes'] = [
         '/' => 'index'
-    );
+    ];
 
 ?>
