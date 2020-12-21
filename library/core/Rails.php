@@ -1,12 +1,24 @@
 <?php
+    namespace Glowie;
 
+    /**
+     * Glowie application router.
+     * @category Router
+     * @package glowieframework
+     * @author Glowie Framework
+     * @copyright Copyright (c) 2021
+     * @license MIT
+     * @link https://github.com/glowieframework/glowie
+     * @version 1.0.0
+     */
     class Rails{
         private $controller;
         private $handler;
         private $routes;
-        
+
         public function __construct(){
-            $this->routes = $GLOBALS['glowieConfig']['routes'];
+            // Get routing configuration
+            $this->routes = $GLOBALS['glowieRoutes'];
 
             // Error handling
             $this->handler = new Error();
@@ -17,6 +29,9 @@
             ini_set('display_errors', 'off');
         }
 
+        /**
+         * Initializes application routes.
+         */
         public function init(){
             if (!empty($_GET['route']) && trim($_GET['route']) != '') {
                 $route = trim($_GET['route']);
@@ -41,25 +56,37 @@
                 }
             }
             if ($config) {
-                $controller = $config['controller'] . 'Controller';
+                if(!empty($config['controller'])){
+                    $controller = $config['controller'] . 'Controller';
+                }else{
+                    $controller = 'MainController';
+                }
                 if(!class_exists($controller)){
-                    trigger_error('Controller "' . $controller . '" not found'); 
+                    trigger_error('Controller "' . $controller . '" not found');
                     exit;
                 }
                 $this->controller = new $controller;
                 if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
-                if (method_exists($this->controller, $config['action'] . 'Action')) {
-                    call_user_func([$this->controller, $config['action'] . 'Action']);
-                } else {
-                    trigger_error('Action "' . $config['action'] . '" not found in ' . $controller);
-                    exit;
+                if(!empty($config['action'])){
+                    if (method_exists($this->controller, $config['action'] . 'Action')) {
+                        call_user_func([$this->controller, $config['action'] . 'Action']);
+                    } else {
+                        trigger_error('Action "' . $config['action'] . 'Action()" not found in ' . $controller);
+                        exit;
+                    } 
                 }
             } else {
-                // if (method_exists($this, 'errorAction')) {
-                //     call_user_func([$this, 'errorAction']);
-                // } else {
-                //     http_response_code(404);
-                // }
+                $error = 'ErrorController';
+                if(class_exists($error)){
+                    $this->controller = new $error;
+                    if(method_exists($this->controller, 'errorAction')){
+                        call_user_func([$this->controller, 'errorAction']);
+                    }else{
+                        http_response_code(404);
+                    }
+                }else{
+                    http_response_code(404);
+                }
             }
         }
     }

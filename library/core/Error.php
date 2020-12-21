@@ -1,4 +1,5 @@
 <?php
+    namespace Glowie;
 
     /**
      * Custom Glowie application error handler.
@@ -12,10 +13,21 @@
      */
     class Error{
 
-        function errorHandler($num, $str, $file, $line, $context = null){
-            $this->exceptionHandler(new ErrorException($str, 0, $num, $file, $line));
+        /**
+         * Default error handler. Creates an exception based on given error.
+         * @param int $num Error type code.
+         * @param string $str Error message.
+         * @param string $file Filename where the error was thrown.
+         * @param int $line Line number where the error was thrown.
+         * @return void
+         */
+        function errorHandler($num, $str, $file, $line){
+            $this->exceptionHandler(new \ErrorException($str, 0, $num, $file, $line));
         }
-        
+
+        /**
+         * Fatal error handler.
+         */
         function fatalHandler(){
             $error = error_get_last();
             if ( $error["type"] == E_ERROR ){
@@ -23,7 +35,12 @@
             }
         }
 
-        function exceptionHandler(Exception $e){
+        /**
+         * Exception handler.
+         * @param Exception $e Thrown exception.
+         * @return void
+         */
+        function exceptionHandler(\Exception $e){
             echo '<style>
                     .glowieError{
                         font-family: Segoe UI, sans-serif;

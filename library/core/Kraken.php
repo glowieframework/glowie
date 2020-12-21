@@ -1,4 +1,5 @@
 <?php
+    namespace Glowie;
 
     /**
      * Database model for Glowie application.
@@ -27,7 +28,7 @@
             if (empty($database['password'])) $database['password'] = '';
             if (empty($database['port'])) $database['port'] = 3306;
             if (empty($database['db'])) trigger_error('Database name not defined');
-            $this->db = new MysqliDb($database['host'], $database['username'], $database['password'], $database['db'], $database['port']);
+            $this->db = new \MysqliDb($database['host'], $database['username'], $database['password'], $database['db'], $database['port']);
             $this->table = $table;
         }
 

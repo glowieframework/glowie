@@ -1,3 +1,4 @@
+SetEnv GLOWIE_ENV development
 Options -Indexes
 
 RewriteEngine On
