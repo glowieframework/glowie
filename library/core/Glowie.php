@@ -3,24 +3,26 @@
     /**
      * Main Glowie application core.
      * @category Framework
-     * @package GlowieFramework
-     * @author Gabriel Silva
-     * @copyright Copyright (c) 2020
-     * @link https://github.com/glowie
+     * @package glowieframework
+     * @author Glowie Framework
+     * @copyright Copyright (c) 2021
+     * @license MIT
+     * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
     class Glowie{
         public $content;
-        public $routes;
-        public $version = '1.0.0';
+        public $params;
+        public $version;
         public $view;
 
         private $handler;
         
         public function __construct(){
-            $this->routes = $GLOBALS['glowieConfig']['routes'];
+            $this->version = '1.0.0';
             $this->view = new stdClass();
             
+            // Timezone config
             date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
 
             // Error handling
@@ -31,29 +33,6 @@
             set_exception_handler([$this->handler, 'exceptionHandler']);
             ini_set('display_errors', 'off');
         }
-
-        public function init(){
-            if(!empty($_GET['route']) && trim($_GET['route']) != ''){
-                $route = strtolower(trim($_GET['route']));
-            }else{
-                $route = '/';
-            }
-
-            if(array_key_exists($route, $this->routes)){
-                if(method_exists($this, 'defaultAction')) call_user_func([$this, 'defaultAction']);
-                if(method_exists($this, $this->routes[$route] . 'Action')){
-                    call_user_func([$this, $this->routes[$route] . 'Action']);
-                }else{
-                    trigger_error('Action "' . $this->routes[$route] . '" not found in application controller');
-                }
-            }else{
-                if (method_exists($this, 'errorAction')){
-                    call_user_func([$this, 'errorAction']);
-                }else{
-                    http_response_code(404);
-                }
-            }
-        }
         
         public function renderView($view){
             $view = 'views/' . $view . '.php';
@@ -61,6 +40,7 @@
                 require_once $view;
             }else{
                 trigger_error('File "' . $view . '" not found');
+                exit;
             }
         }
 
@@ -74,9 +54,11 @@
                         require_once $template;
                     }else{
                         trigger_error('File "' . $view . '" not found');
+                        exit;
                     }
                 } else {
                     trigger_error('File "' . $view . '" not found');
+                    exit;
                 }
             }else{
                 if (file_exists($template)) {
@@ -84,6 +66,7 @@
                     require_once $template;
                 } else {
                     trigger_error('File "' . $template . '" not found');
+                    exit;
                 }
             }
         }

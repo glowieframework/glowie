@@ -19,8 +19,12 @@
         'port' => 3306
     ];
 
+    // Application routes
     $glowieConfig['routes'] = [
-        '/' => 'index'
+        '/' => array(
+            'controller' => 'main',
+            'action' => 'index'
+        )
     ];
 
 ?>

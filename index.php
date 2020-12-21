@@ -1,8 +1,8 @@
 <?php
 
-    // Setup and initialize Glowie application
+    // Setup and initialize Glowie application routing
     require_once 'library/autoload.php';
-    $app = new MainController();
+    $app = new Rails();
     $app->init();
     
 ?>

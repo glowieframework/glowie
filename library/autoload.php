@@ -12,9 +12,12 @@
     
     // Include Glowie modules
     require_once 'core/Error.php';
+    require_once 'core/Rails.php';
     require_once 'core/Glowie.php';
     require_once 'core/Util.php';
     require_once 'core/Kraken.php';
-    require_once 'controller/MainController.php'
+
+    // Include controllers
+    foreach(glob('library/controller/*.php') as $filename) require_once($filename);
 
 ?>
