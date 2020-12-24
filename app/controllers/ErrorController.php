@@ -1,7 +1,8 @@
 <?php
+    use Glowie\Controller;
 
     /**
-     * Main controller for Glowie application.
+     * Error controller for Glowie application.
      * @category Controller
      * @package glowieframework
      * @author Glowie Framework
@@ -10,14 +11,14 @@
      * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
-    class MainController extends Glowie\Controller{
+    class ErrorController extends Controller{
 
        public function defaultAction(){
            //
        }
 
-       public function indexAction(){
-           $this->renderTemplate('default', 'index');
+       public function notFoundAction(){
+           $this->renderView('error/404');
        }
 
     }

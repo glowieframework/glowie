@@ -3,13 +3,22 @@
     /**
      * Miscellaneous utilities for Glowie applications.
      * @category Utility
-     * @package GlowieFramework
-     * @author Gabriel Silva
-     * @copyright Copyright (c) 2020
-     * @link https://github.com/glowie
+     * @package glowieframework
+     * @author Glowie Framework
+     * @copyright Copyright (c) 2021
+     * @license MIT
+     * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
     class Util{
+
+        public static function includeStylesheet($path){
+            echo '<link rel="stylesheet" href="' . self::baseUrl($path) . '">';
+        }
+
+        public static function includeScript($path){
+            echo '<script src="' . self::baseUrl($path) . '"></script>';
+        }
 
         public static function log($var, $exit = false){
             var_dump($var);
@@ -19,7 +28,10 @@
         public static function baseUrl($path = '')
         {
             !empty($_SERVER['HTTPS']) ? $protocol = 'https://' : $protocol = 'http://';
-            return $protocol . $_SERVER['HTTP_HOST'] . $GLOBALS['glowieConfig']['appFolder'] . $path;
+            $appFolder = $GLOBALS['glowieConfig']['appFolder'];
+            if(substr($appFolder, 0, 1) != '/') $appFolder = '/' . $appFolder;
+            if(substr($appFolder, -1, 1) != '/') $appFolder = $appFolder . '/';
+            return $protocol . $_SERVER['HTTP_HOST'] . $appFolder . $path;
         }
 
         public static function redirect($destination, $js = false)

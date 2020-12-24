@@ -1,0 +1,12 @@
+SetEnv GLOWIE_ENV development
+
+# ----------------------------
+# DO NOT EDIT BELOW THIS LINE!
+# ----------------------------
+
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?route=$1 [NC,L,QSA]

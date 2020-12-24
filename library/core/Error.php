@@ -30,7 +30,7 @@
          */
         function fatalHandler(){
             $error = error_get_last();
-            if ( $error["type"] == E_ERROR ){
+            if ($error && $error["type"] == E_ERROR ){
                 $this->errorHandler($error["type"], $error["message"], $error["file"], $error["line"]);
             }
         }

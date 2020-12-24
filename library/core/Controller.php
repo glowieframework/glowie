@@ -12,17 +12,49 @@
      * @version 1.0.0
      */
     class Controller{
+        /**
+         * Content handler for templates.
+         */
         public $content;
+
+        /**
+         * Request GET parameters.
+         */
+        public $get;
+
+        /**
+         * URI parameters.
+         */
         public $params;
+
+        /**
+         * Request POST parameters.
+         */
+        public $post;
+
+        /**
+         * Current Glowie version.
+         */
         public $version;
+
+        /**
+         * Data bridge between controller and view.
+         */
         public $view;
 
-        private $handler;
+        /**
+         * Error handler.
+         */
+        public $handler;
 
         public function __construct(){
             // Common properties
             $this->version = '1.0.0';
             $this->view = new \stdClass();
+
+            // Request parameters
+            $this->get = $_GET;
+            $this->post = $_POST;
 
             // Timezone configuration
             date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
@@ -36,24 +68,46 @@
             ini_set('display_errors', 'off');
         }
 
-        public function renderView($view){
+        /**
+         * Renders a view file.
+         * @param string $view View filename without extension. Must be a PHP file inside **views** folder.
+         * @param array $params Optional parameters to pass into the view. Should be an associative array with\
+         * each variable name and value.
+         */
+        public function renderView($view, $params = []){
             $view = 'views/' . $view . '.php';
             if(file_exists($view)){
-                require_once $view;
+                if(!empty($params) && is_array($params)) extract($params);
+                ob_start();
+                require($view);
+                echo ob_get_clean();
             }else{
                 trigger_error('File "' . $view . '" not found');
                 exit;
             }
         }
 
-        public function renderTemplate($template, $view = ''){
+        /**
+         * Renders a template file.
+         * @param string $template Template filename without extension. Must be a PHP file inside **views/templates** folder.
+         * @param string $view Optional view filename to render within template. You can place this view by using **$this->content**\
+         * into the template file. Must be a PHP file inside **views** folder.
+         * @param array $params Optional parameters to pass into the rendered view (if used). Should be an associative array with\
+         * each variable name and value.
+         */
+        public function renderTemplate($template, $view = '', $params = []){
             $template = 'views/templates/' . $template . '.php';
-            $view = 'views/' . $view . '.php';
-            if($view != ''){
+            if(!empty($view)){
+                $view = 'views/' . $view . '.php';
                 if (file_exists($template)) {
                     if(file_exists($view)){
-                        $this->content = $this->readFileBuffer($view);
-                        require_once $template;
+                        if (!empty($params) && is_array($params)) extract($params);
+                        ob_start();
+                        require($view);
+                        $this->content = ob_get_clean();
+                        ob_start();
+                        require($template);
+                        echo ob_get_clean();
                     }else{
                         trigger_error('File "' . $view . '" not found');
                         exit;
@@ -65,18 +119,14 @@
             }else{
                 if (file_exists($template)) {
                     $this->content = '';
-                    require_once $template;
+                    ob_start();
+                    require($template);
+                    echo ob_get_clean();
                 } else {
                     trigger_error('File "' . $template . '" not found');
                     exit;
                 }
             }
-        }
-
-        private function readFileBuffer($file){
-            ob_start();
-            require_once($file);
-            return ob_get_clean();
         }
 
     }
