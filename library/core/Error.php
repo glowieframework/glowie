@@ -2,7 +2,7 @@
     namespace Glowie;
 
     /**
-     * Custom Glowie application error handler.
+     * Glowie application error handler.
      * @category Error handler
      * @package glowieframework
      * @author Glowie Framework

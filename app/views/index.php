@@ -5,9 +5,9 @@
         <div class="text">
             You are currently using Glowie version <?php echo $this->version; ?>
         </div>
-        <a href="#" target="_blank">Docs</a>
-        <a href="#" target="_blank">Source</a>
-        <a href="#" target="_blank">Support</a>
-        <a href="#" target="_blank">Author</a>
+        <a href="https://github.com/glowieframework/glowie/wiki" target="_blank">Docs</a>
+        <a href="https://github.com/glowieframework/glowie" target="_blank">Source</a>
+        <a href="mailto:glowieframework@gmail.com" target="_blank">Support</a>
+        <a href="https://eugabrielsilva.tk" target="_blank">Author</a>
     </div>
 </div>

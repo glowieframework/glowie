@@ -15,6 +15,9 @@
     require_once 'core/Kraken.php';
     require_once 'core/Validator.php';
 
+    // Inlude models
+    foreach (glob('models/*.php') as $filename) require_once($filename);
+
     // Include controllers
     foreach(glob('controllers/*.php') as $filename) require_once($filename);
 

@@ -2,8 +2,8 @@
     namespace Glowie;
 
     /**
-     * Database model for Glowie application.
-     * @category Database model
+     * Model base for Glowie application.
+     * @category Model
      * @package glowieframework
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
@@ -18,27 +18,35 @@
         /**
          * Connects to a database table.
          * @param array $database Connection settings. Use an empty array to connect to the globally defined database (in **Config.php**).
-         * @param string $table Table to connect to.
+         * @param string $table Table name.
          */
-        public function __construct($database = [], $table = 'app'){
-            if(empty($database)) $database = $GLOBALS['glowieConfig']['database'];
-            if(!is_array($database)) trigger_error('Database connection settings must be an array');
-            if (empty($database['host'])) trigger_error('Database host not defined');
-            if (empty($database['username'])) trigger_error('Database username not defined');
-            if (empty($database['password'])) $database['password'] = '';
-            if (empty($database['port'])) $database['port'] = 3306;
-            if (empty($database['db'])) trigger_error('Database name not defined');
-            $this->db = new \MysqliDb($database['host'], $database['username'], $database['password'], $database['db'], $database['port']);
+        public function __construct($database = [], $table = 'glowie'){
+            $this->setDatabase($database);
+            $this->setTable($table);
+        }
+
+        /**
+         * Sets the current table.
+         * @param string $table Table name.
+         */
+        public function setTable($table){
+            if (empty($table)) trigger_error('setTable: Table name should not be empty');
             $this->table = $table;
         }
 
         /**
-         * Sets the database table.
-         * @param string $table Table name.
+         * Sets the current database connection.
+         * @param array $database Connection settings. Use an empty array to connect to the globally defined database (in **Config.php**).
          */
-        public function setTable($table){
-            if (empty($table)) trigger_error('Table name should not be empty');
-            $this->table = $table;
+        public function setDatabase($database){
+            if (empty($database)) $database = $GLOBALS['glowieConfig']['database'];
+            if (!is_array($database)) trigger_error('setDatabase: Database connection settings must be an array');
+            if (empty($database['host'])) trigger_error('setDatabase:  Database host not defined');
+            if (empty($database['username'])) trigger_error('setDatabase:  Database username not defined');
+            if (empty($database['password'])) $database['password'] = '';
+            if (empty($database['port'])) $database['port'] = 3306;
+            if (empty($database['db'])) trigger_error('setDatabase: Database name not defined');
+            $this->db = new \MysqliDb($database['host'], $database['username'], $database['password'], $database['db'], $database['port']);
         }
 
         /**
@@ -51,7 +59,7 @@
             if($id && $this->db->getLastErrno() !== 0){
                 return $id;
             }else{
-                trigger_error('Database error: ' . $this->db->getLastError());
+                trigger_error('insertData: ' . $this->db->getLastError());
             }
         }
 
@@ -76,7 +84,7 @@
             if($this->db->update($this->table, $data) && $this->db->getLastErrno() !== 0){
                 return true;
             }else{
-                trigger_error('Database error: ' . $this->db->getLastError());
+                trigger_error('saveData: ' . $this->db->getLastError());
             }
         }
 

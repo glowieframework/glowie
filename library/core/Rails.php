@@ -103,8 +103,14 @@
                     // Get URI parameters
                     $autoroute = explode('/', $route);
 
+                    // If no route was specified
+                    if($route == '/'){
+                        $controller = 'MainController';
+                        $action = 'indexAction';
+                        $this->callAutoRoute($controller, $action);
+
                     // If only the controller was specified
-                    if(count($autoroute) == 1){
+                    }else if(count($autoroute) == 1){
                         $controller = $this->parseName($autoroute[0]) . 'Controller';
                         $action = 'indexAction';
                         $this->callAutoRoute($controller, $action);
