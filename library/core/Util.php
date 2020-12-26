@@ -3,7 +3,7 @@
     /**
      * Miscellaneous utilities for Glowie application.
      * @category Utility
-     * @package glowieframework
+     * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
@@ -13,11 +13,11 @@
     class Util{
 
         public static function includeStylesheet($path){
-            echo '<link rel="stylesheet" href="' . self::baseUrl($path) . '">';
+            return '<link rel="stylesheet" href="' . self::baseUrl($path) . '">';
         }
 
         public static function includeScript($path){
-            echo '<script src="' . self::baseUrl($path) . '"></script>';
+            return '<script src="' . self::baseUrl($path) . '"></script>';
         }
 
         public static function log($var, $exit = false){
@@ -25,8 +25,7 @@
             if($exit) exit();
         }
 
-        public static function baseUrl($path = '')
-        {
+        public static function baseUrl($path = ''){
             !empty($_SERVER['HTTPS']) ? $protocol = 'https://' : $protocol = 'http://';
             $appFolder = $GLOBALS['glowieConfig']['appFolder'];
             if(substr($appFolder, 0, 1) != '/') $appFolder = '/' . $appFolder;
@@ -34,8 +33,7 @@
             return $protocol . $_SERVER['HTTP_HOST'] . $appFolder . $path;
         }
 
-        public static function redirect($destination, $js = false)
-        {
+        public static function redirect($destination, $js = false){
             if ($js) {
                 echo '<script>window.location = "' . $destination . '"</script>';
             } else {
@@ -43,21 +41,19 @@
             }
         }
 
-        public static function orderArray($array, $key, $order)
-        {
+        public static function orderArray($array, $key, $order){
             if ((!empty($array)) && (!empty($key))) {
                 if (is_array($array)) {
                     foreach ($array as $col => $row) {
-                        $data_1[$col] = $row[$key];
+                        $data[$col] = $row[$key];
                     }
-                    array_multisort($data_1, $order, $array);
+                    array_multisort($data, $order, $array);
                 }
             }
             return $array;
         }
 
-        public static function filterArray($array, $key, $value)
-        {
+        public static function filterArray($array, $key, $value){
             $newarray = array();
             if (is_array($array) && count($array) > 0) {
                 foreach (array_keys($array) as $col) {
@@ -68,8 +64,7 @@
             return $newarray;
         }
 
-        public static function searchArray($array, $key, $value)
-        {
+        public static function searchArray($array, $key, $value){
             $result = null;
             if (is_array($array) && count($array) > 0) {
                 $index = array_search($value, array_column($array, $key));
@@ -78,14 +73,12 @@
             return $result;
         }
 
-        public static function startsWith($haystack, $needle)
-        {
+        public static function startsWith($haystack, $needle){
             $length = strlen($needle);
             return substr($haystack, 0, $length) === $needle;
         }
 
-        public static function endsWith($haystack, $needle)
-        {
+        public static function endsWith($haystack, $needle){
             $length = strlen($needle);
             if (!$length) {
                 return true;

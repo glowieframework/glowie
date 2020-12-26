@@ -1,8 +1,10 @@
+# Current active config environment
 SetEnv GLOWIE_ENV development
 
 # ----------------------------
 # DO NOT EDIT BELOW THIS LINE!
 # ----------------------------
+# This file is responsible for handling all route requests of your application
 
 Options -Indexes
 

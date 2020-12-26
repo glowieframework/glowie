@@ -4,7 +4,7 @@
     /**
      * Controller base for Glowie application.
      * @category Controller
-     * @package glowieframework
+     * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
@@ -33,6 +33,11 @@
         public $post;
 
         /**
+         * Request parameters.
+         */
+        public $request;
+
+        /**
          * Current Glowie version.
          */
         public $version;
@@ -43,29 +48,17 @@
         public $view;
 
         /**
-         * Error handler.
+         * Instantiates a new instance of the controller.
          */
-        public $handler;
-
         public function __construct(){
             // Common properties
             $this->version = '1.0.0';
             $this->view = new \stdClass();
 
             // Request parameters
-            $this->get = $_GET;
-            $this->post = $_POST;
-
-            // Timezone configuration
-            date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
-
-            // Error handling
-            $this->handler = new Error();
-            error_reporting($GLOBALS['glowieConfig']['errorReporting']);
-            register_shutdown_function([$this->handler, 'fatalHandler']);
-            set_error_handler([$this->handler, 'errorHandler']);
-            set_exception_handler([$this->handler, 'exceptionHandler']);
-            ini_set('display_errors', 'off');
+            $this->get = &$_GET;
+            $this->post = &$_POST;
+            $this->request = &$_REQUEST;
         }
 
         /**

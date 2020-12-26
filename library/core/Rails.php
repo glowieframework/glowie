@@ -4,7 +4,7 @@
     /**
      * Glowie application router.
      * @category Router
-     * @package glowieframework
+     * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
@@ -21,6 +21,9 @@
             // Get routing configuration
             $this->routes = $GLOBALS['glowieRoutes']['routes'];
             $this->autoRoutes = $GLOBALS['glowieRoutes']['autoRoutes'];
+
+            // Timezone configuration
+            date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
 
             // Error handling
             $this->handler = new Error();

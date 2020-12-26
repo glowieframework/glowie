@@ -4,7 +4,7 @@
     /**
      * Model base for Glowie application.
      * @category Model
-     * @package glowieframework
+     * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT

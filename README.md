@@ -1,11 +1,11 @@
-<img src="https://eugabrielsilva.tk/glowie/logo.png" alt="drawing" width="150"/>
+<img src="https://eugabrielsilva.tk/glowie/logo.png" alt="drawing" width="200"/>
 
-## Powerful and lightweight PHP framework.
+## Powerful and lightweight PHP framework
 Glowie is a PHP framework designed to be as light, fast and powerful as possible for developing applications and dynamic websites the easiest way.
 
 ## Features
-- Complete MVC structure with simple implementation
-- Powerful database model with ready to use data processing functions
+- Complete MVC structure with simple organization
+- Powerful database model with ready to use data handling functions
 - Large set of tools for validating forms and data the safest way
 - Fast but powerful template engine for designing websites
 - Easy routing engine, with custom parameters and auto routing

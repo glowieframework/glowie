@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>404 | Page not found</title>
-        <link rel="stylesheet" href="<?= Util::baseUrl('assets/css/glowie.css') ?>">
+        <?php echo Util::includeStylesheet('assets/css/glowie.css'); ?>
     </head>
     <body>
         <div class="wrapper">

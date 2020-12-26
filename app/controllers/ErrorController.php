@@ -4,7 +4,7 @@
     /**
      * Error controller for Glowie application.
      * @category Controller
-     * @package glowieframework
+     * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
