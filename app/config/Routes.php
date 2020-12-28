@@ -1,7 +1,7 @@
 <?php
 
     // Parse undefined routes automatically
-    $glowieRoutes['autoRoutes'] = true;
+    $glowieRoutes['autoRouting'] = true;
 
     // Application routes
     $glowieRoutes['routes'] = [

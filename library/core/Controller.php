@@ -53,12 +53,18 @@
         public function __construct(){
             // Common properties
             $this->version = '1.0.0';
-            $this->view = new \stdClass();
+
+            // View and template properties
+            $this->content = '';
+            $this->view = new Objectify();
 
             // Request parameters
-            $this->get = &$_GET;
-            $this->post = &$_POST;
-            $this->request = &$_REQUEST;
+            $this->get = new Objectify($_GET);
+            $this->post = new Objectify($_POST);
+            $this->request = new Objectify($_REQUEST);
+
+            // URI parameters
+            $this->params = new Objectify();
         }
 
         /**
@@ -85,7 +91,7 @@
          * @param string $template Template filename without extension. Must be a PHP file inside **views/templates** folder.
          * @param string $view Optional view filename to render within template. You can place this view by using **$this->content**\
          * into the template file. Must be a PHP file inside **views** folder.
-         * @param array $params Optional parameters to pass into the rendered view (if used). Should be an associative array with\
+         * @param array $params Optional parameters to pass into the rendered view or template. Should be an associative array with\
          * each variable name and value.
          */
         public function renderTemplate($template, $view = '', $params = []){
@@ -111,6 +117,7 @@
                 }
             }else{
                 if (file_exists($template)) {
+                    if (!empty($params) && is_array($params)) extract($params);
                     $this->content = '';
                     ob_start();
                     require($template);

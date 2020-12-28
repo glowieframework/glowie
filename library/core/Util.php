@@ -86,6 +86,26 @@
             return substr($haystack, -$length) === $needle;
         }
 
+        public static function encryptString($string, $secret_key){
+            $secret_iv = 'g3H7M4snHPtuXzBu69FG';
+            $output = false;
+            $encrypt_method = "AES-256-CBC";
+            $key = hash('sha256', $secret_key);
+            $iv = substr(hash('sha256', $secret_iv), 0, 16);
+            $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+            return $output;
+        }
+
+        public static function decryptString($string, $secret_key){
+            $secret_iv = 'g3H7M4snHPtuXzBu69FG';
+            $output = false;
+            $encrypt_method = "AES-256-CBC";
+            $key = hash('sha256', $secret_key);
+            $iv = substr(hash('sha256', $secret_iv), 0, 16);
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+            return $output;
+        }
+
     }
 
 ?>

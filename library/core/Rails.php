@@ -12,7 +12,7 @@
      * @version 1.0.0
      */
     class Rails{
-        public $autoRoutes;
+        public $autoRouting;
         public $controller;
         public $handler;
         public $routes;
@@ -20,7 +20,7 @@
         public function __construct(){
             // Get routing configuration
             $this->routes = $GLOBALS['glowieRoutes']['routes'];
-            $this->autoRoutes = $GLOBALS['glowieRoutes']['autoRoutes'];
+            $this->autoRouting = $GLOBALS['glowieRoutes']['autoRouting'];
 
             // Timezone configuration
             date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
@@ -69,7 +69,7 @@
                 // Check if there is a redirect configuration
                 if(empty($config['redirect'])){
                     // If controller was not specified, calls the MainController
-                    !empty($config['controller']) ? $controller = $this->parseName($config['controller']) . 'Controller' : $controller = 'MainController';
+                    !empty($config['controller']) ? $controller = $this->parseName($config['controller'], true) . 'Controller' : $controller = 'MainController';
 
                     // If controller class does not exists, trigger an error
                     if (!class_exists($controller)) {
@@ -86,7 +86,7 @@
                     // If action does not exists, trigger an error
                     if (method_exists($this->controller, $action  . 'Action')) {
                         // Parses URI parameters, if available
-                        if (!empty($result)) $this->controller->params = $result;
+                        if (!empty($result)) $this->controller->params = new Objectify($result);
 
                         // Calls action
                         if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
@@ -100,11 +100,16 @@
                     \Util::redirect($config['redirect']);
                 }
             } else {
-                // Check if autoRoutes is enabled
-                if($this->autoRoutes){
+                // Check if auto routing is enabled
+                if($this->autoRouting){
 
                     // Get URI parameters
                     $autoroute = explode('/', $route);
+
+                    // Cleans empty parameters or trailing slashes
+                    foreach($autoroute as $key => $value){
+                        if(empty($value) || trim($value) == '') unset($autoroute[$key]);
+                    }
 
                     // If no route was specified
                     if($route == '/'){
@@ -114,19 +119,19 @@
 
                     // If only the controller was specified
                     }else if(count($autoroute) == 1){
-                        $controller = $this->parseName($autoroute[0]) . 'Controller';
+                        $controller = $this->parseName($autoroute[0], true) . 'Controller';
                         $action = 'indexAction';
                         $this->callAutoRoute($controller, $action);
 
                     // Controller and action were specified
                     }else if(count($autoroute) == 2){
-                        $controller = $this->parseName($autoroute[0]) . 'Controller';
+                        $controller = $this->parseName($autoroute[0], true) . 'Controller';
                         $action = $this->parseName($autoroute[1]) . 'Action';
                         $this->callAutoRoute($controller, $action);
                     
                     // Controller, action and parameters were specified
                     }else{
-                        $controller = $this->parseName($autoroute[0]) . 'Controller';
+                        $controller = $this->parseName($autoroute[0], true) . 'Controller';
                         $action = $this->parseName($autoroute[1]) . 'Action';
                         $params = array_slice($autoroute, 2);
                         $this->callAutoRoute($controller, $action, $params);
@@ -142,12 +147,17 @@
          * Parses names to camelCase convention. It also removes all accents and characters that are not\
          * valid letters, numbers or underscore.
          * @param string $string Name to be encoded.
+         * @param bool $firstUpper Determines if the first character should be uppercase.
          * @return string Encoded string.
          */
-        private function parseName($string){
+        private function parseName($string, $firstUpper = false){
             $string = strtr(utf8_decode(strtolower($string)), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
-            $string = preg_replace('/[^\w]/', ' ', $string);
-            return str_replace(' ', '', lcfirst(ucwords($string)));
+            $string = preg_replace('/[^a-zA-Z0-9]/', ' ', $string);
+            if($firstUpper){
+                return str_replace(' ', '', ucwords($string));
+            }else{
+                return str_replace(' ', '', lcfirst(ucwords($string)));
+            }
         }
 
         /**
@@ -164,7 +174,7 @@
         }
 
         /**
-         * Performs checking and calls the auto route parameters.
+         * Performs checking and calls the auto routing parameters.
          * @param string $controller Controller class.
          * @param string $action Action name.
          * @param array $params Optional URI parameters.
@@ -173,7 +183,13 @@
             if (class_exists($controller)) {
                 $this->controller = new $controller;
                 if (method_exists($this->controller, $action)) {
-                    if (!empty($params)) $this->controller->params = $params;
+                    if (!empty($params)){
+                        foreach($params as $key => $value){
+                            $params['segment' . ($key + 1)] = $value;
+                            unset($params[$key]);
+                        }
+                        $this->controller->params = new Objectify($params);
+                    }
                     if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
                     call_user_func([$this->controller, $action]);
                 } else {
