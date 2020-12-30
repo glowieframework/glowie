@@ -52,7 +52,7 @@
         /**
          * Inserts data into the table.
          * @param array $data Data to be inserted. Must be an array with keys related to each column.
-         * @return mixed Returns the last inserted ID on success.
+         * @return mixed|bool Returns the last inserted ID on success.
          */
         public function insertData($data){
             $id = $this->db->insert($this->table, $data);

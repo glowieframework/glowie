@@ -16,10 +16,12 @@
         /**
          * Instantiates a new object.
          * @param string $data Initial data to parse (optional).
+         * @param bool $toLower Convert key names to lowercase.
          */
-        public function __construct($data = []){
+        public function __construct($data = [], $toLower = false){
             if(!empty($data)){
                 foreach($data as $key => $value){
+                    if($toLower) $key = $this->parseName($key, $toLower);
                     $this->$key = $value;
                 }
             }
@@ -64,6 +66,22 @@
          */
         public function __isset($key){
             return isset($this->$key);
+        }
+
+        /**
+         * Removes from name all accents and characters that are not valid letters, numbers or underscores.
+         * @param string $string Name to be encoded.
+         * @param bool $firstUpper Determines if all characters must be lowercased.
+         * @return string Encoded string.
+         */
+        private function parseName($string, $lowercase = false){
+            $string = strtr(utf8_decode(strtolower($string)), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+            $string = preg_replace('/[^a-zA-Z0-9_]/', ' ', $string);
+            if ($lowercase) {
+                return str_replace(' ', '', strtolower($string));
+            } else {
+                return str_replace(' ', '', $string);
+            }
         }
 
     }

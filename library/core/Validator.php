@@ -38,7 +38,7 @@
             // Loops throug field list
             foreach($data as $key => $item){
                 // Searches for field rule
-                if(array_key_exists($key, $rules)){
+                if(isset($rules[$key])){
                     if(!is_array($rules[$key])){
                         trigger_error('validateFields: [' . $key . '] must be an array of rules');
                         exit;

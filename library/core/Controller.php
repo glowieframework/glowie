@@ -38,6 +38,11 @@
         public $request;
 
         /**
+         * Web server parameters.
+         */
+        public $server;
+
+        /**
          * Current Glowie version.
          */
         public $version;
@@ -59,9 +64,10 @@
             $this->view = new Objectify();
 
             // Request parameters
-            $this->get = new Objectify($_GET);
-            $this->post = new Objectify($_POST);
-            $this->request = new Objectify($_REQUEST);
+            $this->get = new Objectify($_GET, true);
+            $this->post = new Objectify($_POST, true);
+            $this->request = new Objectify($_REQUEST, true);
+            $this->server = new Objectify($_SERVER, true);
 
             // URI parameters
             $this->params = new Objectify();

@@ -145,14 +145,14 @@
 
         /**
          * Parses names to camelCase convention. It also removes all accents and characters that are not\
-         * valid letters, numbers or underscore.
+         * valid letters, numbers or underscores.
          * @param string $string Name to be encoded.
          * @param bool $firstUpper Determines if the first character should be uppercase.
          * @return string Encoded string.
          */
         private function parseName($string, $firstUpper = false){
             $string = strtr(utf8_decode(strtolower($string)), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
-            $string = preg_replace('/[^a-zA-Z0-9]/', ' ', $string);
+            $string = preg_replace('/[^a-zA-Z0-9_]/', ' ', $string);
             if($firstUpper){
                 return str_replace(' ', '', ucwords($string));
             }else{

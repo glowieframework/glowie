@@ -7,7 +7,7 @@
         </div>
         <a href="https://github.com/glowieframework/glowie/wiki" target="_blank">Docs</a>
         <a href="https://github.com/glowieframework/glowie" target="_blank">Source</a>
-        <a href="mailto:glowieframework@gmail.com" target="_blank">Support</a>
+        <a href="glowie@eugabrielsilva.tk" target="_blank">Support</a>
         <a href="https://eugabrielsilva.tk" target="_blank">Author</a>
     </div>
 </div>

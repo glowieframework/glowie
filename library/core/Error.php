@@ -19,7 +19,6 @@
          * @param string $str Error message.
          * @param string $file Filename where the error was thrown.
          * @param int $line Line number where the error was thrown.
-         * @return void
          */
         function errorHandler($num, $str, $file, $line){
             $this->exceptionHandler(new \ErrorException($str, 0, $num, $file, $line));
@@ -38,7 +37,6 @@
         /**
          * Exception handler.
          * @param Exception $e Thrown exception.
-         * @return void
          */
         function exceptionHandler(\Exception $e){
             echo '<style>
