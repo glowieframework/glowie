@@ -1,7 +1,8 @@
 <html>
     <head>
         <title>404 | Page not found</title>
-        <?php echo Util::includeStylesheet('assets/css/glowie.css'); ?>
+        <?php Util::includeStylesheet('assets/css/glowie.css'); ?>
+        <?php Util::includeFavicon('assets/images/favicon.ico'); ?>
     </head>
     <body>
         <div class="wrapper">

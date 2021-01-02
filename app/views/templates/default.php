@@ -1,7 +1,8 @@
 <html>
     <head>
         <title>Welcome to Glowie!</title>
-        <?php echo Util::includeStylesheet('assets/css/glowie.css'); ?>
+        <?php Util::includeStylesheet('assets/css/glowie.css'); ?>
+        <?php Util::includeFavicon('assets/images/favicon.ico'); ?>
     </head>
     <body>
         <?php echo $this->content; ?>

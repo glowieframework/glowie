@@ -1,7 +1,8 @@
 <?php
+    use Glowie\Controller;
 
     /**
-     * Error controller for Glowie application.
+     * Base controller for Glowie application.
      * @category Controller
      * @package glowie
      * @author Glowie Framework
@@ -10,11 +11,9 @@
      * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
-    class ErrorController extends BaseController{
+    class BaseController extends Controller{
 
-       public function notFoundAction(){
-           $this->renderView('error/404');
-       }
+        // Use this controller to create properties and methods that can be reused in other controllers of your application
 
     }
 

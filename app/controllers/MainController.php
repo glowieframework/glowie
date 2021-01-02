@@ -1,5 +1,4 @@
 <?php
-    use Glowie\Controller;
 
     /**
      * Main controller for Glowie application.
@@ -11,10 +10,10 @@
      * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
-    class MainController extends Controller{
+    class MainController extends BaseController{
 
-       public function defaultAction(){
-           //
+       public function init(){
+           // This method will be instantiated before any other actions from this controller
        }
 
        public function indexAction(){

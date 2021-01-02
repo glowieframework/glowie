@@ -2,7 +2,7 @@
     use Glowie\Kraken;
 
     /**
-     * Main database model for Glowie application.
+     * Model base for Glowie application.
      * @category Model
      * @package glowie
      * @author Glowie Framework
@@ -11,13 +11,9 @@
      * @link https://github.com/glowieframework/glowie
      * @version 1.0.0
      */
-    class Database extends Kraken{
+    class BaseModel extends Kraken{
 
-       public function __construct(){
-           
-            // Setup database and table for this model
-           parent::__construct([], 'glowie');
-       }
+        // Use this model to create properties and methods that can be reused in other models of your application
 
     }
 

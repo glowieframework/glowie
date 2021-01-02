@@ -2,7 +2,7 @@
     namespace Glowie;
 
     /**
-     * Glowie application router.
+     * Router for Glowie application.
      * @category Router
      * @package glowie
      * @author Glowie Framework
@@ -27,11 +27,6 @@
 
             // Error handling
             $this->handler = new Error();
-            error_reporting($GLOBALS['glowieConfig']['errorReporting']);
-            register_shutdown_function([$this->handler, 'fatalHandler']);
-            set_error_handler([$this->handler, 'errorHandler']);
-            set_exception_handler([$this->handler, 'exceptionHandler']);
-            ini_set('display_errors', 'off');
         }
 
         /**
@@ -89,7 +84,7 @@
                         if (!empty($result)) $this->controller->params = new Objectify($result);
 
                         // Calls action
-                        if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
+                        if (method_exists($this->controller, 'init')) call_user_func([$this->controller, 'init']);
                         call_user_func([$this->controller, $action  . 'Action']);
                     } else {
                         trigger_error('Action "' . $action . 'Action()" not found in ' . $controller);
@@ -168,7 +163,7 @@
             $controller = 'ErrorController';
             if (class_exists($controller)) {
                 $this->controller = new $controller;
-                if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
+                if (method_exists($this->controller, 'init')) call_user_func([$this->controller, 'init']);
                 if (method_exists($this->controller, 'notFoundAction')) call_user_func([$this->controller, 'notFoundAction']);
             }
         }
@@ -190,7 +185,7 @@
                         }
                         $this->controller->params = new Objectify($params);
                     }
-                    if (method_exists($this->controller, 'defaultAction')) call_user_func([$this->controller, 'defaultAction']);
+                    if (method_exists($this->controller, 'init')) call_user_func([$this->controller, 'init']);
                     call_user_func([$this->controller, $action]);
                 } else {
                     $this->callNotFound();

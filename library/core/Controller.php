@@ -2,7 +2,7 @@
     namespace Glowie;
 
     /**
-     * Controller base for Glowie application.
+     * Controller core for Glowie application.
      * @category Controller
      * @package glowie
      * @author Glowie Framework

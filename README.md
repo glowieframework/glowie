@@ -20,3 +20,6 @@ Forget about those fancy frameworks with thousands of useless functions and clas
 
 ## Getting started
 [Read the docs](https://github.com/glowieframework/glowie/wiki) to know how to start using Glowie to create awesome stuff.
+
+## Credits
+Glowie is currently being developed by [Gabriel Silva](https://eugabrielsilva.tk).
