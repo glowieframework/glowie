@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="content">
-        <?php Util::includeImage('assets/images/logo.png', 'logo'); ?>
+        <img src="assets/images/logo.png" class="logo">
         <h1>Welcome to Glowie Framework</h1>
         <div class="text">
             You are currently using Glowie version <?php echo $this->version; ?>

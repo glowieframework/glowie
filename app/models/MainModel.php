@@ -14,7 +14,7 @@
 
        public function __construct(){         
            // Setup database and table for this model
-           parent::__construct([], 'glowie');
+           parent::__construct([], 'app');
        }
 
     }

@@ -6,10 +6,10 @@
     # This file is responsible for setting up and running your application
 
     // Setup Glowie application and environment
-    require_once '../library/autoload.php';
+    require_once('../library/bootstrap.php');
     $glowieConfig = $glowieConfig[getenv('GLOWIE_ENV')];
 
-    // Initialize routing
+    // Initialize application
     $app = new Glowie\Rails();
     $app->init();
     

@@ -17,7 +17,6 @@
          * Instantiates a new error handler.
          */
         public function __construct(){
-
             // Registers handling functions
             error_reporting($GLOBALS['glowieConfig']['errorReporting']);
             register_shutdown_function([$this, 'fatalHandler']);
@@ -40,7 +39,7 @@
          * @param string $file Filename where the error was thrown.
          * @param int $line Line number where the error was thrown.
          */
-        public function errorHandler($num, $str, $file, $line){
+        public function errorHandler(int $num, string $str, string $file, int $line){
             $this->exceptionHandler(new \ErrorException($str, 0, $num, $file, $line));
         }
 
@@ -107,7 +106,7 @@
          * @param int $line Line to highlight.
          * @return string Highlighted result in HTML.
          */
-        private function highlight($file, $line){
+        private function highlight(string $file, int $line){
             if(!is_readable($file)) return '';
             $content = file_get_contents($file);
             $content = str_replace(["\r\n", "\r"], "\n", $content);

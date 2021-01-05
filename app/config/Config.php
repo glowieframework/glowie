@@ -17,7 +17,7 @@
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'db' => 'glowie',
+        'db' => 'app',
         'port' => 3306
     ];
 
@@ -25,7 +25,7 @@
         'host' => 'localhost',
         'username' => 'user',
         'password' => '123',
-        'db' => 'glowie',
+        'db' => 'app',
         'port' => 3306
     ];
 

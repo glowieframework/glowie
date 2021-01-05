@@ -2,7 +2,7 @@
     namespace Glowie;
 
     /**
-     * Router for Glowie application.
+     * Router and starting point for Glowie application.
      * @category Router
      * @package glowie
      * @author Glowie Framework

@@ -14,11 +14,11 @@
 
         /**
          * Gets a localisation string from a language configuration.
-         * @param string $key Key to get string.
-         * @param string $lang Language to get data.
-         * @return string|null
+         * @param string $key String key to get.
+         * @param string $lang (Optional) Language to get string from.
+         * @return string|null Returns localisation string or null if not found.
          */
-        public static function getTranslation($key, $lang = 'en'){
+        public static function getTranslation(string $key, string $lang = 'en'){
             if(isset($GLOBALS['glowieLang']) && !empty($GLOBALS['glowieLang'])){
                 if(isset($GLOBALS['glowieLang'][$lang]) && !empty($GLOBALS['glowieLang'][$lang])){
                     if(isset($GLOBALS['glowieLang'][$lang][$key])){

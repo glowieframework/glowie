@@ -14,41 +14,49 @@
     class Controller{
         /**
          * Content handler for templates.
+         * @var string
          */
         public $content;
 
         /**
          * Request GET parameters.
+         * @var object
          */
         public $get;
 
         /**
          * URI parameters.
+         * @var object
          */
         public $params;
 
         /**
          * Request POST parameters.
+         * @var object
          */
         public $post;
 
         /**
          * Request parameters.
+         * @var object
          */
         public $request;
 
         /**
          * Web server parameters.
+         * @var object
          */
         public $server;
 
         /**
          * Current Glowie version.
+         * @var string
          */
         public $version;
 
         /**
          * Data bridge between controller and view.
+         * @var object
          */
         public $view;
 
@@ -76,13 +84,14 @@
         /**
          * Renders a view file.
          * @param string $view View filename without extension. Must be a PHP file inside **views** folder.
-         * @param array $params Optional parameters to pass into the view. Should be an associative array with\
+         * @param array $params (Optional) Parameters to pass into the view. Should be an associative array with\
          * each variable name and value.
          */
-        public function renderView($view, $params = []){
+        public function renderView(string $view, array $params = []){
+            if(!is_array($params)) trigger_error('renderView: Params must be an array');
             $view = 'views/' . $view . '.php';
             if(file_exists($view)){
-                if(!empty($params) && is_array($params)) extract($params);
+                if(!empty($params)) extract($params);
                 ob_start();
                 require($view);
                 echo ob_get_clean();
@@ -95,18 +104,19 @@
         /**
          * Renders a template file.
          * @param string $template Template filename without extension. Must be a PHP file inside **views/templates** folder.
-         * @param string $view Optional view filename to render within template. You can place this view by using **$this->content**\
-         * into the template file. Must be a PHP file inside **views** folder.
-         * @param array $params Optional parameters to pass into the rendered view or template. Should be an associative array with\
+         * @param string $view (Optional) View filename to render within template. You can place this view by using **$this->content**\
+         * in the template file. Must be a PHP file inside **views** folder.
+         * @param array $params (Optional) Parameters to pass into the rendered view or template. Should be an associative array with\
          * each variable name and value.
          */
-        public function renderTemplate($template, $view = '', $params = []){
+        public function renderTemplate(string $template, string $view = '', array $params = []){
+            if (!is_array($params)) trigger_error('renderTemplate: Params must be an array');
             $template = 'views/templates/' . $template . '.php';
             if(!empty($view)){
                 $view = 'views/' . $view . '.php';
                 if (file_exists($template)) {
                     if(file_exists($view)){
-                        if (!empty($params) && is_array($params)) extract($params);
+                        if (!empty($params)) extract($params);
                         ob_start();
                         require($view);
                         $this->content = ob_get_clean();
@@ -123,7 +133,7 @@
                 }
             }else{
                 if (file_exists($template)) {
-                    if (!empty($params) && is_array($params)) extract($params);
+                    if (!empty($params)) extract($params);
                     $this->content = '';
                     ob_start();
                     require($template);

@@ -1,8 +1,9 @@
 <html>
     <head>
         <title>404 | Page not found</title>
-        <?php Util::includeStylesheet('assets/css/glowie.css'); ?>
-        <?php Util::includeFavicon('assets/images/favicon.ico'); ?>
+        <base href="<?php echo Util::baseUrl(); ?>">
+        <link rel="stylesheet" href="assets/css/glowie.css">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
     </head>
     <body>
         <div class="wrapper">

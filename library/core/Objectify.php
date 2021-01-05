@@ -15,13 +15,13 @@
 
         /**
          * Instantiates a new object.
-         * @param string $data Initial data to parse (optional).
-         * @param bool $toLower Convert key names to lowercase.
+         * @param array $data (Optional) Initial data to parse.
+         * @param bool $toLower (Optional) Convert keys to lowercase.
          */
-        public function __construct($data = [], $toLower = false){
+        public function __construct(array $data = [], bool $toLower = false){
             if(!empty($data)){
                 foreach($data as $key => $value){
-                    if($toLower) $key = $this->parseName($key, $toLower);
+                    $key = $this->parseKey($key, $toLower);
                     $this->$key = $value;
                 }
             }
@@ -32,7 +32,7 @@
          * @param string $key Key to get value.
          * @return mixed Returns the value if exists or null if there is none.
          */
-        public function __get($key){
+        public function __get(string $key){
             if(isset($this->$key)){
                 return $this->$key;
             }else{
@@ -45,7 +45,7 @@
          * @param string $key Key to set value.
          * @param mixed $value Value to set.
          */
-        public function __set($key, $value){
+        public function __set(string $key, $value){
             $this->$key = $value;
         }
 
@@ -53,7 +53,7 @@
          * Deletes the associated key value in the data.
          * @param string $key Key to delete value.
          */
-        public function __unset($key){
+        public function __unset(string $key){
             if (isset($this->$key)) {
                 unset($this->$key);
             }
@@ -64,23 +64,35 @@
          * @param string $key Key to check.
          * @return bool Returns true or false.
          */
-        public function __isset($key){
+        public function __isset(string $key){
             return isset($this->$key);
         }
 
         /**
-         * Removes from name all accents and characters that are not valid letters, numbers or underscores.
-         * @param string $string Name to be encoded.
-         * @param bool $firstUpper Determines if all characters must be lowercased.
-         * @return string Encoded string.
+         * Removes from key all accents and characters that are not valid letters, numbers or underscores.\
+         * It also replaces dashes or spaces for underscores and places an underscore before the first character if it is a number.
+         * @param string $string Key to be encoded.
+         * @param bool $lowercase (Optional) Determines if all characters must be lowercased.
+         * @return string Encoded key.
          */
-        private function parseName($string, $lowercase = false){
-            $string = strtr(utf8_decode(strtolower($string)), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
-            $string = preg_replace('/[^a-zA-Z0-9_]/', ' ', $string);
+        private function parseKey(string $string, bool $lowercase = false){
+            // Remove accents
+            $string = strtr(utf8_decode($string), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+           
+            // Converts spaces and dashes to underscores
+            $string = preg_replace('/\s|-/', '_', $string);
+
+            // Removes invalid characters
+            $string = preg_replace('/[^a-zA-Z0-9_]/', '', $string);
+
+            // Checks if the first character is a number and add an underscore before it
+            $string = preg_replace('/^([0-9])/', '_$1', $string, 1);
+
+            // Returns the encoded key lowercased or not
             if ($lowercase) {
-                return str_replace(' ', '', strtolower($string));
+                return strtolower($string);
             } else {
-                return str_replace(' ', '', $string);
+                return $string;
             }
         }
 

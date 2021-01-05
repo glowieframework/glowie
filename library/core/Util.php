@@ -12,22 +12,6 @@
      */
     class Util{
 
-        public static function includeStylesheet($path){
-            echo '<link rel="stylesheet" href="' . self::baseUrl($path) . '">';
-        }
-
-        public static function includeScript($path){
-            echo '<script src="' . self::baseUrl($path) . '"></script>';
-        }
-
-        public static function includeFavicon($path){
-            echo '<link rel="shortcut icon" href="' . self::baseUrl($path) . '">';
-        }
-
-        public static function includeImage($path, $class = '', $id = ''){
-            echo '<img src="' . self::baseUrl($path) . '" class="' . $class . '" id="' . $id . '">';
-        }
-
         public static function log($var, $exit = false){
             var_dump($var);
             if($exit) exit();
