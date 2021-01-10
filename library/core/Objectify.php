@@ -69,6 +69,14 @@
         }
 
         /**
+         * Converts the current object to an associative array.
+         * @return array The resulting array.
+         */
+        public function toArray(){
+            return get_object_vars($this);
+        }
+
+        /**
          * Removes from key all accents and characters that are not valid letters, numbers or underscores.\
          * It also replaces dashes or spaces for underscores and places an underscore before the first character if it is a number.
          * @param string $string Key to be encoded.

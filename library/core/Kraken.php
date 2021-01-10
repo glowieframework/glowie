@@ -180,7 +180,7 @@
          */
         private function setFilters(array $filters){
             foreach ($filters as $key => $value) {
-                if (\Util::startsWith($value, '#')) {
+                if (\Util::startsWith($key, '#')) {
                     if (strpos($value, '%') !== false) {
                         $this->db->orWhere(substr($key, 1), $value, 'like');
                     } else {

@@ -1,7 +1,13 @@
 <img src="https://i.imgur.com/5tsmOE4.png" alt="drawing" width="200"/>
 
+---
+### **NOTE:** Glowie is currently a work in progress. Final version will be released soon.
+---
+<br>
+
 ## Powerful and lightweight PHP framework
 Glowie is a PHP framework designed to be as light, fast and powerful as possible for developing applications and dynamic websites the easiest way.
+
 
 ## Features
 - Complete MVC structure with simple organization

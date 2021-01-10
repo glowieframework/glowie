@@ -17,11 +17,11 @@
          * Instantiates a new error handler.
          */
         public function __construct(){
-            // Registers handling functions
+            // Registers error handling functions
             error_reporting($GLOBALS['glowieConfig']['errorReporting']);
+            set_exception_handler([$this, 'exceptionHandler']);
             register_shutdown_function([$this, 'fatalHandler']);
             set_error_handler([$this, 'errorHandler']);
-            set_exception_handler([$this, 'exceptionHandler']);
             ini_set('display_errors', 'off');
 
             // Sets syntax highliter style
@@ -48,16 +48,14 @@
          */
         public function fatalHandler(){
             $error = error_get_last();
-            if ($error && $error["type"] == E_ERROR ){
-                $this->errorHandler($error["type"], $error["message"], $error["file"], $error["line"]);
-            }
+            if ($error && $error["type"] == E_ERROR) $this->errorHandler($error["type"], $error["message"], $error["file"], $error["line"]);
         }
 
         /**
          * Exception handler.
          * @param Exception $e Thrown exception.
          */
-        public function exceptionHandler(\Exception $e){
+        public function exceptionHandler($e){
             echo '<style>
                     .glowieError{
                         font-family: Segoe UI, sans-serif;
@@ -97,7 +95,6 @@
                     <strong>Stack trace:</strong>
                     <pre>' . $e->getTraceAsString() . '</pre>
                 </div>';
-            exit();
         }
 
         /**

@@ -1,8 +1,8 @@
 <?php
 
     /**
-     * Localisation helper for Glowie application.
-     * @category Localisation
+     * Internationalization helper for Glowie application.
+     * @category Internationalization
      * @package glowie
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
@@ -13,10 +13,10 @@
     class Babel{
 
         /**
-         * Gets a localisation string from a language configuration.
+         * Gets an internalization string from a language configuration.
          * @param string $key String key to get.
          * @param string $lang (Optional) Language to get string from.
-         * @return string|null Returns localisation string or null if not found.
+         * @return string|null Returns internationalization string or null if not found.
          */
         public static function getTranslation(string $key, string $lang = 'en'){
             if(isset($GLOBALS['glowieLang']) && !empty($GLOBALS['glowieLang'])){
