@@ -83,13 +83,13 @@
 
         /**
          * Renders a view file.
-         * @param string $view View filename without extension. Must be a PHP file inside **views** folder.
+         * @param string $view View filename without extension. Must be a **.phtml** file inside **views** folder.
          * @param array $params (Optional) Parameters to pass into the view. Should be an associative array with\
          * each variable name and value.
          */
         public function renderView(string $view, array $params = []){
             if(!is_array($params)) trigger_error('renderView: Params must be an array');
-            $view = 'views/' . $view . '.php';
+            $view = 'views/' . $view . '.phtml';
             if(file_exists($view)){
                 if(!empty($params)) extract($params);
                 ob_start();
@@ -103,17 +103,17 @@
 
         /**
          * Renders a template file.
-         * @param string $template Template filename without extension. Must be a PHP file inside **views/templates** folder.
+         * @param string $template Template filename without extension. Must be a **.phtml** file inside **views/templates** folder.
          * @param string $view (Optional) View filename to render within template. You can place this view by using **$this->content**\
-         * in the template file. Must be a PHP file inside **views** folder.
+         * in the template file. Must be a **.phtml** file inside **views** folder.
          * @param array $params (Optional) Parameters to pass into the rendered view or template. Should be an associative array with\
          * each variable name and value.
          */
         public function renderTemplate(string $template, string $view = '', array $params = []){
             if (!is_array($params)) trigger_error('renderTemplate: Params must be an array');
-            $template = 'views/templates/' . $template . '.php';
+            $template = 'views/templates/' . $template . '.phtml';
             if(!empty($view)){
-                $view = 'views/' . $view . '.php';
+                $view = 'views/' . $view . '.phtml';
                 if (file_exists($template)) {
                     if(file_exists($view)){
                         if (!empty($params)) extract($params);

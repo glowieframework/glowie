@@ -21,7 +21,7 @@
          * @return string|bool Returns the response as a string on success (HTTP 200 status code) or false on errors.
          */
         public function get(string $url, array $headers = [], int $timeout = 30){
-            return $this->fetch('GET', $url, [], $headers, $timeout);
+            return $this->fetch($url, 'GET', [], $headers, $timeout);
         }
 
         /**
@@ -34,7 +34,7 @@
          * @return string|bool Returns the response as a string on success (HTTP 200 status code) or false on errors.
          */
         public function post(string $url, array $data = [], array $headers = [], int $timeout = 30){
-            return $this->fetch('POST', $url, $data, $headers, $timeout);
+            return $this->fetch($url, 'POST', $data, $headers, $timeout);
         }
 
         /**
@@ -47,7 +47,7 @@
          * @param int $timeout (Optional) Maximum number of seconds that this request can wait for a response. Default is 30 seconds. Use 0 for unlimited.
          * @return string|bool Returns the response as a string on success (HTTP 200 status code) or false on errors.
          */
-        private function fetch(string $method = 'GET', string $url, array $data = [], array $headers = [], int $timeout = 30){
+        private function fetch(string $url, string $method = 'GET', array $data = [], array $headers = [], int $timeout = 30){
             // Initializes cURL
             $curl = curl_init($url);
 

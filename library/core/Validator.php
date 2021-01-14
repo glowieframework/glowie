@@ -11,16 +11,34 @@
      * @version 1.0.0
      */
     class Validator{
+         /**
+         * Validation errors.
+         * @var array
+         */
+        private $errors = [];
 
         /**
-         * Validates an array of multiple fields with unique rules.
+         * Returns an associative array with the latest validation errors.
+         * @param string|int $key Element/field key to get errors. Leave blank to get all.
+         * @return array Array with the fetched errors.
+         */
+        public function getErrors($key = null){
+            if($key !== null){
+                return !empty($this->errors[$key]) ? $this->errors[$key] : [];
+            }else{
+                return $this->errors;
+            }
+        }
+
+        /**
+         * Validates an associative array of multiple fields with unique rules for each of them.
          * @param array $data Associative array of fields to be validated.
-         * @param array $rules Associative array with validation rules to each field (check docs to see valid rules).
+         * @param array $rules Associative array with validation rules for each field (check docs to see valid rules).
          * @param bool $bail Stop validation of field after first failure found.
          * @param bool $bailAll Stop validation of all fields after first field failure found.
-         * @return array Array with validation failures, if any.
+         * @return bool Validation result.
          */
-        public static function validateFields($data, $rules, $bail = false, $bailAll = false){
+        public function validateFields(array $data, array $rules, bool $bail = false, bool $bailAll = false){
             // Check data
             if (!is_array($data)) {
                 trigger_error('validateFields: $data must be an array of fields');
@@ -33,9 +51,9 @@
                 exit;
             }
 
-            $result = [];
-
             // Loops throug field list
+            $result = true;
+            $errors = [];
             foreach($data as $key => $item){
                 // Searches for field rule
                 if(isset($rules[$key])){
@@ -45,24 +63,31 @@
                     }
 
                     // Validate item
-                    $currentResult = self::validate($item, $rules[$key], $bail);
-                    if(!empty($currentResult)) $result[$key] = $currentResult;
-                    if ($bailAll && !empty($result)) break;
+                    $this->validate($item, $rules[$key], $bail);
+                    if(!empty($this->errors)){
+                        $errors[$key] = $this->errors;
+                        $result = false;
+                    }else{
+                        $errors[$key] = [];
+                    };
+                    if ($bailAll && !$result) break;
                 }
             }
 
+            // Stores errors and returns the result
+            $this->errors = $errors;
             return $result;
         }
 
         /**
-         * Validates an array of elements with the same rules.
+         * Validates an array of multiple elements with the same rules.
          * @param array $data Array of elements to be validated.
          * @param array $rules Validation rules (check docs to see valid rules).
          * @param bool $bail Stop validation of element after first failure found.
          * @param bool $bailAll Stop validation of all elements after first element failure found.
-         * @return array Associative array with validation failures of each element, if any.
+         * @return bool Validation result.
          */
-        public static function validateMultiple($data, $rules, $bail = false, $bailAll = false){
+        public function validateMultiple(array $data, array $rules, bool $bail = false, bool $bailAll = false){
             // Check data
             if(!is_array($data)){
                 trigger_error('validateMultiple: $data must be an array of elements');
@@ -75,16 +100,23 @@
                 exit;
             }
 
-            $result = [];
-
             // Loops through data array
+            $errors = [];
+            $result = true;
             foreach($data as $key => $item){
                 // Validate item
-                $currentResult = self::validate($item, $rules, $bail);
-                if(!empty($currentResult)) $result[$key] = $currentResult;
-                if($bailAll && !empty($result)) break;
+                $this->validate($item, $rules, $bail);
+                if (!empty($this->errors)){
+                    $errors[$key] = $this->errors;
+                    $result = false;
+                }else{
+                    $errors[$key] = [];
+                };
+                if ($bailAll && !$result) break;
             }
 
+            // Stores errors and returns the result
+            $this->errors = $errors;
             return $result;
         }
 
@@ -93,9 +125,9 @@
          * @param mixed $data Data to be validated.
          * @param array $rules Validation rules (check docs to see valid rules).
          * @param bool $bail Stop validation after first failure found.
-         * @return array Array with validation failures, if any.
+         * @return bool Validation result.
          */
-        public static function validate($data, $rules, $bail = false){
+        public function validate($data, array $rules, bool $bail = false){
             // Check ruleset
             if (!is_array($rules)) {
                 trigger_error('validate: $rules must be an array of rules');
@@ -255,7 +287,9 @@
                 if($bail && !empty($result)) break;
             }
 
-            return $result;
+            // Stores and returns the result
+            $this->errors = $result;
+            return empty($result) ? true : false;
         }
         
     }
