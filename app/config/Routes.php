@@ -4,11 +4,11 @@
     $glowieRoutes['autoRouting'] = true;
 
     // Application routes
-    $glowieRoutes['routes'] = [
+    $glowieRoutes['routes'] = array(
         '/' => [
             'controller' => 'main',
             'action' => 'index'
         ]
-    ];
+    );
 
 ?>

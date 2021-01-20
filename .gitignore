@@ -1,3 +1,4 @@
-app/controllers/_Test.php
-app/models/_Test.php
-app/views/_test.phtml
+app/config/Config.php
+app/controllers/test/*
+app/models/test/*
+app/views/test/*

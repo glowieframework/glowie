@@ -18,7 +18,7 @@
          */
         public function __construct(){
             // Registers error handling functions
-            error_reporting($GLOBALS['glowieConfig']['errorReporting']);
+            error_reporting($GLOBALS['glowieConfig']['error_reporting']);
             set_exception_handler([$this, 'exceptionHandler']);
             register_shutdown_function([$this, 'fatalHandler']);
             set_error_handler([$this, 'errorHandler']);
@@ -41,6 +41,7 @@
          */
         public function errorHandler(int $num, string $str, string $file, int $line){
             $this->exceptionHandler(new \ErrorException($str, 0, $num, $file, $line));
+            exit();
         }
 
         /**
@@ -49,6 +50,7 @@
         public function fatalHandler(){
             $error = error_get_last();
             if ($error && $error["type"] == E_ERROR) $this->errorHandler($error["type"], $error["message"], $error["file"], $error["line"]);
+            exit();
         }
 
         /**

@@ -1,10 +1,15 @@
-# Current active config environment
+# --------------------------------
+# Application .htaccess
+# --------------------------------
+# This file is responsible for redirecting all your application URI requests to Glowie router.
+# It will also block from your website the folder listing option.
+# Besides that, in the next line you can set the current active configuration environment.
+
 SetEnv GLOWIE_ENV development
 
-# ----------------------------
-# DO NOT EDIT BELOW THIS LINE!
-# ----------------------------
-# This file is responsible for handling all route requests of your application
+# ------------------------------------------------------------------------------
+# We do not recommend editing below this line unless you know what you're doing.
+# ------------------------------------------------------------------------------
 
 Options -Indexes
 
