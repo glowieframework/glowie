@@ -5,6 +5,12 @@
     # ----------------------
     # This file is responsible for setting up and running your application
 
+    // Check minimum PHP version
+    if (version_compare(phpversion(), '7.4.9', '<')) {
+        die('<strong>Unsupported PHP version!</strong><br>
+            Glowie requires PHP version 7.4.9 or higher, you are using ' . phpversion() . '.');
+    }
+
     // Setup Glowie application and environment
     require_once('../library/bootstrap.php');
     $glowieConfig = $glowieConfig[getenv('GLOWIE_ENV')];
