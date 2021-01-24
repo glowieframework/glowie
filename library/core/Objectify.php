@@ -1,5 +1,4 @@
 <?php
-    namespace Glowie;
 
     /**
      * Array to object data parser for Glowie application.

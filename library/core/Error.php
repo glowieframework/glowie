@@ -22,7 +22,8 @@
             set_exception_handler([$this, 'exceptionHandler']);
             register_shutdown_function([$this, 'fatalHandler']);
             set_error_handler([$this, 'errorHandler']);
-            ini_set('display_errors', 'off');
+            ini_set('display_errors', 0);
+            ini_set('display_startup_errors', 0);
 
             // Sets syntax highliter style
             ini_set('highlight.comment', '#75715E');

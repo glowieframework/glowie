@@ -1,9 +1,8 @@
 # --------------------------------
 # Application .htaccess
 # --------------------------------
-# This file is responsible for redirecting all your application URI requests to Glowie router.
-# It will also block from your website the folder listing option.
-# Besides that, in the next line you can set the current active configuration environment.
+# This file is responsible for redirecting all URI requests to Glowie router.
+# Here you can also set the current active configuration environment.
 
 SetEnv GLOWIE_ENV development
 

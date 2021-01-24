@@ -27,10 +27,10 @@
                         return null;
                     }
                 }else{
-                    throw new Exception('Language "'.$lang.'" not found');
+                    trigger_error('Language "'.$lang.'" not found');
                 }
             }else{
-                throw new Exception('Language configuration not found');
+                trigger_error('Language configuration not found');
             }
         }
 

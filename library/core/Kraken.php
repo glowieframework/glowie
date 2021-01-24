@@ -140,18 +140,18 @@
                 $this->db->pageLimit = $itemsPerPage;
                 $data = $this->db->arraybuilder()->paginate($this->table, $currentPage);
                 $result = ['data' => [], 'pages' => $this->db->totalPages];
-                if(!empty($data)) foreach($data as $value) $result['data'][] = new Objectify($value);
+                if(!empty($data)) foreach($data as $value) $result['data'][] = new \Objectify($value);
                 return $result;
             }else{
                 if($limit == 1){
                     $data = $this->db->getOne($this->table);
                     $result = null;
-                    if(!empty($data)) $result = new Objectify($data);
+                    if(!empty($data)) $result = new \Objectify($data);
                     return $result;
                 }else{
                     $data = $this->db->get($this->table, $limit == 0 ? null : $limit);
                     $result = [];
-                    if(!empty($data)) foreach ($data as $value) $result[] = new Objectify($value);
+                    if(!empty($data)) foreach ($data as $value) $result[] = new \Objectify($value);
                     return $result;
                 }
             }

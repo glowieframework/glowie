@@ -1,13 +1,20 @@
 <div class="wrapper">
     <div class="content">
-        <img src="assets/images/logo.png" class="logo">
-        <h1>Welcome to Glowie Framework</h1>
-        <div class="text">
-            You are currently using Glowie version <?php echo $this->version; ?>
+        <div class="inner">
+            <img src="assets/images/logo.png" class="logo">
+            <h1>Welcome to Glowie Framework</h1>
+            <div class="text">
+                You are ready to create something awesome!
+            </div>
+            <a href="https://github.com/glowieframework/glowie/wiki" target="_blank">Docs</a>
+            <a href="https://github.com/glowieframework/glowie" target="_blank">Source</a>
+            <a href="mailto:glowie@eugabrielsilva.tk" target="_blank">Support</a>
+            <a href="https://eugabrielsilva.tk" target="_blank">Author</a>
+            <div class="info">
+                Currently using Glowie <?= $this->version; ?> with PHP <?= phpversion(); ?><br>
+                Page rendered in <?= $this->getRenderTime(); ?> seconds
+            </div>
         </div>
-        <a href="https://github.com/glowieframework/glowie/wiki" target="_blank">Docs</a>
-        <a href="https://github.com/glowieframework/glowie" target="_blank">Source</a>
-        <a href="mailto:glowie@eugabrielsilva.tk" target="_blank">Support</a>
-        <a href="https://eugabrielsilva.tk" target="_blank">Author</a>
     </div>
+    <div class="image"><img src="assets/images/splash.png"></div>
 </div>

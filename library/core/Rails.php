@@ -12,15 +12,34 @@
      * @version 1.0.0
      */
     class Rails{
-        public $autoRouting;
-        public $controller;
-        public $handler;
-        public $routes;
+        /**
+         * Auto routing feature.
+         * @var bool
+         */
+        private $auto_routing;
+
+        /**
+         * Current controller.
+         * @var object
+         */
+        private $controller;
+
+        /**
+         * Error handler.
+         * @var object
+         */
+        private $handler;
+
+        /**
+         * User configured routes.
+         * @var array
+         */
+        private $routes;
 
         public function __construct(){
             // Get routing configuration
             $this->routes = $GLOBALS['glowieRoutes']['routes'];
-            $this->autoRouting = $GLOBALS['glowieRoutes']['autoRouting'];
+            $this->auto_routing = $GLOBALS['glowieRoutes']['auto_routing'];
 
             // Timezone configuration
             date_default_timezone_set($GLOBALS['glowieConfig']['timezone']);
@@ -81,7 +100,7 @@
                     // If action does not exists, trigger an error
                     if (method_exists($this->controller, $action  . 'Action')) {
                         // Parses URI parameters, if available
-                        if (!empty($result)) $this->controller->params = new Objectify($result);
+                        if (!empty($result)) $this->controller->params = new \Objectify($result);
 
                         // Calls action
                         if (method_exists($this->controller, 'init')) call_user_func([$this->controller, 'init']);
@@ -96,7 +115,7 @@
                 }
             } else {
                 // Check if auto routing is enabled
-                if($this->autoRouting){
+                if($this->auto_routing){
 
                     // Get URI parameters
                     $autoroute = explode('/', $route);
@@ -183,7 +202,7 @@
                             $params['segment' . ($key + 1)] = $value;
                             unset($params[$key]);
                         }
-                        $this->controller->params = new Objectify($params);
+                        $this->controller->params = new \Objectify($params);
                     }
                     if (method_exists($this->controller, 'init')) call_user_func([$this->controller, 'init']);
                     call_user_func([$this->controller, $action]);

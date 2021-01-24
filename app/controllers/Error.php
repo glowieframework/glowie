@@ -13,6 +13,7 @@
     class ErrorController extends BaseController{
 
        public function notFoundAction(){
+           // Renders 404 error page
            $this->renderView('error/404');
        }
 

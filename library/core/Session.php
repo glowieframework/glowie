@@ -1,5 +1,4 @@
 <?php
-    namespace Glowie;
 
     /**
      * Session manager for Glowie application.

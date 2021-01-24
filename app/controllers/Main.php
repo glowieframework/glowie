@@ -17,6 +17,7 @@
        }
 
        public function indexAction(){
+           // Renders the starting page
            $this->renderTemplate('default', 'index');
        }
 

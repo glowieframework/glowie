@@ -42,13 +42,11 @@
             // Check data
             if (!is_array($data)) {
                 trigger_error('validateFields: $data must be an array of fields');
-                exit;
             }
 
             // Check ruleset
             if (!is_array($rules)) {
                 trigger_error('validateFields: $rules must be an array of rules');
-                exit;
             }
 
             // Loops throug field list
@@ -59,7 +57,6 @@
                 if(isset($rules[$key])){
                     if(!is_array($rules[$key])){
                         trigger_error('validateFields: [' . $key . '] must be an array of rules');
-                        exit;
                     }
 
                     // Validate item
@@ -91,13 +88,11 @@
             // Check data
             if(!is_array($data)){
                 trigger_error('validateMultiple: $data must be an array of elements');
-                exit;
             }
 
             // Check ruleset
             if (!is_array($rules)) {
                 trigger_error('validateMultiple: $rules must be an array of rules');
-                exit;
             }
 
             // Loops through data array
@@ -131,7 +126,6 @@
             // Check ruleset
             if (!is_array($rules)) {
                 trigger_error('validate: $rules must be an array of rules');
-                exit;
             }
             
             $result = [];

@@ -1,4 +1,4 @@
 app/config/Config.php
-app/controllers/test/*
-app/models/test/*
+app/controllers/_Test.php
+app/models/_Test.php
 app/views/test/*

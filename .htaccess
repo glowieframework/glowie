@@ -2,7 +2,7 @@
 # Root .htaccess
 # --------------------------------
 # This file is responsible for redirecting everything from the root folder of your application to the "app" folder.
-# It will also block from your website the folder listing option.
+# It will also disable directory listing for security reasons.
 
 # ------------------------------------------------------------------------------
 # We do not recommend editing below this line unless you know what you're doing.

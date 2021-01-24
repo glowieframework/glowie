@@ -1,10 +1,11 @@
 <?php
 
     /*
-        ---------------
-        PLUGIN AUTOLOAD
-        ---------------
-        In this file you can load any third-party plugins to your application.
+        --------------------------------
+        Plugin autoloader
+        --------------------------------
+        Here you can require any third-party plugins for your application.
+        This plugins will be imported automatically when your application starts.
     */
 
     // MysqliDb - MySQL query builder

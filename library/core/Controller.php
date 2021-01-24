@@ -69,16 +69,16 @@
 
             // View and template properties
             $this->content = '';
-            $this->view = new Objectify();
+            $this->view = new \Objectify();
 
             // Request parameters
-            $this->get = new Objectify($_GET, true);
-            $this->post = new Objectify($_POST, true);
-            $this->request = new Objectify($_REQUEST, true);
-            $this->server = new Objectify($_SERVER, true);
+            $this->get = new \Objectify($_GET, true);
+            $this->post = new \Objectify($_POST, true);
+            $this->request = new \Objectify($_REQUEST, true);
+            $this->server = new \Objectify($_SERVER, true);
 
             // URI parameters
-            $this->params = new Objectify();
+            $this->params = new \Objectify();
         }
 
         /**
@@ -88,7 +88,7 @@
          * each variable name and value.
          */
         public function renderView(string $view, array $params = []){
-            if(!is_array($params)) trigger_error('renderView: Params must be an array');
+            if(!is_array($params)) trigger_error('renderView: $params must be an array');
             $view = 'views/' . $view . '.phtml';
             if(file_exists($view)){
                 if(!empty($params)) extract($params);
@@ -110,7 +110,7 @@
          * each variable name and value.
          */
         public function renderTemplate(string $template, string $view = '', array $params = []){
-            if (!is_array($params)) trigger_error('renderTemplate: Params must be an array');
+            if (!is_array($params)) trigger_error('renderTemplate: $params must be an array');
             $template = 'views/templates/' . $template . '.phtml';
             if(!empty($view)){
                 $view = 'views/' . $view . '.phtml';
@@ -143,6 +143,14 @@
                     exit;
                 }
             }
+        }
+
+        /**
+         * Returns the page rendering time.
+         * @return float Page rendering time.
+         */
+        public function getRenderTime(){
+            return round((microtime(true) - $GLOBALS['glowieTimer']), 5);
         }
 
     }

@@ -20,8 +20,10 @@
         public static function baseUrl($path = ''){
             !empty($_SERVER['HTTPS']) ? $protocol = 'https://' : $protocol = 'http://';
             $appFolder = $GLOBALS['glowieConfig']['appFolder'];
-            if(!self::startsWith($path, '/')) $appFolder = '/' . $appFolder;
-            if(!self::endsWith($path, '/')) $appFolder = $appFolder . '/';
+            if(!self::startsWith($appFolder, '/')) $appFolder = '/' . $appFolder;
+            if(!self::endsWith($appFolder, '/')) $appFolder = $appFolder . '/';
+            if(self::startsWith($path, '/')) $path = substr($path, 1);
+            if(self::endsWith($path, '/')) $path = substr($path, 0, -1);
             return $protocol . $_SERVER['HTTP_HOST'] . $appFolder . $path;
         }
 
@@ -67,7 +69,7 @@
 
         public static function startsWith($haystack, $needle){
             $length = strlen($needle);
-            return substr($haystack, 0, $length) === $needle;
+            return substr($haystack, 0, $length) == $needle;
         }
 
         public static function endsWith($haystack, $needle){
@@ -75,27 +77,21 @@
             if (!$length) {
                 return true;
             }
-            return substr($haystack, -$length) === $needle;
+            return substr($haystack, -$length) == $needle;
         }
 
-        public static function encryptString($string, $secret_key){
-            $secret_iv = 'g3H7M4snHPtuXzBu69FG';
-            $output = false;
-            $encrypt_method = "AES-256-CBC";
-            $key = hash('sha256', $secret_key);
-            $iv = substr(hash('sha256', $secret_iv), 0, 16);
-            $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
-            return $output;
+        public static function encryptString($string){
+            $key = hash('sha256', $GLOBALS['glowieConfig']['api_key']);
+            $iv = substr(hash('sha256', $GLOBALS['glowieConfig']['api_token']), 0, 16);
+            $string = base64_encode(openssl_encrypt($string, "AES-256-CBC", $key, 0, $iv));
+            return $string;
         }
 
-        public static function decryptString($string, $secret_key){
-            $secret_iv = 'g3H7M4snHPtuXzBu69FG';
-            $output = false;
-            $encrypt_method = "AES-256-CBC";
-            $key = hash('sha256', $secret_key);
-            $iv = substr(hash('sha256', $secret_iv), 0, 16);
-            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-            return $output;
+        public static function decryptString($string){
+            $key = hash('sha256', $GLOBALS['glowieConfig']['api_key']);
+            $iv = substr(hash('sha256', $GLOBALS['glowieConfig']['api_token']), 0, 16);
+            $string = openssl_decrypt(base64_decode($string), "AES-256-CBC", $key, 0, $iv);
+            return $string;
         }
 
     }
