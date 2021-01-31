@@ -22,8 +22,8 @@
             set_exception_handler([$this, 'exceptionHandler']);
             register_shutdown_function([$this, 'fatalHandler']);
             set_error_handler([$this, 'errorHandler']);
-            ini_set('display_errors', 0);
-            ini_set('display_startup_errors', 0);
+            ini_set('display_errors', 'Off');
+            ini_set('display_startup_errors', 'Off');
 
             // Sets syntax highliter style
             ini_set('highlight.comment', '#75715E');
@@ -34,15 +34,17 @@
         }
 
         /**
-         * Default error handler. Creates an exception based on given error.
-         * @param int $num Error type code.
+         * Default error handler. Throws an exception based on given error.
+         * @param int $level Error level code.
          * @param string $str Error message.
-         * @param string $file Filename where the error was thrown.
-         * @param int $line Line number where the error was thrown.
+         * @param string $file (Optional) Filename where the error was thrown.
+         * @param int $line (Optional) Line number where the error was thrown.
          */
-        public function errorHandler(int $num, string $str, string $file, int $line){
-            $this->exceptionHandler(new \ErrorException($str, 0, $num, $file, $line));
-            exit();
+        public function errorHandler(int $level, string $str, string $file = '', int $line = 0){
+            if(error_reporting() & $level){
+                throw new \ErrorException($str, 0, $level, $file, $line);
+                exit();
+            }
         }
 
         /**
@@ -71,6 +73,10 @@
                         box-shadow: 2px 3px 2px gainsboro;
                     }
 
+                    .glowieError strong{
+                        color: #ec1c64;
+                    }
+
                     .glowieError i{
                         color: dimgray;
                     }
@@ -78,6 +84,7 @@
                     .glowieError pre{
                         font-size: 18px;
                         margin: 0;
+                        color: #ed578b;
                     }
 
                     .glowieError code{
@@ -90,6 +97,13 @@
                     .glowieError .lineNumber{
                         color: #75715E;
                     }
+
+                    .glowieError .time{
+                        font-size: 14px;
+                        color: gray;
+                        display: block;
+                        margin-top: 20px;
+                    }
                 </style>
                 <div class="glowieError">
                     <strong>Application error:</strong> ' . $e->getMessage() . '<br>
@@ -97,6 +111,7 @@
                     $this->highlight($e->getFile(), $e->getLine()) . '
                     <strong>Stack trace:</strong>
                     <pre>' . $e->getTraceAsString() . '</pre>
+                    <span class="time">Exception thrown in ' . $this->getExceptionTime() . ' seconds.</span>
                 </div>';
         }
 
@@ -115,6 +130,14 @@
             $content = explode("\n", str_replace("\r\n", "\n", $content));
             if(!$file[$line - 1]) return '';
             return '<code><span class="lineNumber">' . $line . '</span>' . $content[$line - 1] . '</span></code>';
+        }
+
+        /**
+         * Returns the page exception time.
+         * @return float Exception time.
+         */
+        private function getExceptionTime(){
+            return round((microtime(true) - $GLOBALS['glowieTimer']), 5);
         }
 
     }

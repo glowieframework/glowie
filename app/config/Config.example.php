@@ -18,7 +18,7 @@
 
     $glowieConfig['development'] = array(
         // Application folder
-        'appFolder' => '/glowie/',
+        'app_folder' => '/glowie/',
 
         // Application timezone
         'timezone' => 'America/Sao_Paulo',
@@ -48,7 +48,7 @@
 
     $glowieConfig['production'] = array(
         // Application folder
-        'appFolder' => '',
+        'app_folder' => '',
 
         // Application timezone
         'timezone' => 'America/Sao_Paulo',

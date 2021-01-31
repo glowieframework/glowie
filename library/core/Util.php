@@ -19,7 +19,7 @@
 
         public static function baseUrl($path = ''){
             !empty($_SERVER['HTTPS']) ? $protocol = 'https://' : $protocol = 'http://';
-            $appFolder = $GLOBALS['glowieConfig']['appFolder'];
+            $appFolder = $GLOBALS['glowieConfig']['app_folder'];
             if(!self::startsWith($appFolder, '/')) $appFolder = '/' . $appFolder;
             if(!self::endsWith($appFolder, '/')) $appFolder = $appFolder . '/';
             if(self::startsWith($path, '/')) $path = substr($path, 1);

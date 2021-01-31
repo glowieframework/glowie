@@ -13,6 +13,7 @@
     require_once('Db/MysqliDb.php');
 
     // PHPMailer - Email sending plugin
+    // *This plugin is required by Glowie when working with Zello CMS*
     require_once('Mail/Exception.php');
     require_once('Mail/SMTP.php');
     require_once('Mail/PHPMailer.php');
