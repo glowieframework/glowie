@@ -141,7 +141,7 @@
                 $data = $this->db->arraybuilder()->paginate($this->table, $currentPage);
                 $result = ['data' => [], 'pages' => $this->db->totalPages];
                 if(!empty($data)) foreach($data as $value) $result['data'][] = new \Objectify($value);
-                return $result;
+                return new \Objectify($result);
             }else{
                 if($limit == 1){
                     $data = $this->db->getOne($this->table);

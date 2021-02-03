@@ -89,7 +89,7 @@
          */
         public function renderView(string $view, array $params = []){
             if(!is_array($params)) trigger_error('renderView: $params must be an array');
-            $view = 'views/' . $view . '.phtml';
+            $view = '../views/' . $view . '.phtml';
             if(file_exists($view)){
                 if(!empty($params)) extract($params);
                 ob_start();
@@ -111,9 +111,9 @@
          */
         public function renderTemplate(string $template, string $view = '', array $params = []){
             if (!is_array($params)) trigger_error('renderTemplate: $params must be an array');
-            $template = 'views/templates/' . $template . '.phtml';
+            $template = '../views/templates/' . $template . '.phtml';
             if(!empty($view)){
-                $view = 'views/' . $view . '.phtml';
+                $view = '../views/' . $view . '.phtml';
                 if (file_exists($template)) {
                     if(file_exists($view)){
                         if (!empty($params)) extract($params);

@@ -17,6 +17,11 @@
            $this->renderView('error/404');
        }
 
+       public function forbiddenAction(){
+           // Renders 403 error page
+           $this->renderView('error/403');
+       }
+
     }
 
 ?>

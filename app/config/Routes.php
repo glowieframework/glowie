@@ -8,16 +8,12 @@
     */
 
     // Parse undefined routes automatically
-    $glowieRoutes['auto_routing'] = true;
+    Rails::setAutoRouting(true);
 
     // User defined routes
-    $glowieRoutes['routes'] = array(
-
-        '/' => [
-            'controller' => 'main',
-            'action' => 'index'
-        ],
-
-    );
+    Rails::addRoute('/', [
+        'controller' => 'main',
+        'action' => 'index'
+    ]);
 
 ?>

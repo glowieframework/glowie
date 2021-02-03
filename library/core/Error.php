@@ -42,7 +42,7 @@
          */
         public function errorHandler(int $level, string $str, string $file = '', int $line = 0){
             if(error_reporting() & $level){
-                throw new \ErrorException($str, 0, $level, $file, $line);
+                $this->exceptionHandler(new \ErrorException($str, 0, $level, $file, $line));
                 exit();
             }
         }
@@ -79,6 +79,7 @@
 
                     .glowieError i{
                         color: dimgray;
+                        display: block;
                     }
 
                     .glowieError pre{

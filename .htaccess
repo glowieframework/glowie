@@ -1,14 +1,14 @@
 # --------------------------------
 # Root .htaccess
 # --------------------------------
-# This file is responsible for redirecting everything from the root folder of your application to the "app" folder.
-# It will also disable directory listing for security reasons.
+# This file is responsible for redirecting everything from the root folder of your application to the app "public" folder.
 
 # ------------------------------------------------------------------------------
 # We do not recommend editing below this line unless you know what you're doing.
 # ------------------------------------------------------------------------------
 
-Options -Indexes
+Options +FollowSymLinks
 
 RewriteEngine On
-RewriteRule ^(.*)$ app/$1 [NC,L,QSA]
+RewriteRule !\.(7z|aiff|asf|avi|bmp|csv|css|doc|docx|fla|flv|gif|gz|gzip|htm|html|json|ico|jpeg|jpg|js|less|mid|mov|mp3|mp4|mpc|mpeg|mpg|ods|odt|pdf|php|png|ppt|pptx|pxd|qt|ram|rar|rm|rmi|rmvb|rtf|sdc|sitd|swf|svg|sxc|sxw|tar|tgz|tif|tiff|ttf|txt|vsd|wav|wma|map|wmv|woff|woff2|xls|xlsx|xml|zip)$ app/public/index.php [NC,L]
+RewriteRule ^(.*)$ app/public/$1 [NC,L]
