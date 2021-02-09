@@ -1,8 +1,4 @@
-<img src="https://i.imgur.com/5tsmOE4.png" alt="drawing" width="200"/>
-
----
-### **NOTE:** Glowie is currently a work in progress. Final version will be released soon.
----
+<a href="https://glowie.tk" target="_blank"><img src="https://i.imgur.com/5tsmOE4.png" alt="drawing" width="200"/></a>
 
 ## Powerful and lightweight PHP framework
 Glowie is a PHP framework designed to be as light, fast and powerful as possible for developing applications and dynamic websites the easiest way.
@@ -26,7 +22,7 @@ Glowie is a PHP framework designed to be as light, fast and powerful as possible
 Forget about those fancy frameworks with thousands of useless functions and classes with stuff you will never use. Glowie is packed with only what you need for your application to run smoothly.
 
 ## Getting started
-[Read the docs](https://github.com/glowieframework/glowie/wiki) to know how to start using Glowie to create something awesome.
+[Explore the docs](https://glowie.tk/docs) to know how to start using Glowie to create something awesome.
 
 ## Credits
 Glowie is currently being developed by [Gabriel Silva](https://eugabrielsilva.tk).
