@@ -7,10 +7,14 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class ErrorController extends BaseController{
+
+       public function init(){
+           // This method will be instantiated before any other actions from this controller
+       }
 
        public function notFoundAction(){
            // Renders 404 error page

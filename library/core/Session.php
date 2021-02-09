@@ -7,8 +7,8 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class Session{
 
@@ -24,7 +24,7 @@
          * @param string $key Key to get value.
          * @return mixed Returns the value if exists or null if there is none.
          */
-        public function __get($key){
+        public function __get(string $key){
             if(isset($_SESSION[$key])){
                 return $_SESSION[$key];
             }else{
@@ -37,7 +37,7 @@
          * @param string $key Key to set value.
          * @param mixed $value Value to set.
          */
-        public function __set($key, $value){
+        public function __set(string $key, $value){
             $_SESSION[$key] = $value;
         }
 
@@ -45,7 +45,7 @@
          * Deletes the associated key value in the session.
          * @param string $key Key to delete value.
          */
-        public function __unset($key){
+        public function __unset(string $key){
             if (isset($_SESSION[$key])) {
                 unset($_SESSION[$key]);
             }
@@ -56,16 +56,15 @@
          * @param string $key Key to check.
          * @return bool Returns true or false.
          */
-        public function __isset($key){
+        public function __isset(string $key){
             return isset($_SESSION[$key]);
         }
 
         /**
-         * Destroys current session and starts a new one.
+         * Destroys the current session.
          */
         public function destroy(){
             if(isset($_SESSION)) session_destroy();
-            session_start();
         }
 
     }

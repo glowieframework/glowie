@@ -7,8 +7,8 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class MainController extends BaseController{
 

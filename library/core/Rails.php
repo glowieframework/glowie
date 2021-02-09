@@ -11,8 +11,8 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class Rails{
         /**
@@ -66,9 +66,9 @@
 
         /**
          * Sets the auto routing feature on or off.
-         * @param bool $option **True** for turning on auto routing (default) or **false** for turning it off.
+         * @param bool $option (Optional) **True** for turning on auto routing (default) or **false** for turning it off.
          */
-        public static function setAutoRouting(bool $option){
+        public static function setAutoRouting(bool $option = true){
             $GLOBALS['glowieRoutes']['auto_routing'] = $option;
         }
 
@@ -197,10 +197,10 @@
          * Parses names to camelCase convention. It also removes all accents and characters that are not\
          * valid letters, numbers or underscores.
          * @param string $string Name to be encoded.
-         * @param bool $firstUpper Determines if the first character should be uppercase.
+         * @param bool $firstUpper (Optional) Determines if the first character should be uppercase.
          * @return string Encoded string.
          */
-        private function parseName($string, $firstUpper = false){
+        private function parseName(string $string, bool $firstUpper = false){
             $string = strtr(utf8_decode(strtolower($string)), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
             $string = preg_replace('/[^a-zA-Z0-9_]/', ' ', $string);
             if($firstUpper){
@@ -240,9 +240,9 @@
          * Performs checking and calls the auto routing parameters.
          * @param string $controller Controller class.
          * @param string $action Action name.
-         * @param array $params Optional URI parameters.
+         * @param array $params (Optional) Optional URI parameters.
          */
-        private function callAutoRoute($controller, $action, $params = []){
+        private function callAutoRoute(string $controller, string $action, array $params = []){
             if (class_exists($controller)) {
                 $this->controller = new $controller;
                 if (method_exists($this->controller, $action)) {

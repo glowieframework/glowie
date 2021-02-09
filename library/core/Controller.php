@@ -8,8 +8,8 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class Controller{
         /**
@@ -20,31 +20,31 @@
 
         /**
          * Request GET parameters.
-         * @var object
+         * @var \Objectify
          */
         public $get;
 
         /**
          * URI parameters.
-         * @var object
+         * @var \Objectify
          */
         public $params;
 
         /**
          * Request POST parameters.
-         * @var object
+         * @var \Objectify
          */
         public $post;
 
         /**
          * Request parameters.
-         * @var object
+         * @var \Objectify
          */
         public $request;
 
         /**
          * Web server parameters.
-         * @var object
+         * @var \Objectify
          */
         public $server;
 
@@ -56,7 +56,7 @@
 
         /**
          * Data bridge between controller and view.
-         * @var object
+         * @var \Objectify
          */
         public $view;
 
@@ -65,7 +65,7 @@
          */
         public function __construct(){
             // Common properties
-            $this->version = '1.0.0';
+            $this->version = '0.1.0';
 
             // View and template properties
             $this->content = '';

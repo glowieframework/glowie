@@ -7,8 +7,8 @@
      * @author Glowie Framework
      * @copyright Copyright (c) 2021
      * @license MIT
-     * @link https://github.com/glowieframework/glowie
-     * @version 1.0.0
+     * @link https://glowie.tk
+     * @version 0.1.0
      */
     class Validator{
          /**
@@ -19,7 +19,7 @@
 
         /**
          * Returns an associative array with the latest validation errors.
-         * @param string|int $key Element/field key to get errors. Leave blank to get all.
+         * @param string|int $key (Optional) Element/field key to get errors. Leave blank to get all.
          * @return array Array with the fetched errors.
          */
         public function getErrors($key = null){
@@ -34,8 +34,8 @@
          * Validates an associative array of multiple fields with unique rules for each of them.
          * @param array $data Associative array of fields to be validated.
          * @param array $rules Associative array with validation rules for each field (check docs to see valid rules).
-         * @param bool $bail Stop validation of field after first failure found.
-         * @param bool $bailAll Stop validation of all fields after first field failure found.
+         * @param bool $bail (Optional) Stop validation of field after first failure found.
+         * @param bool $bailAll (Optional) Stop validation of all fields after first field failure found.
          * @return bool Validation result.
          */
         public function validateFields(array $data, array $rules, bool $bail = false, bool $bailAll = false){
@@ -80,8 +80,8 @@
          * Validates an array of multiple elements with the same rules.
          * @param array $data Array of elements to be validated.
          * @param array $rules Validation rules (check docs to see valid rules).
-         * @param bool $bail Stop validation of element after first failure found.
-         * @param bool $bailAll Stop validation of all elements after first element failure found.
+         * @param bool $bail (Optional) Stop validation of element after first failure found.
+         * @param bool $bailAll (Optional) Stop validation of all elements after first element failure found.
          * @return bool Validation result.
          */
         public function validateMultiple(array $data, array $rules, bool $bail = false, bool $bailAll = false){
@@ -119,7 +119,7 @@
          * Validates a single variable.
          * @param mixed $data Data to be validated.
          * @param array $rules Validation rules (check docs to see valid rules).
-         * @param bool $bail Stop validation after first failure found.
+         * @param bool $bail (Optional) Stop validation after first failure found.
          * @return bool Validation result.
          */
         public function validate($data, array $rules, bool $bail = false){

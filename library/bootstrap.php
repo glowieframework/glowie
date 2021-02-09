@@ -5,7 +5,7 @@
         Glowie bootstrapper
         --------------------------------
         This file is responsible for loading all Glowie modules and application files.
-        It also kicks off Glowie routing engine.
+        It also starts the application router.
 
         ---------------------------------------------
         We do not recommend editing below this line.
@@ -70,7 +70,7 @@
     // Setup configuration environment
     $glowieConfig = $glowieConfig[getenv('GLOWIE_ENV')];
 
-    // Initialize application
+    // Initialize router
     $app = new Rails();
     $app->init();
     
