@@ -5,11 +5,11 @@
      * Error handler for Glowie application.
      * @category Error handler
      * @package glowie
-     * @author Glowie Framework
+     * @author Glowie
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.1.0
+     * @version 0.2-alpha
      */
     class Error{
 

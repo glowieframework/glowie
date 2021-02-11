@@ -8,11 +8,11 @@
      * Router and starting point for Glowie application.
      * @category Router
      * @package glowie
-     * @author Glowie Framework
+     * @author Glowie
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.1.0
+     * @version 0.2-alpha
      */
     class Rails{
         /**
@@ -123,7 +123,13 @@
                 // Check if there is a redirect configuration
                 if(empty($config['redirect'])){
                     // If controller was not specified, calls the MainController
-                    !empty($config['controller']) ? $controller = $this->parseName($config['controller'], true) . 'Controller' : $controller = 'MainController';
+                    if(!empty($config['controller'])){
+                        $controller = $this->parseName($config['controller'], true) . 'Controller';
+                        $selfController = $config['controller'];
+                    }else{
+                        $controller = 'MainController';
+                        $selfController = 'main';
+                    }
 
                     // If controller class does not exists, trigger an error
                     if (!class_exists($controller)) return trigger_error('Controller "' . $controller . '" not found');
@@ -133,6 +139,10 @@
 
                     // Instantiates new controller
                     $this->controller = new $controller;
+                    $this->controller->self->controller = $selfController;
+                    $this->controller->self->action = $action;
+                    $this->controller->self->route = $route;
+                    $this->controller->self->method = strtolower($_SERVER['REQUEST_METHOD']);
 
                     // If action does not exists, trigger an error
                     if (method_exists($this->controller, $action  . 'Action')) {

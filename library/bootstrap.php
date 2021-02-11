@@ -47,6 +47,7 @@
     require_once('core/Util.php');
     require_once('core/Objectify.php');
     require_once('core/Rails.php');
+    require_once('core/Skeltch.php');
     require_once('core/Controller.php');
     require_once('core/Session.php');
     require_once('core/Crawler.php');

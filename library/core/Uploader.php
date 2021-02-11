@@ -4,11 +4,11 @@
      * File upload helper for Glowie application.
      * @category File uploads
      * @package glowie
-     * @author Glowie Framework
+     * @author Glowie
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.1.0
+     * @version 0.2-alpha
      */
     class Uploader{
         /**
@@ -48,7 +48,7 @@
          * @param float $maxFileSize (Optional) Maximum allowed file size **in megabytes**. Use 0 for unlimited (not recommended).
          * @param bool $overwrite (Optional) Overwrite existing files. If false, uploaded files will append a number to its name.
          */
-        public function __construct(string $directory = 'uploads', array $extensions = [], float $maxFileSize = 0, bool $overwrite = false){
+        public function __construct(string $directory = 'public/uploads', array $extensions = [], float $maxFileSize = 0, bool $overwrite = false){
             if(empty($directory) || trim($directory) == '') trigger_error('Uploader: $directory should not be empty');
             if(!is_dir($directory) || !is_writable($directory)) trigger_error('Uploader: Target directory is invalid or not writable');
             if(!is_array($extensions)) trigger_error('Uploader: $extensions must be an array of extensions');

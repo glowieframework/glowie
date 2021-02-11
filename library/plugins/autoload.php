@@ -10,12 +10,8 @@
 
     // MysqliDb - MySQL query builder
     // *This plugin is required by Glowie when working with databases*
-    require_once('Db/MysqliDb.php');
+    require_once('MysqliDb/MysqliDb.php');
 
-    // PHPMailer - Email sending plugin
-    // *This plugin is required by Glowie when working with Zello CMS*
-    require_once('Mail/Exception.php');
-    require_once('Mail/SMTP.php');
-    require_once('Mail/PHPMailer.php');
+    // You can add other plugins here
 
 ?>
