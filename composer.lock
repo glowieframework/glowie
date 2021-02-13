@@ -1,0 +1,123 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0885dea23def3f0b88eb71ec0f298306",
+    "packages": [
+        {
+            "name": "glowieframework/glowie-core",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/glowieframework/glowie-core.git",
+                "reference": "60e245c95afce09b393a71fe8985e7495e41f841"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/60e245c95afce09b393a71fe8985e7495e41f841",
+                "reference": "60e245c95afce09b393a71fe8985e7495e41f841",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "library/Error.php",
+                    "library/Util.php",
+                    "library/Objectify.php",
+                    "library/Rails.php",
+                    "library/Skeltch.php",
+                    "library/Controller.php",
+                    "library/Session.php",
+                    "library/Crawler.php",
+                    "library/Kraken.php",
+                    "library/Validator.php",
+                    "library/Uploader.php",
+                    "library/Babel.php",
+                    "library/Application.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Glowie",
+                    "email": "dev@glowie.tk",
+                    "homepage": "https://glowie.tk"
+                }
+            ],
+            "description": "Glowie core modules and application bootstrapper",
+            "support": {
+                "issues": "https://github.com/glowieframework/glowie-core/issues",
+                "source": "https://github.com/glowieframework/glowie-core/tree/main"
+            },
+            "time": "2021-02-13T20:53:01+00:00"
+        },
+        {
+            "name": "thingengineer/mysqli-database-class",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class.git",
+                "reference": "16564ba0717fad64617a1ce4a8d3f9b90e68c7c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThingEngineer/PHP-MySQLi-Database-Class/zipball/16564ba0717fad64617a1ce4a8d3f9b90e68c7c2",
+                "reference": "16564ba0717fad64617a1ce4a8d3f9b90e68c7c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "MysqliDb.php",
+                    "dbObject.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Campbell",
+                    "email": "josh.lee.campbell@gmail.com",
+                    "homepage": "https://github.com/thingengineer",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alexander V. Butenko",
+                    "email": "a.butenka@gmail.com",
+                    "homepage": "http://smarttechdo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP MySQL Wrapper and object mapper which utilizes MySQLi and prepared statements",
+            "support": {
+                "issues": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class/issues",
+                "source": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class/tree/master"
+            },
+            "time": "2020-10-14T10:55:58+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "thingengineer/mysqli-database-class": 20,
+        "glowieframework/glowie-core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

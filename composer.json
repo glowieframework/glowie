@@ -1,0 +1,16 @@
+{
+    "name": "glowieframework/glowie",
+    "description": "Powerful and lightweight PHP framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Glowie",
+            "email": "dev@glowie.tk"
+        }
+    ],
+    "require": {
+        "thingengineer/mysqli-database-class": "dev-master",
+        "glowieframework/glowie-core": "dev-main"
+    }
+}
