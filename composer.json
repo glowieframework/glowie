@@ -3,6 +3,7 @@
     "description": "Powerful and lightweight PHP framework",
     "type": "project",
     "license": "MIT",
+    "keywords": ["framework", "glowie", "mvc"],
     "authors": [
         {
             "name": "Glowie",
@@ -10,6 +11,7 @@
         }
     ],
     "require": {
+        "php": ">=7.4.9",
         "thingengineer/mysqli-database-class": "dev-master",
         "glowieframework/glowie-core": "dev-main"
     }
