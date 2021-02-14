@@ -13,8 +13,8 @@
     class MainModel extends BaseModel{
 
        public function __construct(){         
-           // Setup database and table for this model
-           parent::__construct([], 'glowie');
+           // Setup table for this model
+           $this->setTable('glowie');
        }
 
     }

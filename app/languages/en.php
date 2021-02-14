@@ -8,8 +8,12 @@
         Check Glowie docs to know how to get started.
     */
 
-    $glowieLang['en'] = [
-        'message' => 'Hello, this is my first internationalization message.'
-    ];
+    Babel::set('en', [
+        'message' => 'Hello, this is my first internationalization message.',
+        'instructions' => 'Use this array to set all strings you want.'
+    ]);
+
+    // Sets the current active language
+    Babel::setActiveLanguage('en');
 
 ?>
