@@ -4,15 +4,23 @@
     "type": "project",
     "license": "MIT",
     "keywords": ["framework", "glowie", "mvc"],
+    "homepage": "https://glowie.tk",
+    "support": {
+        "issues": "https://github.com/glowieframework/glowie/issues",
+        "source": "https://github.com/glowieframework/glowie"
+    },
     "authors": [
         {
             "name": "Glowie",
-            "email": "dev@glowie.tk"
+            "email": "dev@glowie.tk",
+            "homepage": "https://glowie.tk"
         }
     ],
     "require": {
         "php": ">=7.4.9",
-        "thingengineer/mysqli-database-class": "dev-master",
+        "thingengineer/mysqli-database-class": "2.9.3",
         "glowieframework/glowie-core": "dev-main"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

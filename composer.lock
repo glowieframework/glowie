@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0885dea23def3f0b88eb71ec0f298306",
+    "content-hash": "8f231343a2b191ea756ee637f4c709b2",
     "packages": [
         {
             "name": "glowieframework/glowie-core",
@@ -12,31 +12,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "60e245c95afce09b393a71fe8985e7495e41f841"
+                "reference": "1ab5b00fbfb78ce8d4e90391c7b4783235cc250b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/60e245c95afce09b393a71fe8985e7495e41f841",
-                "reference": "60e245c95afce09b393a71fe8985e7495e41f841",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/1ab5b00fbfb78ce8d4e90391c7b4783235cc250b",
+                "reference": "1ab5b00fbfb78ce8d4e90391c7b4783235cc250b",
                 "shasum": ""
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
-                    "library/Error.php",
-                    "library/Util.php",
-                    "library/Objectify.php",
-                    "library/Rails.php",
-                    "library/Skeltch.php",
-                    "library/Controller.php",
-                    "library/Session.php",
-                    "library/Crawler.php",
-                    "library/Kraken.php",
-                    "library/Validator.php",
-                    "library/Uploader.php",
-                    "library/Babel.php",
-                    "library/Application.php"
+                    "src/Error.php",
+                    "src/Util.php",
+                    "src/Objectify.php",
+                    "src/Rails.php",
+                    "src/Skeltch.php",
+                    "src/Controller.php",
+                    "src/Session.php",
+                    "src/Crawler.php",
+                    "src/Kraken.php",
+                    "src/Validator.php",
+                    "src/Uploader.php",
+                    "src/Babel.php",
+                    "src/Application.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -51,30 +51,35 @@
                 }
             ],
             "description": "Glowie core modules and application bootstrapper",
+            "homepage": "https://glowie.tk",
+            "keywords": [
+                "framework",
+                "glowie",
+                "mvc"
+            ],
             "support": {
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
-                "source": "https://github.com/glowieframework/glowie-core/tree/main"
+                "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-02-13T20:53:01+00:00"
+            "time": "2021-02-14T01:09:30+00:00"
         },
         {
             "name": "thingengineer/mysqli-database-class",
-            "version": "dev-master",
+            "version": "v2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class.git",
-                "reference": "16564ba0717fad64617a1ce4a8d3f9b90e68c7c2"
+                "reference": "03dbce1c7f1c9def315ad8ef52e1f5c0a806d6ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThingEngineer/PHP-MySQLi-Database-Class/zipball/16564ba0717fad64617a1ce4a8d3f9b90e68c7c2",
-                "reference": "16564ba0717fad64617a1ce4a8d3f9b90e68c7c2",
+                "url": "https://api.github.com/repos/ThingEngineer/PHP-MySQLi-Database-Class/zipball/03dbce1c7f1c9def315ad8ef52e1f5c0a806d6ed",
+                "reference": "03dbce1c7f1c9def315ad8ef52e1f5c0a806d6ed",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -103,21 +108,22 @@
             "description": "PHP MySQL Wrapper and object mapper which utilizes MySQLi and prepared statements",
             "support": {
                 "issues": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class/issues",
-                "source": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class/tree/master"
+                "source": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class/tree/v2.9.3"
             },
-            "time": "2020-10-14T10:55:58+00:00"
+            "time": "2019-08-24T09:28:56+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "thingengineer/mysqli-database-class": 20,
         "glowieframework/glowie-core": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.4.9"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

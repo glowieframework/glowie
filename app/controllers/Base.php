@@ -4,7 +4,7 @@
     /**
      * Base controller for Glowie application.
      * @category Controller
-     * @package glowie
+     * @package glowieframework/glowie
      * @author Glowie
      * @copyright Copyright (c) 2021
      * @license MIT
