@@ -13,8 +13,8 @@
     class MainModel extends BaseModel{
 
        public function __construct(){         
-           // Setup table for this model
-           $this->setTable('glowie');
+           // Constructs the connection
+           Glowie\Kraken::__construct('glowie');
        }
 
     }

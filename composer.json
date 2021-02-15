@@ -17,8 +17,6 @@
         }
     ],
     "require": {
-        "php": ">=7.4.9",
-        "thingengineer/mysqli-database-class": "2.9.3",
         "glowieframework/glowie-core": "dev-main"
     },
     "minimum-stability": "dev",

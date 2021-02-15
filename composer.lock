@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f231343a2b191ea756ee637f4c709b2",
+    "content-hash": "0760364a4377f45356ab02d61f71ee98",
     "packages": [
         {
             "name": "glowieframework/glowie-core",
@@ -12,13 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "f47626da017a3e34cdaa285e997a9e9d020bb175"
+                "reference": "0d1c36fdd97f71d8b111eb55461a3f57559b59b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/f47626da017a3e34cdaa285e997a9e9d020bb175",
-                "reference": "f47626da017a3e34cdaa285e997a9e9d020bb175",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/0d1c36fdd97f71d8b111eb55461a3f57559b59b9",
+                "reference": "0d1c36fdd97f71d8b111eb55461a3f57559b59b9",
                 "shasum": ""
+            },
+            "require": {
+                "thingengineer/mysqli-database-class": "2.9.3"
             },
             "default-branch": true,
             "type": "library",
@@ -61,7 +64,7 @@
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
                 "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-02-14T23:19:52+00:00"
+            "time": "2021-02-15T23:03:29+00:00"
         },
         {
             "name": "thingengineer/mysqli-database-class",
@@ -121,9 +124,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
-        "php": ">=7.4.9"
-    },
+    "platform": [],
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }
