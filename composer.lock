@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "0d1c36fdd97f71d8b111eb55461a3f57559b59b9"
+                "reference": "95ffc039dd81f5919e77a372b0f0c9f1d98d9f19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/0d1c36fdd97f71d8b111eb55461a3f57559b59b9",
-                "reference": "0d1c36fdd97f71d8b111eb55461a3f57559b59b9",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/95ffc039dd81f5919e77a372b0f0c9f1d98d9f19",
+                "reference": "95ffc039dd81f5919e77a372b0f0c9f1d98d9f19",
                 "shasum": ""
             },
             "require": {
@@ -33,6 +33,8 @@
                     "src/Rails.php",
                     "src/Skeltch.php",
                     "src/Controller.php",
+                    "src/View.php",
+                    "src/Template.php",
                     "src/Session.php",
                     "src/Crawler.php",
                     "src/Kraken.php",
@@ -64,7 +66,7 @@
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
                 "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-02-15T23:03:29+00:00"
+            "time": "2021-02-21T21:59:37+00:00"
         },
         {
             "name": "thingengineer/mysqli-database-class",

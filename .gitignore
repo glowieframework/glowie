@@ -6,4 +6,4 @@
 
 app/config/Config.php
 app/cache/*.tmp
-vendor/
+/vendor/

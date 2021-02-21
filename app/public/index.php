@@ -11,6 +11,12 @@
         ---------------------------------------------
     */
 
+    // Check minimum PHP version
+    if (version_compare(phpversion(), '7.4.9', '<')) {
+        die('<strong>Unsupported PHP version!</strong><br>
+        Glowie requires PHP version 7.4.9 or higher, you are using ' . phpversion() . '.');
+    }
+
     // Load Composer dependencies
     require_once('../../vendor/autoload.php');
 
