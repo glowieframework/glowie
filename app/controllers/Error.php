@@ -1,4 +1,5 @@
 <?php
+    namespace Glowie\Controllers;
 
     /**
      * Error controller for Glowie application.
@@ -10,7 +11,7 @@
      * @link https://glowie.tk
      * @version 0.2-alpha
      */
-    class ErrorController extends BaseController{
+    class Error_Controller extends Base_Controller{
 
        public function init(){
            // This method will be instantiated before any other actions from this controller

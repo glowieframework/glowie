@@ -1,4 +1,5 @@
 <?php
+    use Glowie\Core\Application;
 
     /*
         --------------------------------
@@ -21,7 +22,7 @@
     require_once('../../vendor/autoload.php');
 
     // Run Glowie bootstrapper
-    $app = new Glowie\Application();
+    $app = new Application();
     $app->run();
     
 ?>

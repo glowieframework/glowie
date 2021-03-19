@@ -1,4 +1,7 @@
 <?php
+    namespace Glowie\Models;
+
+    use Glowie\Core\Kraken;
 
     /**
      * Main model for Glowie application.
@@ -10,11 +13,11 @@
      * @link https://glowie.tk
      * @version 0.2-alpha
      */
-    class MainModel extends BaseModel{
+    class Main_Model extends Base_Model{
 
        public function __construct(){         
            // Constructs the connection
-           Glowie\Kraken::__construct('glowie');
+           Kraken::__construct('glowie');
        }
 
     }

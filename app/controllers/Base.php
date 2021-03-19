@@ -1,5 +1,7 @@
 <?php
-    use Glowie\Controller;
+    namespace Glowie\Controllers;
+    
+    use Glowie\Core\Controller;
 
     /**
      * Base controller for Glowie application.
@@ -11,7 +13,7 @@
      * @link https://glowie.tk
      * @version 0.2-alpha
      */
-    class BaseController extends Controller{
+    class Base_Controller extends Controller{
 
         // Use this controller to create properties and methods that can be reused in other controllers of your application
 

@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "glowieframework/glowie-core": "dev-main"
+        "glowieframework/glowie-core": "dev-wip"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

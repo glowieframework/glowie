@@ -1,4 +1,5 @@
 <?php
+    namespace Glowie\Controllers;
 
     /**
      * Main controller for Glowie application.
@@ -10,7 +11,7 @@
      * @link https://glowie.tk
      * @version 0.2-alpha
      */
-    class MainController extends BaseController{
+    class Main_Controller extends Base_Controller{
 
        public function init(){
            // This method will be instantiated before any other actions from this controller
@@ -18,7 +19,7 @@
 
        public function indexAction(){
            // Renders the starting page
-           $this->renderTemplate('default', 'index');
+           $this->renderLayout('default', 'index');
        }
 
     }
