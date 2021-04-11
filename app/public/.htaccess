@@ -4,7 +4,7 @@
 # This file is responsible for redirecting all URI requests to Glowie router.
 # Here you can also set the current active configuration environment.
 
-SetEnv GLOWIE_ENV development
+SetEnv GLOWIE_ENVIRONMENT development
 
 # ------------------------------------------------------------------------------
 # We do not recommend editing below this line unless you know what you're doing.

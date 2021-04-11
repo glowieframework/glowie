@@ -17,9 +17,6 @@
     # ------------------------
 
     $glowieConfig['development'] = array(
-        // Application folder
-        'app_folder' => '/glowie/',
-
         // Application cache
         'cache' => false,
 
@@ -50,9 +47,6 @@
     # -----------------------
 
     $glowieConfig['production'] = array(
-        // Application folder
-        'app_folder' => '',
-
         // Application cache
         'cache' => true,
 

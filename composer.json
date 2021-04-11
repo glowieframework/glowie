@@ -3,7 +3,11 @@
     "description": "Powerful and lightweight PHP framework",
     "type": "project",
     "license": "MIT",
-    "keywords": ["framework", "glowie", "mvc"],
+    "keywords": [
+        "framework",
+        "glowie",
+        "mvc"
+    ],
     "homepage": "https://glowie.tk",
     "support": {
         "issues": "https://github.com/glowieframework/glowie/issues",
@@ -17,6 +21,7 @@
         }
     ],
     "require": {
+        "php": "^7.4|^8.0",
         "glowieframework/glowie-core": "dev-wip"
     },
     "minimum-stability": "dev",

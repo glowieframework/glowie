@@ -12,9 +12,6 @@
     Rails::setAutoRouting(true);
 
     // User defined routes
-    Rails::addRoute('/', [
-        'controller' => 'main',
-        'action' => 'index'
-    ]);
+    Rails::addRoute('/', 'main-controller', 'index');
 
 ?>

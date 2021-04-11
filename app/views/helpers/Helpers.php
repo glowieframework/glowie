@@ -9,7 +9,7 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.2-alpha
+     * @version 0.3-alpha
      */
     class Helpers{
 
@@ -18,7 +18,7 @@
          * @return float Page rendering time.
          */
         public function getRenderTime(){
-            return round((microtime(true) - $GLOBALS['glowieTimer']), 5);
+            return round((microtime(true) - GLOWIE_START_TIME), 5);
         }
 
     }

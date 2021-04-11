@@ -11,11 +11,13 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.2-alpha
+     * @version 0.3-alpha
      */
-    class Base_Controller extends Controller{
+    class BaseController extends Controller{
 
-        // Use this controller to create properties and methods that can be reused in other controllers of your application
+        public function init(){
+           // This method will be instantiated before any other actions from this controller
+        }
 
     }
 

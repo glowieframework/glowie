@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32233a07780795dd772a3bdbfe88909c",
+    "content-hash": "2c2c9872d9e955b7c177bde03670684b",
     "packages": [
         {
             "name": "glowieframework/glowie-core",
@@ -12,32 +12,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "e8b879785d1ff0bf4dc31362265c4b688641e6be"
+                "reference": "8bcc67bd91891db342b12d24fbe6c79403e54c8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/e8b879785d1ff0bf4dc31362265c4b688641e6be",
-                "reference": "e8b879785d1ff0bf4dc31362265c4b688641e6be",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/8bcc67bd91891db342b12d24fbe6c79403e54c8f",
+                "reference": "8bcc67bd91891db342b12d24fbe6c79403e54c8f",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
+                "psr-4": {
+                    "Glowie\\Core\\": "src/"
+                },
                 "files": [
-                    "src/Error.php",
-                    "src/Util.php",
-                    "src/Objectify.php",
-                    "src/Rails.php",
-                    "src/Skeltch.php",
-                    "src/Controller.php",
-                    "src/View.php",
-                    "src/Layout.php",
-                    "src/Session.php",
-                    "src/Crawler.php",
-                    "src/Kraken.php",
-                    "src/Validator.php",
-                    "src/Uploader.php",
                     "src/Babel.php",
-                    "src/Application.php"
+                    "src/Util.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -62,7 +52,7 @@
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
                 "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-03-18T22:47:00+00:00"
+            "time": "2021-04-11T01:55:52+00:00"
         }
     ],
     "packages-dev": [],
@@ -73,7 +63,9 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.4|^8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }
