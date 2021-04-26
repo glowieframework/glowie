@@ -24,6 +24,14 @@
         "php": "^7.4|^8.0",
         "glowieframework/glowie-core": "dev-wip"
     },
+    "autoload": {
+        "psr-4": {
+            "Glowie\\Controllers\\": "app/controllers/",
+            "Glowie\\Middlewares\\": "app/middlewares/",
+            "Glowie\\Models\\": "app/models/",
+            "Glowie\\Helpers\\": "app/views/helpers/"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

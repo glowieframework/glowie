@@ -11,13 +11,13 @@
      * @link https://glowie.tk
      * @version 0.3-alpha
      */
-    class Table extends BaseModel{
+    class Users extends BaseModel{
 
         /**
          * Model table name.
          * @var string
          */
-        protected $table = 'glowie';
+        protected $table = 'users';
 
         /**
          * Table primary key name.
@@ -29,7 +29,7 @@
          * Table manageable fields.
          * @var string[]
          */
-        protected $fields = ['id', 'name', 'status'];
+        protected $fields = ['id', 'email', 'password'];
 
     }
 

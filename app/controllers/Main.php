@@ -11,7 +11,7 @@
      * @link https://glowie.tk
      * @version 0.3-alpha
      */
-    class MainController extends BaseController{
+    class Main extends BaseController{
 
        public function init(){
            // This method will be instantiated before any other actions from this controller

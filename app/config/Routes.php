@@ -1,5 +1,6 @@
 <?php
     use Glowie\Core\Rails;
+    use Glowie\Controllers\Main;
 
     /*
         --------------------------------
@@ -12,6 +13,6 @@
     Rails::setAutoRouting(true);
 
     // User defined routes
-    Rails::addRoute('/', 'main-controller', 'index');
+    Rails::addRoute('/', Main::class, 'index');
 
 ?>
