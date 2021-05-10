@@ -16,7 +16,7 @@
     # Development environment
     # ------------------------
 
-    $glowieConfig['development'] = array(
+    $config['development'] = array(
         // Application cache
         'cache' => false,
 
@@ -27,12 +27,12 @@
         'error_reporting' => E_ALL,
 
         // Key used for encryption
-        'api_key' => 'Rj1UQHJfajlLKGN1WjhQYXBcSy4=',
+        'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
         // Token used for encryption
-        'api_token' => 'ckVdU3g3fkQmS0h0KyotTV1YdSs=',
+        'api_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
-        // Database connection settings
+        // Default database connection settings
         'database' => [
             'host' => 'localhost',
             'username' => 'root',
@@ -46,7 +46,7 @@
     # Production environment
     # -----------------------
 
-    $glowieConfig['production'] = array(
+    $config['production'] = array(
         // Application cache
         'cache' => true,
 
@@ -57,12 +57,12 @@
         'error_reporting' => 0,
 
         // Key used for encryption
-        'api_key' => 'Rj1UQHJfajlLKGN1WjhQYXBcSy4=',
+        'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
         // Token used for encryption
-        'api_token' => 'ckVdU3g3fkQmS0h0KyotTV1YdSs=',
+        'api_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
-        // Database connection settings
+        // Default database connection settings
         'database' => [
             'host' => 'localhost',
             'username' => 'user',

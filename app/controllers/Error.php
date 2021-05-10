@@ -9,25 +9,34 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.3-alpha
+     * @version 1.0
      */
     class Error extends BaseController{
+        
+        /**
+         * This method will be called before any other methods from this controller.
+         */
+        public function init(){
+            // Calls the extended class init method
+            parent::init();
+        }
 
-       public function init(){
-           // This method will be instantiated before any other actions from this controller
-           parent::init();
-       }
-
-       public function notFound(){
-           // Renders 404 error page
-           $this->renderView('error/404');
-       }
-
-       public function forbidden(){
-           // Renders 403 error page
-           $this->renderView('error/403');
-       }
-
+        /**
+         * Default handler for 404 errors.
+         */
+        public function notFound(){
+            // Renders 404 error page
+            $this->renderView('error/404');
+        }
+        
+        /**
+         * Default handler for 403 errors.
+         */
+        public function forbidden(){
+            // Renders 403 error page
+            $this->renderView('error/403');
+        }
+    
     }
 
 ?>

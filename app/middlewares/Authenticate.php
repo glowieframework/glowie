@@ -13,10 +13,22 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.3-alpha
+     * @version 1.0
      */
     class Authenticate extends BaseMiddleware{
 
+        /**
+         * This method will be called before any other methods from this middleware.
+         */
+        public function init(){
+            // Calls the extended class init method
+            parent::init();
+        }
+
+        /**
+         * The middleware handler.
+         * @return bool Should return true on success or false on fail.
+         */
         public function handle(){
             // Gets session data
             $session = new Session();
@@ -48,12 +60,18 @@
             return true;
         }
 
+        /**
+         * Called if the middleware handler returns true.
+         */
         public function success(){
-            //
+            // This method is optional
         }
 
+        /**
+         * Called if the middleware handler returns false.
+         */
         public function fail(){
-            //
+            // This method is optional
         }
 
     }

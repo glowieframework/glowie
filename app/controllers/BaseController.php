@@ -11,13 +11,18 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 0.3-alpha
+     * @version 1.0
      */
     class BaseController extends Controller{
 
+        /**
+         * This method will be called before any other methods from this controller.
+         */
         public function init(){
-           // This method will be instantiated before any other actions from this controller
+           // This method is optional
         }
+
+        // Use this controller to create properties and methods that can be reused in other controllers of your application
 
     }
 
