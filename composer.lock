@@ -4,22 +4,23 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c2c9872d9e955b7c177bde03670684b",
+    "content-hash": "dc6870a60416faf2f2664a5ce27eaaeb",
     "packages": [
         {
             "name": "glowieframework/glowie-core",
-            "version": "dev-wip",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "dd3891a3864b8683fa8e0264dad2c0d4bd0dfc23"
+                "reference": "75a1b42bd762c679e332dcb149315aa946f3d0ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/dd3891a3864b8683fa8e0264dad2c0d4bd0dfc23",
-                "reference": "dd3891a3864b8683fa8e0264dad2c0d4bd0dfc23",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/75a1b42bd762c679e332dcb149315aa946f3d0ab",
+                "reference": "75a1b42bd762c679e332dcb149315aa946f3d0ab",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -52,7 +53,7 @@
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
                 "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-05-10T01:23:23+00:00"
+            "time": "2021-05-16T00:26:50+00:00"
         }
     ],
     "packages-dev": [],

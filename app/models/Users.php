@@ -1,6 +1,8 @@
 <?php
     namespace Glowie\Models;
 
+    use Glowie\Core\Model;
+
     /**
      * Sample model for Glowie application.
      * @category Model
@@ -11,7 +13,7 @@
      * @link https://glowie.tk
      * @version 1.0
      */
-    class Users extends BaseModel{
+    class Users extends Model{
 
         /**
          * Model table name.

@@ -1,6 +1,8 @@
 <?php
     namespace Glowie\Middlewares;
 
+    use Glowie\Core\Middleware;
+
     use Glowie\Core\Session;
     use Glowie\Core\Validator;
     use Glowie\Models\Users;
@@ -15,14 +17,13 @@
      * @link https://glowie.tk
      * @version 1.0
      */
-    class Authenticate extends BaseMiddleware{
+    class Authenticate extends Middleware{
 
         /**
          * This method will be called before any other methods from this middleware.
          */
         public function init(){
-            // Calls the extended class init method
-            parent::init();
+            // This method is optional
         }
 
         /**
