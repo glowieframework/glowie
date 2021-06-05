@@ -19,19 +19,25 @@
          * Model table name.
          * @var string
          */
-        protected $table = 'users';
+        protected $_table = 'users';
 
         /**
          * Table primary key name.
          * @var string
          */
-        protected $primaryKey = 'id';
+        protected $_primaryKey = 'id';
 
         /**
          * Table manageable fields.
          * @var string[]
          */
-        protected $fields = ['id', 'email', 'password'];
+        protected $_fields = ['id', 'email', 'password'];
+
+        /**
+         * Handle timestamp fields.
+         * @var bool
+         */
+        protected $_timestamps = true;
 
     }
 

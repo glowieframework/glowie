@@ -26,6 +26,9 @@
         // Error reporting level
         'error_reporting' => E_ALL,
 
+        // Error logging
+        'error_log' => true,
+
         // Key used for encryption
         'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
@@ -55,6 +58,9 @@
 
         // Error reporting level
         'error_reporting' => 0,
+
+        // Error logging
+        'error_log' => true,
 
         // Key used for encryption
         'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',

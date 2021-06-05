@@ -5,14 +5,14 @@
         --------------------------------
         Application index
         --------------------------------
-        This file is responsible for loading Composer dependencies and running Glowie bootstrapper.
+        This file is responsible for loading Composer packages and running Glowie bootstrapper.
 
         ---------------------------------------------
         We do not recommend editing below this line.
         ---------------------------------------------
     */
 
-    // Load Composer dependencies
+    // Load Composer packages
     require_once('../../vendor/autoload.php');
 
     // Run Glowie bootstrapper
