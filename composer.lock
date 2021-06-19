@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glowieframework/glowie-core.git",
-                "reference": "e954c4ff7be4e8b635a195fa11c3f76795c38a6f"
+                "reference": "22ffcc82989854a0c0411c703622989a65e6a8e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/e954c4ff7be4e8b635a195fa11c3f76795c38a6f",
-                "reference": "e954c4ff7be4e8b635a195fa11c3f76795c38a6f",
+                "url": "https://api.github.com/repos/glowieframework/glowie-core/zipball/22ffcc82989854a0c0411c703622989a65e6a8e3",
+                "reference": "22ffcc82989854a0c0411c703622989a65e6a8e3",
                 "shasum": ""
             },
             "default-branch": true,
@@ -53,7 +53,7 @@
                 "issues": "https://github.com/glowieframework/glowie-core/issues",
                 "source": "https://github.com/glowieframework/glowie-core"
             },
-            "time": "2021-06-05T17:32:22+00:00"
+            "time": "2021-06-19T22:04:11+00:00"
         }
     ],
     "packages-dev": [],

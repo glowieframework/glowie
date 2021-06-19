@@ -3,7 +3,6 @@
 
     use Glowie\Core\Middleware;
 
-    use Glowie\Core\Session;
     use Glowie\Core\Validator;
     use Glowie\Models\Users;
 
@@ -32,10 +31,9 @@
          */
         public function handle(){
             // Gets session data
-            $session = new Session();
             $sessionData = [
-                'email' => $session->email,
-                'password' => $session->password
+                'email' => $this->session->email,
+                'password' => $this->session->password
             ];
 
             // Validates session data
