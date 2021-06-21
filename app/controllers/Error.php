@@ -26,7 +26,9 @@
          */
         public function notFound(){
             // Renders 404 error page
-            $this->renderView('error/404');
+            $this->renderLayout('default', 'error/404', [
+                'title' => '404 | Page not found'
+            ]);
         }
         
         /**
@@ -34,7 +36,9 @@
          */
         public function forbidden(){
             // Renders 403 error page
-            $this->renderView('error/403');
+            $this->renderLayout('default', 'error/403', [
+                'title' => 'Access forbidden'
+            ]);
         }
     
     }

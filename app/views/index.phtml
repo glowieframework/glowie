@@ -1,20 +1,18 @@
-<div class="wrapper">
+<div class="main">
     <div class="content">
-        <div class="inner">
-            <img src="assets/images/logo.png" class="logo">
-            <h1>Welcome to Glowie</h1>
-            <div class="text">
-                You are ready to create something awesome!
+        <h1>glowie</h1>
+        <div class="text">
+            <h2>You are ready to create something awesome</h2>
+            <div class="menu">
+                <a href="https://glowie.tk" target="_blank">Website</a>
+                <a href="https://glowie.tk/docs" target="_blank">Docs</a>
+                <a href="https://github.com/glowieframework" target="_blank">GitHub</a>
+                <a href="https://github.com/glowieframework/glowie/discussions" target="_blank">Support</a>
             </div>
-            <a href="https://glowie.tk" target="_blank">Website</a>
-            <a href="https://glowie.tk/docs" target="_blank">Docs</a>
-            <a href="https://github.com/glowieframework" target="_blank">GitHub</a>
-            <a href="https://github.com/glowieframework/glowie/discussions" target="_blank">Support</a>
             <div class="info">
-                Currently using Glowie <?= Util::getVersion(); ?> with PHP <?= phpversion(); ?><br>
+                Glowie <?= Util::getVersion(); ?> | PHP <?= phpversion(); ?><br>
                 Page rendered in <?= $this->getRenderTime(); ?> seconds
             </div>
         </div>
     </div>
-    <div class="image"><img src="assets/images/splash.png"></div>
 </div>

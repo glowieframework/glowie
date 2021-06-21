@@ -9,8 +9,8 @@
     */
 
     Babel::set('en', [
-        'message' => 'Hello, this is my first internationalization message.',
-        'instructions' => 'Use this array to set all strings you want.'
+        'forbidden' => 'You are not allowed to access this page',
+        'not_found' => 'The page you were looking for was not found'
     ]);
 
     // Sets the current active language
