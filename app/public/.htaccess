@@ -4,6 +4,8 @@
 # This file is responsible for redirecting all URI requests to Glowie router.
 # Here you can also set the current active configuration environment.
 
+# If your hosting provider does not support SetEnv, comment the following line
+# production environment will be used by default if this is not present
 SetEnv GLOWIE_ENVIRONMENT development
 
 # ------------------------------------------------------------------------------

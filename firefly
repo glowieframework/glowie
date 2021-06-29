@@ -1,11 +1,11 @@
 <?php
-    use Glowie\Core\Application;
+    use Glowie\Core\Firefly;
 
     /*
         --------------------------------
-        Application index
+        Glowie Firefly
         --------------------------------
-        This file is responsible for loading Composer packages and running Glowie bootstrapper.
+        This file is responsible for running Glowie command line tool.
 
         ---------------------------------------------
         We do not recommend editing below this line.
@@ -13,9 +13,9 @@
     */
 
     // Load Composer packages
-    require_once('../../vendor/autoload.php');
+    require_once('vendor/autoload.php');
 
-    // Run Glowie bootstrapper
-    Application::run();
+    // Run Firefly
+    Firefly::run();
     
 ?>
