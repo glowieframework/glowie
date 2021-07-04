@@ -19,7 +19,7 @@
          * This method will be called before any other methods from this controller.
          */
         public function init(){
-           // This method is optional
+           //
         }
 
         // Use this controller to create properties and methods that can be reused in other controllers of your application

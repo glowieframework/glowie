@@ -2,10 +2,11 @@
 # Application .gitignore
 # --------------------------------
 # This file is responsible for ignoring certain files into your application source control (GIT)
-# By default Glowie ignores application config file (for containing sensitive data), cached files, error log and Composer packages
+# By default Glowie ignores application config file (for containing sensitive data), cached files, error logs and Composer packages
 
 app/config/Config.php
 app/storage/cache/*
 !app/storage/cache/.gitkeep
 app/storage/error.log
 /vendor/
+composer.lock

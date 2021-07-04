@@ -39,6 +39,18 @@
          */
         protected $_timestamps = true;
 
+        /**
+         * **Created at** field name (if timestamps enabled).
+         * @var string
+         */
+        protected $_createdField = 'created_at';
+
+        /**
+         * **Updated at** field name (if timestamps enabled).
+         * @var string
+         */
+        protected $_updatedField = 'updated_at';
+
     }
 
 ?>

@@ -17,12 +17,12 @@
          * This method will be called before any other methods from this controller.
          */
         public function init(){
-            // Calls the extended class init method
+            // Calls the BaseController init() method
             parent::init();
         }
 
         /**
-         * Default handler for 404 errors.
+         * Handler for 404 Not Found errors.
          */
         public function notFound(){
             // Renders 404 error page
@@ -32,7 +32,7 @@
         }
         
         /**
-         * Default handler for 403 errors.
+         * Handler for 403 Forbidden errors.
          */
         public function forbidden(){
             // Renders 403 error page

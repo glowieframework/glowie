@@ -78,6 +78,6 @@
         ]
     );
 
-    # Remember: you can create as many environments as you want to.
+    // Remember: you can create as many environments as you want to.
 
 ?>
