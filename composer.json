@@ -28,6 +28,7 @@
         "psr-4": {
             "Glowie\\Controllers\\": "app/controllers/",
             "Glowie\\Middlewares\\": "app/middlewares/",
+            "Glowie\\Migrations\\": "app/migrations/",
             "Glowie\\Models\\": "app/models/",
             "Glowie\\Helpers\\": "app/views/helpers/"
         }
