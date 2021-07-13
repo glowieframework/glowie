@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Models;
 
-    use Glowie\Core\Model;
+    use Glowie\Core\Database\Model;
 
     /**
      * Sample model for Glowie application.

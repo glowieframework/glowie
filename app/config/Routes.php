@@ -1,5 +1,5 @@
 <?php
-    use Glowie\Core\Rails;
+    use Glowie\Core\Http\Rails;
     use Glowie\Controllers\Main;
 
     /*

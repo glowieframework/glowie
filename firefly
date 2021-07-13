@@ -1,5 +1,5 @@
 <?php
-    use Glowie\Core\Firefly;
+    use Glowie\Core\CLI\Firefly;
 
     /*
         --------------------------------
@@ -17,5 +17,5 @@
 
     // Run Firefly
     Firefly::run();
-    
+
 ?>

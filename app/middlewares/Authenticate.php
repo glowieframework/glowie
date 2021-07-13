@@ -1,9 +1,9 @@
 <?php
     namespace Glowie\Middlewares;
 
-    use Glowie\Core\Middleware;
+    use Glowie\Core\Http\Middleware;
 
-    use Glowie\Core\Validator;
+    use Glowie\Core\Tools\Validator;
     use Glowie\Models\Users;
     use Util;
 

@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Migrations;
 
-    use Glowie\Core\Migration;
+    use Glowie\Core\Database\Migration;
     use Util;
 
     /**

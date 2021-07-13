@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Middlewares;
 
-    use Glowie\Core\Middleware;
+    use Glowie\Core\Http\Middleware;
 
     /**
      * CSRF token validation middleware for Glowie application.

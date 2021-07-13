@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Controllers;
-    
-    use Glowie\Core\Controller;
+
+    use Glowie\Core\Http\Controller;
 
     /**
      * Base controller for Glowie application.
