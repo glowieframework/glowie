@@ -5,6 +5,7 @@
 
     use Glowie\Core\Validator;
     use Glowie\Models\Users;
+    use Util;
 
     /**
      * Sample middleware for Glowie application.
@@ -47,12 +48,12 @@
 
             // Gets current user information
             $usersModel = new Users();
-            $user = $usersModel->where('email', $sessionData['email'])->fetchRow();
+            $user = $usersModel->findBy('email', $sessionData['email']);
 
             if(!$user) return false;
 
             // Checks password
-            if(md5($sessionData['password']) != $user->password) return false;
+            if(Util::encryptString($sessionData['password']) != $user->password) return false;
 
             // Sends the authenticated user information to the controller
             $this->controller->user = $user;

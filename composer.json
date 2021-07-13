@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "dev-main"
+        "glowieframework/glowie-core": "dev-wip"
     },
     "autoload": {
         "psr-4": {

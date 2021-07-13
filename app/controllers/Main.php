@@ -27,7 +27,7 @@
         public function index(){
             // Renders the starting page
             $this->renderLayout('default', 'index', [
-                'title' => 'Welcome to Glowie'
+                'title' => 'Welcome to Glowie!'
             ]);
         }
 

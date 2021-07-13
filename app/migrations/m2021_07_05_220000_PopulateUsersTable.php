@@ -2,6 +2,7 @@
     namespace Glowie\Migrations;
 
     use Glowie\Core\Migration;
+    use Util;
 
     /**
      * Sample migration for Glowie application.
@@ -28,9 +29,9 @@
          */
         public function run(){
             return $this->db->table('users')->insert([
-                ['email' => 'lorem@ipsum.com', 'password' => md5('123')],
-                ['email' => 'janedoe@gmail.com', 'password' => md5('jane@2021')],
-                ['email' => 'john_oliver@glowie.tk', 'password' => md5('burrito')]
+                ['email' => 'lorem@ipsum.com', 'password' => Util::encryptString('123')],
+                ['email' => 'janedoe@gmail.com', 'password' => Util::encryptString('jane@2021')],
+                ['email' => 'john_oliver@glowie.tk', 'password' => Util::encryptString('burrito')]
             ]);
         }
 

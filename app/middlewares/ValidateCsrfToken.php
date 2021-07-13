@@ -2,8 +2,6 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Middleware;
-    
-    use Util;
 
     /**
      * CSRF token validation middleware for Glowie application.
@@ -15,16 +13,24 @@
      * @link https://glowie.tk
      * @version 1.0
      */
-    class CsrfToken extends Middleware{
+    class ValidateCsrfToken extends Middleware{
 
         /**
          * The middleware handler.
          * @return bool Should return true on success or false on fail.
          */
         public function handle(){
-            // Validates the token input field from POST method
-            if(!$this->post->token) return false;
-            if(Util::checkCsrfToken($this->post->token)){
+            // Retrieves the token from POST request or headers
+            if(!empty($this->post->_token)){
+                $token = $this->post->_token;
+            }else if(!empty($this->request->getHeader('X-CSRF-TOKEN'))){
+                $token = $this->request->getHeader('X-CSRF-TOKEN');
+            }else{
+                return false;
+            }
+
+            // Validates the token
+            if($this->request->checkCsrfToken($token)){
                 return true;
             }else{
                 return false;
