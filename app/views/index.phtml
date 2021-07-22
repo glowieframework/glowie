@@ -10,8 +10,8 @@
                 <a href="https://github.com/glowieframework/glowie/discussions" target="_blank">Support</a>
             </div>
             <div class="info">
-                Glowie <?= Util::getVersion(); ?> | PHP <?= phpversion(); ?><br>
-                Page rendered in <?= $this->getRenderTime(); ?> seconds
+                Glowie {{Util::getVersion()}} | PHP {{phpversion()}}<br>
+                Page rendered in {{$this->getRenderTime()}} seconds
             </div>
         </div>
     </div>

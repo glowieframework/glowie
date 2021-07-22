@@ -17,23 +17,26 @@
     # ------------------------
 
     $config['development'] = array(
-        // Application cache
+        // Enable application cache
         'cache' => false,
 
-        // Application timezone
+        // Use Skeltch templating engine
+        'skeltch' => true,
+
+        // Application default timezone
         'timezone' => 'America/Sao_Paulo',
 
         // Error reporting level
         'error_reporting' => E_ALL,
 
-        // Error logging
+        // Enable error logging
         'error_log' => true,
 
-        // Key used for encryption
-        'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+        // Key used in encrypting functions
+        'hash_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
-        // Token used for encryption
-        'api_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
+        // Token used in encrypting functions
+        'hash_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
         // Default database connection settings
         'database' => [
@@ -50,23 +53,26 @@
     # -----------------------
 
     $config['production'] = array(
-        // Application cache
+        // Enable application cache
         'cache' => true,
 
-        // Application timezone
+        // Use Skeltch templating engine
+        'skeltch' => true,
+
+        // Application default timezone
         'timezone' => 'America/Sao_Paulo',
 
         // Error reporting level
         'error_reporting' => 0,
 
-        // Error logging
+        // Enable error logging
         'error_log' => true,
 
-        // Key used for encryption
-        'api_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+        // Key used in encrypting functions
+        'hash_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
-        // Token used for encryption
-        'api_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
+        // Token used in encrypting functions
+        'hash_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
         // Default database connection settings
         'database' => [
