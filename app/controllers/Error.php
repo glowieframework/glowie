@@ -14,14 +14,6 @@
      * @version 1.0
      */
     class Error extends BaseController{
-        
-        /**
-         * This method will be called before any other methods from this controller.
-         */
-        public function init(){
-            // Calls the BaseController init() method
-            parent::init();
-        }
 
         /**
          * Handler for 404 Not Found errors.
@@ -34,7 +26,7 @@
                 'message' => Babel::get('not_found')
             ]);
         }
-        
+
         /**
          * Handler for 403 Forbidden errors.
          */
@@ -58,7 +50,7 @@
                 'message' => Babel::get('not_allowed')
             ]);
         }
-    
+
     }
 
 ?>

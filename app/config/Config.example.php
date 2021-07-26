@@ -33,10 +33,10 @@
         'error_log' => true,
 
         // Key used in encrypting functions
-        'hash_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+        'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
         // Token used in encrypting functions
-        'hash_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
+        'app_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
         // Default database connection settings
         'database' => [
@@ -69,10 +69,10 @@
         'error_log' => true,
 
         // Key used in encrypting functions
-        'hash_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+        'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
         // Token used in encrypting functions
-        'hash_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
+        'app_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
 
         // Default database connection settings
         'database' => [

@@ -5,10 +5,9 @@
 
     use Glowie\Core\Tools\Validator;
     use Glowie\Models\Users;
-    use Util;
 
     /**
-     * Sample middleware for Glowie application.
+     * Authentication middleware for Glowie application.
      * @category Middleware
      * @package glowieframework/glowie
      * @author Glowie
@@ -53,7 +52,7 @@
             if(!$user) return false;
 
             // Checks password
-            if(Util::encryptString($sessionData['password']) != $user->password) return false;
+            if(!password_verify($sessionData['password'], $user->password)) return false;
 
             // Sends the authenticated user information to the controller
             $this->controller->user = $user;
