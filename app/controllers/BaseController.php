@@ -2,6 +2,7 @@
     namespace Glowie\Controllers;
 
     use Glowie\Core\Http\Controller;
+    use Babel;
 
     /**
      * Base controller for Glowie application.
@@ -19,10 +20,9 @@
          * This method will be called before any other methods from this controller.
          */
         public function init(){
-           //
+            // Sets the current active language
+            Babel::setActiveLanguage('en');
         }
-
-        // Use this controller to create properties and methods that can be reused in other controllers of your application
 
     }
 

@@ -14,7 +14,4 @@
         'not_allowed' => 'The current method is not allowed'
     ]);
 
-    // Sets the current active language
-    Babel::setActiveLanguage('en');
-
 ?>
