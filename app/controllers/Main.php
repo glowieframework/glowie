@@ -12,7 +12,7 @@
      * @version 1.0
      */
     class Main extends BaseController{
-        
+
         /**
          * This method will be called before any other methods from this controller.
          */
@@ -20,7 +20,7 @@
             // Calls the BaseController init() method
             parent::init();
         }
-        
+
         /**
          * Index action.
          */
