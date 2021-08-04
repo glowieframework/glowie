@@ -32,6 +32,9 @@
         // Enable error logging
         'error_log' => true,
 
+        // Session unused lifetime
+        'session_lifetime' => 120,
+
         // Key used in encrypting functions
         'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
 
@@ -67,6 +70,9 @@
 
         // Enable error logging
         'error_log' => true,
+
+        // Session unused lifetime
+        'session_lifetime' => 120,
 
         // Key used in encrypting functions
         'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
