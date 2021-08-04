@@ -7,8 +7,6 @@
 # We do not recommend editing below this line unless you know what you're doing.
 # ------------------------------------------------------------------------------
 
-Options +FollowSymLinks
-
+Options -Indexes -MultiViews
 RewriteEngine On
-RewriteRule !\.(7z|aiff|asf|avi|bmp|csv|css|doc|docx|fla|flv|gif|gz|gzip|htm|html|json|ico|jpeg|jpg|js|less|mid|mov|mp3|mp4|mpc|mpeg|mpg|ods|odt|pdf|php|png|ppt|pptx|pxd|qt|ram|rar|rm|rmi|rmvb|rtf|sdc|sitd|swf|svg|sxc|sxw|tar|tgz|tif|tiff|ttf|txt|vsd|wav|wma|map|wmv|woff|woff2|xls|xlsx|xml|zip)$ app/public/index.php [NC,L]
 RewriteRule ^(.*)$ app/public/$1 [NC,L]

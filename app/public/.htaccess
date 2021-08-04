@@ -5,18 +5,14 @@
 # Here you can also set the current active configuration environment.
 
 # If your hosting provider does not support SetEnv, comment the following line
-# production environment will be used by default if this is not present
+# production environment will be used by default if this is unavailable
 SetEnv GLOWIE_ENVIRONMENT development
 
 # ------------------------------------------------------------------------------
 # We do not recommend editing below this line unless you know what you're doing.
 # ------------------------------------------------------------------------------
 
-Options +FollowSymLinks
-
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
