@@ -32,7 +32,7 @@
         // Enable error logging
         'error_log' => true,
 
-        // Session unused lifetime
+        // Unused session lifetime
         'session_lifetime' => 120,
 
         // Key used in encrypting functions
@@ -71,7 +71,7 @@
         // Enable error logging
         'error_log' => true,
 
-        // Session unused lifetime
+        // Unused session lifetime
         'session_lifetime' => 120,
 
         // Key used in encrypting functions
