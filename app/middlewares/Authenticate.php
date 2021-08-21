@@ -19,13 +19,6 @@
     class Authenticate extends Middleware{
 
         /**
-         * This method will be called before any other methods from this middleware.
-         */
-        public function init(){
-            //
-        }
-
-        /**
          * The middleware handler.
          * @return bool Should return true on success or false on fail.
          */
@@ -40,7 +33,7 @@
             $validator = new Validator();
             $validationRules = [
                 'email' => ['required', 'email'],
-                'password' => ['required']
+                'password' => 'required'
             ];
 
             if(!$validator->validateFields($sessionData, $validationRules)) return false;
@@ -57,20 +50,6 @@
             // Sends the authenticated user information to the controller
             $this->controller->user = $user;
             return true;
-        }
-
-        /**
-         * Called if the middleware handler returns true.
-         */
-        public function success(){
-            //
-        }
-
-        /**
-         * Called if the middleware handler returns false.
-         */
-        public function fail(){
-            //
         }
 
     }

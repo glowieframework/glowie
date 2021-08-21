@@ -12,8 +12,14 @@
         ---------------------------------------------
     */
 
+    // Check Composer files
+    if(!file_exists('../../vendor/autoload.php')){
+        die('<strong>Composer packages were not found!</strong><br>
+        Have you tried running <i>composer install</i>?');
+    }
+
     // Load Composer packages
-    require_once('../../vendor/autoload.php');
+    require('../../vendor/autoload.php');
 
     // Run Glowie bootstrapper
     Application::run();
