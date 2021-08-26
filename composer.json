@@ -26,6 +26,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Glowie\\Commands\\": "app/commands/",
             "Glowie\\Controllers\\": "app/controllers/",
             "Glowie\\Middlewares\\": "app/middlewares/",
             "Glowie\\Migrations\\": "app/migrations/",
