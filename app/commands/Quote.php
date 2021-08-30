@@ -4,6 +4,16 @@
     use Util;
     use Glowie\Core\CLI\Command;
 
+    /**
+     * Inspirational CLI command for Glowie application.
+     * @category Command
+     * @package glowieframework/glowie
+     * @author Glowie
+     * @copyright Copyright (c) 2021
+     * @license MIT
+     * @link https://glowie.tk
+     * @version 1.0
+     */
     class Quote extends Command{
 
         /**
