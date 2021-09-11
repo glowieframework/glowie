@@ -5,7 +5,7 @@
         Application configuration
         --------------------------------
         In this file you can define your application configuration for the current environment.
-        Be sure to rename this file to 'Config.php' before starting.
+        Be sure to copy this file to 'app/config/Config.php' before starting.
 
         ---------------------------------------------------------------------------------------------------------------
         WARNING: This file should not be commited to your application source control as it may contain sensitive data.

@@ -39,7 +39,7 @@
          * @return bool Returns true on success or false on errors.
          */
         public function rollback(){
-            return $this->db->query('TRUNCATE TABLE users');
+            return $this->forge->table('users')->truncate();
         }
 
     }
