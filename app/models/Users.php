@@ -28,10 +28,16 @@
         protected $_primaryKey = 'id';
 
         /**
-         * Table manageable fields.
+         * Table retrievable fields.
          * @var array
          */
-        protected $_fields = ['id', 'email', 'password'];
+        protected $_fields = [];
+
+        /**
+         * Table updatable fields.
+         * @var array
+         */
+        protected $_updatable = ['email', 'password'];
 
         /**
          * Handle timestamp fields.
