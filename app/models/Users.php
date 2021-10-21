@@ -40,6 +40,12 @@
         protected $_updatable = ['email', 'password'];
 
         /**
+         * Table fields data types to cast.
+         * @var array
+         */
+        protected $_casts = ['id' => 'int'];
+
+        /**
          * Handle timestamp fields.
          * @var bool
          */
