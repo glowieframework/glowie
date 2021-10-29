@@ -44,7 +44,8 @@
             'username' => 'root',
             'password' => '',
             'db' => 'glowie',
-            'port' => 3306
+            'port' => 3306,
+            'charset' => 'utf8'
         ]
 
     ];
