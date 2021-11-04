@@ -9,9 +9,11 @@
     */
 
     return [
-        'forbidden' => 'You are not allowed to access this page',
-        'not_found' => 'The page you were looking for was not found',
-        'not_allowed' => 'The current method is not allowed'
+        'errors' => [
+            'forbidden' => 'You are not allowed to access this page',
+            'not_found' => 'The page you were looking for was not found',
+            'not_allowed' => 'The current method is not allowed'
+        ]
     ];
 
 ?>

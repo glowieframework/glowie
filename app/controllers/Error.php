@@ -31,7 +31,7 @@
             $this->renderLayout('default', 'error/error', [
                 'title' => 'Page not found',
                 'code' => 404,
-                'message' => Babel::get('not_found')
+                'message' => Babel::get('errors.not_found')
             ]);
         }
 
@@ -43,7 +43,7 @@
             $this->renderLayout('default', 'error/error', [
                 'title' => 'Access forbidden',
                 'code' => 403,
-                'message' => Babel::get('forbidden')
+                'message' => Babel::get('errors.forbidden')
             ]);
         }
 
@@ -55,7 +55,7 @@
             $this->renderLayout('default', 'error/error', [
                 'title' => 'Not allowed',
                 'code' => 405,
-                'message' => Babel::get('not_allowed')
+                'message' => Babel::get('errors.not_allowed')
             ]);
         }
 
