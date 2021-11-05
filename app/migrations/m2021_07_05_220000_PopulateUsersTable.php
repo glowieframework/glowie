@@ -16,19 +16,6 @@
     class m2021_07_05_220000_PopulateUsersTable extends Migration{
 
         /**
-         * Migration database connection settings.
-         * @var array
-         */
-        protected $database = [];
-
-        /**
-         * This method will be called before any other methods from this migration.
-         */
-        public function init(){
-            //
-        }
-
-        /**
          * Runs the migration.
          * @return bool Returns true on success or false on errors.
          */
