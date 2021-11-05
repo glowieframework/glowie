@@ -29,7 +29,7 @@
         public function notFound(){
             // Renders 404 error page
             $this->renderLayout('default', 'error/error', [
-                'title' => 'Page not found',
+                'title' => 'Page Not Found',
                 'code' => 404,
                 'message' => Babel::get('errors.not_found')
             ]);
@@ -41,7 +41,7 @@
         public function forbidden(){
             // Renders 403 error page
             $this->renderLayout('default', 'error/error', [
-                'title' => 'Access forbidden',
+                'title' => 'Access Forbidden',
                 'code' => 403,
                 'message' => Babel::get('errors.forbidden')
             ]);
@@ -53,9 +53,21 @@
         public function methodNotAllowed(){
             // Renders 405 error page
             $this->renderLayout('default', 'error/error', [
-                'title' => 'Not allowed',
+                'title' => 'Not Allowed',
                 'code' => 405,
                 'message' => Babel::get('errors.not_allowed')
+            ]);
+        }
+
+        /**
+         * Handler for 503 Service Unavailable errors.
+         */
+        public function serviceUnavailable(){
+            // Renders 503 error page
+            $this->renderLayout('default', 'error/error', [
+                'title' => 'Service Unavailable',
+                'code' => 503,
+                'message' => Babel::get('errors.service_unavailable')
             ]);
         }
 

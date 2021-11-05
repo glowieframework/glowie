@@ -14,38 +14,82 @@
 
     return [
 
-        // Enable application cache
-        'cache' => true,
+        // Application maintenance mode
+        'maintenance' => [
 
-        // Use Skeltch templating engine
-        'skeltch' => true,
+            // Enable maintenance mode
+            'enabled' => false,
 
-        // Application default timezone
-        'timezone' => 'America/Sao_Paulo',
+            // Maintenance mode bypass key
+            'bypass_key' => '470c054cfc6780df66bf3922eddbd883'
 
-        // Error reporting level
-        'error_reporting' => E_ALL,
+        ],
 
-        // Enable error logging
-        'error_log' => true,
+        // Skeltch templating engine
+        'skeltch' => [
 
-        // Unused session lifetime
-        'session_lifetime' => 120,
+            // Enable views compiler
+            'enabled' => true,
 
-        // Key used in encrypting functions
-        'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+            // Enable views caching
+            'cache' => true
 
-        // Token used in encrypting functions
-        'app_token' => 'd147723d9e91340d9dd28fbd5a0b6651',
+        ],
 
-        // Default database connection settings
+        // Application error reporting
+        'error_reporting' => [
+
+            // Error reporting level
+            'level' => E_ALL,
+
+            // Enable error logging
+            'log' => true
+
+        ],
+
+        // Application session management
+        'session' => [
+
+            // Unused session lifetime
+            'lifetime' => 120,
+
+            // Number of requests when to run the garbage collector
+            'clean' => 50
+
+        ],
+
+        // Application secret keys
+        'secret' => [
+
+            // Key used in encrypting functions
+            'app_key' => 'f08e8ba131c7abab97dba275fab5a85e',
+
+            // Token used in encrypting functions
+            'app_token' => 'd147723d9e91340d9dd28fbd5a0b6651'
+
+        ],
+
+        // Application database connection settings
         'database' => [
-            'host' => 'localhost',
-            'username' => 'root',
-            'password' => '',
-            'db' => 'glowie',
-            'port' => 3306,
-            'charset' => 'utf8'
+
+            // Default connection
+            'default' => [
+                'host' => 'localhost',
+                'username' => 'root',
+                'password' => '',
+                'db' => 'glowie',
+                'port' => 3306,
+                'charset' => 'utf8'
+            ]
+
+        ],
+
+        // Application miscellaneous settings
+        'other' => [
+
+            // Default timezone
+            'timezone' => 'America/Sao_Paulo'
+
         ]
 
     ];

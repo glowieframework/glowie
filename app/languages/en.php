@@ -9,11 +9,24 @@
     */
 
     return [
+
+        // Error messages
         'errors' => [
+
+            // 403 error message
             'forbidden' => 'You are not allowed to access this page',
+
+            // 404 error message
             'not_found' => 'The page you were looking for was not found',
-            'not_allowed' => 'The current method is not allowed'
+
+            // 405 error message
+            'not_allowed' => 'The current method is not allowed',
+
+            // 503 error message
+            'service_unavailable' => 'We will be back soon'
+
         ]
+
     ];
 
 ?>
