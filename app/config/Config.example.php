@@ -28,7 +28,7 @@
         // Skeltch templating engine
         'skeltch' => [
 
-            // Enable views compiler
+            // Enable Skeltch compiler
             'enabled' => true,
 
             // Enable views caching
@@ -43,7 +43,7 @@
             'level' => E_ALL,
 
             // Enable error logging
-            'log' => true
+            'logging' => true
 
         ],
 
@@ -54,7 +54,7 @@
             'lifetime' => 120,
 
             // Number of requests when to run the garbage collector
-            'clean' => 50
+            'gc_cleaning' => 50
 
         ],
 
