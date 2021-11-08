@@ -2,6 +2,7 @@
     namespace Glowie\Controllers;
 
     use Glowie\Core\Http\Controller;
+
     use Babel;
 
     /**

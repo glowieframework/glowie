@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Tests;
 
-    use Glowie\Core\UnitTest;
+    use Glowie\Core\Tests\UnitTest;
 
     use Glowie\Models\Users;
 
@@ -16,22 +16,33 @@
      * @version 1.0
      */
     class UsersModelTest extends UnitTest{
-        
+
+        /**
+         * Model handler.
+         * @var Users
+         */
+        private $usersModel;
+
+        /**
+         * This method will be called before any other methods from this test.
+         */
+        public function init(){
+            $this->usersModel = new Users();
+        }
+
         /**
          * Tests a user retrieval from the model.
          */
         public function testUserRetrieval(){
-            $model = new Users();
-            $this->isNotNull($model->find(1));
+            $this->isNotNull($this->usersModel->find(1));
         }
 
         /**
          * Tests if a specific user ID matches an expected email.
          */
         public function testEmailMatches(){
-            $model = new Users();
-            $result = $model->find(1);
-            $this->equals($result->email, 'lorem@ipdsum.com');
+            $result = $this->usersModel->find(1);
+            $this->equals($result->email, 'lorem@ipsum.com');
         }
 
     }
