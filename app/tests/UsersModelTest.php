@@ -34,7 +34,7 @@
          * Tests a user retrieval from the model.
          */
         public function testUserRetrieval(){
-            $this->isNotNull($this->usersModel->find(1));
+            $this->assertIsNotNull($this->usersModel->find(1));
         }
 
         /**
@@ -42,7 +42,7 @@
          */
         public function testEmailMatches(){
             $result = $this->usersModel->find(1);
-            $this->equals($result->email, 'lorem@ipsum.com');
+            $this->assertEquals($result->email, 'lorem@ipsum.com');
         }
 
     }
