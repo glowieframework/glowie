@@ -22,14 +22,14 @@
          */
         public function run(){
             return $this->forge->table('users')
-                                ->ifNotExists()
-                                ->autoIncrement('id')
-                                ->primaryKey('id')
-                                ->createColumn('email', 'VARCHAR', 255)
-                                ->createColumn('password', 'VARCHAR', 255)
-                                ->createColumn('created_at', 'DATETIME', null, Skeleton::raw('CURRENT_TIMESTAMP()'))
-                                ->createColumn('updated_at', 'DATETIME', null, Skeleton::raw('CURRENT_TIMESTAMP()'))
-                                ->create();
+                ->ifNotExists()
+                ->autoIncrement('id')
+                ->primaryKey('id')
+                ->createColumn('email', 'VARCHAR', 255)
+                ->createColumn('password', 'VARCHAR', 255)
+                ->createColumn('created_at', 'DATETIME', null, Skeleton::raw('CURRENT_TIMESTAMP()'))
+                ->createColumn('updated_at', 'DATETIME', null, Skeleton::raw('CURRENT_TIMESTAMP()'))
+                ->create();
         }
 
         /**

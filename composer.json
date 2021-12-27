@@ -36,8 +36,11 @@
         }
     },
     "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('app/config/Config.php') || copy('app/config/Config.example.php', 'app/config/Config.php');\""
+        ],
         "post-create-project-cmd": [
-            "@php -r \"copy('app/config/Config.example.php', 'app/config/Config.php');\""
+            "@php firefly generate-keys"
         ]
     },
     "config": {

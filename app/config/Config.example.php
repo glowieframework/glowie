@@ -84,6 +84,14 @@
 
         ],
 
+        // Migrations settings
+        'migrations' => [
+
+            // Migrations history table name
+            'table' => 'migrations'
+
+        ],
+
         // Application miscellaneous settings
         'other' => [
 
