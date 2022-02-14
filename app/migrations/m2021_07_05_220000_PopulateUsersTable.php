@@ -2,6 +2,8 @@
     namespace Glowie\Migrations;
 
     use Glowie\Core\Database\Migration;
+    use Glowie\Core\Database\Skeleton;
+    use Glowie\Core\Database\Kraken;
 
     /**
      * Sample migration for Glowie application.

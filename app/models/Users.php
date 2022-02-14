@@ -46,6 +46,12 @@
         protected $_updatable = ['email', 'password'];
 
         /**
+         * Initial model attributes.
+         * @var array
+         */
+        protected $_attributes = [];
+
+        /**
          * Table fields data types to cast.
          * @var array
          */
