@@ -23,12 +23,6 @@
          * @return bool Should return true on success or false on fail.
          */
         public function handle(){
-            // Gets session data
-            $sessionData = [
-                'email' => $this->session->email,
-                'password' => $this->session->password
-            ];
-
             // Validates session data
             $validator = new Validator();
             $validationRules = [
@@ -36,16 +30,18 @@
                 'password' => 'required'
             ];
 
-            if(!$validator->validateFields($sessionData, $validationRules)) return false;
+            // Performs data validation
+            if(!$validator->validateFields($this->session, $validationRules)) return false;
 
             // Gets current user information
             $usersModel = new Users();
-            $user = $usersModel->findBy('email', $sessionData['email']);
+            $user = $usersModel->findBy('email', $this->session->email);
 
+            // Checks if user exists
             if(!$user) return false;
 
             // Checks password
-            if(!password_verify($sessionData['password'], $user->password)) return false;
+            if(!password_verify($this->session->password, $user->password)) return false;
 
             // Sends the authenticated user information to the controller
             $this->controller->user = $user;

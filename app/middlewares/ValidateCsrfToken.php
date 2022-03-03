@@ -20,21 +20,12 @@
          * @return bool Should return true on success or false on fail.
          */
         public function handle(){
-            // Retrieves the token from POST request or headers
-            if(!empty($this->post->_token)){
-                $token = $this->post->_token;
-            }else if(!empty($this->request->getHeader('X-CSRF-TOKEN'))){
-                $token = $this->request->getHeader('X-CSRF-TOKEN');
-            }else{
-                return false;
-            }
+            // Retrieves the token from POST field or header
+            $token = $this->post->_token ?? $this->request->getHeader('X-CSRF-TOKEN');
 
             // Validates the token
-            if($this->request->checkCsrfToken($token)){
-                return true;
-            }else{
-                return false;
-            }
+            if(empty($token)) return false;
+            return $this->request->checkCsrfToken($token);
         }
 
     }

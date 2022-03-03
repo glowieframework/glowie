@@ -2,8 +2,6 @@
     namespace Glowie\Migrations;
 
     use Glowie\Core\Database\Migration;
-    use Glowie\Core\Database\Skeleton;
-    use Glowie\Core\Database\Kraken;
 
     /**
      * Sample migration for Glowie application.
@@ -23,11 +21,11 @@
          */
         public function run(){
             return $this->forge->table('users')
-                ->ifNotExists()
                 ->id()
                 ->createColumn('email', 'VARCHAR', 255)
                 ->createColumn('password', 'VARCHAR', 255)
                 ->createTimestamps()
+                ->ifNotExists()
                 ->create();
         }
 

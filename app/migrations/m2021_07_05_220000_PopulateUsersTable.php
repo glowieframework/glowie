@@ -2,8 +2,6 @@
     namespace Glowie\Migrations;
 
     use Glowie\Core\Database\Migration;
-    use Glowie\Core\Database\Skeleton;
-    use Glowie\Core\Database\Kraken;
 
     /**
      * Sample migration for Glowie application.
@@ -23,9 +21,18 @@
          */
         public function run(){
             return $this->db->table('users')->insert([
-                ['email' => 'lorem@ipsum.com', 'password' => password_hash('123', PASSWORD_DEFAULT)],
-                ['email' => 'janedoe@gmail.com', 'password' => password_hash('jane@2021', PASSWORD_DEFAULT)],
-                ['email' => 'john_oliver@glowie.tk', 'password' => password_hash('iloveburrito', PASSWORD_DEFAULT)]
+                [
+                    'email' => 'lorem@ipsum.com',
+                    'password' => password_hash('123', PASSWORD_DEFAULT)
+                ],
+                [
+                    'email' => 'janedoe@gmail.com',
+                    'password' => password_hash('jane@2021', PASSWORD_DEFAULT)
+                ],
+                [
+                    'email' => 'john_oliver@glowie.tk',
+                    'password' => password_hash('iloveburrito', PASSWORD_DEFAULT)
+                ]
             ]);
         }
 

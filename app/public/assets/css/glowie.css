@@ -54,3 +54,9 @@ h2 {
     font-size: 13px;
     opacity: 0.7;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(90deg, #212121 0, #303030 100%);
+    }
+}
