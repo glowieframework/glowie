@@ -1,6 +1,8 @@
 <?php
     namespace Glowie\Controllers;
 
+use Glowie\Core\Tools\Authenticator;
+
     /**
      * Main controller for Glowie application.
      * @category Controller
@@ -9,7 +11,7 @@
      * @copyright Copyright (c) 2021
      * @license MIT
      * @link https://glowie.tk
-     * @version 1.0
+     * @version 1.2
      */
     class Main extends BaseController{
 

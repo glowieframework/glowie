@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "^1.1"
+        "glowieframework/glowie-core": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +37,7 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "@php -r \"file_exists('app/config/Config.php') || copy('app/config/Config.example.php', 'app/config/Config.php');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php firefly generate-keys"
