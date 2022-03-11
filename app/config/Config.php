@@ -60,6 +60,9 @@
         // Application session management
         'session' => [
 
+            // Session cookie name
+            'name' => 'app_session',
+
             // Unused session lifetime
             'lifetime' => 120,
 
@@ -67,7 +70,24 @@
             'gc_cleaning' => 50,
 
             // Session files location
-            'path' => Util::location('storage/session')
+            'path' => Util::location('storage/session'),
+
+            // Allow session usage only in secure connections (https)
+            'secure' => false,
+
+            // Restrict session access to the HTTP protocol only
+            'restrict' => true
+
+        ],
+
+        // Application cookies management
+        'cookies' => [
+
+            // Allow cookies usage only through secure connections (https)
+            'secure' => false,
+
+            // Restrict cookies access to the HTTP protocol only
+            'restrict' => true
 
         ],
 
