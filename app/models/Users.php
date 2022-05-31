@@ -64,6 +64,12 @@
         protected $_timestamps = true;
 
         /**
+         * Use soft deletes in the table.
+         * @var bool
+         */
+        protected $_softDeletes = true;
+
+        /**
          * **Created at** field name (if timestamps enabled).
          * @var string
          */
@@ -74,6 +80,12 @@
          * @var string
          */
         protected $_updatedField = 'updated_at';
+
+        /**
+         * **Deleted at** field name (if soft deletes enabled).
+         * @var string
+         */
+        protected $_deletedField = 'deleted_at';
 
     }
 

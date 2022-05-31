@@ -25,6 +25,7 @@
                 ->createColumn('email', 'VARCHAR', 255)
                 ->createColumn('password', 'VARCHAR', 255)
                 ->createTimestamps()
+                ->createSoftDeletes()
                 ->ifNotExists()
                 ->create();
         }

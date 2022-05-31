@@ -1,8 +1,6 @@
 <?php
     namespace Glowie\Controllers;
 
-use Glowie\Core\Tools\Authenticator;
-
     /**
      * Main controller for Glowie application.
      * @category Controller
