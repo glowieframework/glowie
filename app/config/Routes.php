@@ -6,7 +6,8 @@
         --------------------------------
         Application routes
         --------------------------------
-        Here you can define all your application routes and setup auto routing feature.
+        Here you can define all your application routes and setup auto routing.
+        Use the Rails class in order to configure routing.
     */
 
     Rails::addRoute('/', Main::class, 'index');

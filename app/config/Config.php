@@ -112,7 +112,8 @@
                 'password' => Env::get('DB_PASSWORD', ''),
                 'db' => Env::get('DB_DATABASE', 'glowie'),
                 'port' => Env::get('DB_PORT', 3306),
-                'charset' => Env::get('DB_CHARSET', 'utf8')
+                'charset' => 'utf8',
+                'strict' => true
             ]
 
         ],
