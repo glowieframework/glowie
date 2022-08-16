@@ -126,6 +126,32 @@
 
         ],
 
+        // Cross-Origin Resource Sharing (CORS) settings
+        'cors' => [
+
+            // Enable CORS headers
+            'enabled' => true,
+
+            // List of allowed methods (use * for all)
+            'allowed_methods' => ['*'],
+
+            // List of allowed origins (use * for all)
+            'allowed_origins' => ['*'],
+
+            // List of allowed headers (use * for all)
+            'allowed_headers' => ['*'],
+
+            // List of exposed headers
+            'exposed_headers' => [],
+
+            // Preflight request cache time
+            'max_age' => 0,
+
+            // Allow credentials to be exposed
+            'allow_credentials' => false
+
+        ],
+
         // Application miscellaneous settings
         'other' => [
 
