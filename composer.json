@@ -37,6 +37,9 @@
     "scripts": {
         "post-create-project-cmd": [
             "@php firefly init"
+        ],
+        "post-autoload-dump": [
+            "@php firefly publish"
         ]
     },
     "config": {

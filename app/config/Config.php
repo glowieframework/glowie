@@ -152,6 +152,9 @@
 
         ],
 
+        // Application plugins
+        'plugins' => [],
+
         // Application miscellaneous settings
         'other' => [
 
