@@ -155,6 +155,22 @@
         // Application plugins
         'plugins' => [],
 
+        // Firefly Sandbox settings
+        'sandbox' => [
+
+            // Sandbox class alias list
+            'alias' => [
+                'Kraken' => \Glowie\Core\Database\Kraken::class,
+                'Model' => \Glowie\Core\Database\Model::class,
+                'Skeleton' => \Glowie\Core\Database\Skeleton::class,
+                'Crawler' => \Glowie\Core\Tools\Crawler::class,
+                'Mailer' => \Glowie\Core\Tools\Mailer::class,
+                'Validator' => \Glowie\Core\Tools\Validator::class,
+                'Element' => \Glowie\Core\Element::class
+            ]
+
+        ],
+
         // Application miscellaneous settings
         'other' => [
 
