@@ -19,7 +19,7 @@
          */
         public function init(){
             // Calls the BaseController init() method
-            parent::init();
+            if(is_callable([parent::class, 'init'])) parent::init();
         }
 
         /**

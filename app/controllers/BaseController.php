@@ -20,8 +20,7 @@
          * This method will be called before any other methods from this controller.
          */
         public function init(){
-            // Sets the current active language
-            Babel::setActiveLanguage('en');
+            //
         }
 
     }

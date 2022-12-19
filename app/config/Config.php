@@ -174,6 +174,9 @@
         // Application miscellaneous settings
         'other' => [
 
+            // Default language
+            'language' => 'en',
+
             // Default timezone
             'timezone' => 'America/Sao_Paulo',
 
