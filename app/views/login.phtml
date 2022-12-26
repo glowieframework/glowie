@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="login">
+        <h2>Login</h2>
+        <form action="{ route('submit-login') }" method="post">
+            <input type="hidden" name="_token" value="{ csrf }">
+            <input type="email" name="email" required placeholder="E-mail">
+            <input type="password" name="password" required placeholder="Password">
+            <button type="submit" class="button">Login</button>
+        </form>
+
+        { if($this->alert) }
+        <div class="alert">
+            {{ $this->alert }}
+        </div>
+        { /if }
+    </div>
+</div>

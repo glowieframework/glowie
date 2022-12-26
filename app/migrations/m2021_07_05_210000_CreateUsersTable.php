@@ -21,6 +21,7 @@
         public function run(){
             return $this->forge->table('users')
                 ->id()
+                ->createColumn('name', 'VARCHAR', 255)
                 ->createColumn('email', 'VARCHAR', 255)
                 ->createColumn('password', 'VARCHAR', 255)
                 ->createTimestamps()

@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="login">
+        <h2>Welcome, {{ $this->user->name }}!</h2>
+        <p>You are logged in.</p>
+        <a href="{ route('logout') }" class="button">Logout</a>
+        <a href="javascript:void(0);" onclick="toggleChangeForm()" class="button secondary">Change Password ▼</a>
+
+        { if($this->alert) }
+        <div class="alert" style="margin-top: 20px;">
+            {{ $this->alert }}
+        </div>
+        { /if }
+
+        <form action="{ route('change-password') }" method="post" id="change-pw-form">
+            <h3>Change Password</h3>
+            <input type="hidden" name="_token" value="{ csrf }">
+            <input type="password" name="password" required placeholder="New password">
+            <input type="password" name="password_confirm" required placeholder="Confirm password">
+            <button type="submit" class="button">Save</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleChangeForm() {
+        document.getElementById('change-pw-form').classList.toggle('show');
+    }
+</script>

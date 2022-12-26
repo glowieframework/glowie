@@ -3,8 +3,6 @@
 
     use Glowie\Core\Http\Controller;
 
-    use Babel;
-
     /**
      * Base controller for Glowie application.
      * @category Controller

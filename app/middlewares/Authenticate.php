@@ -5,6 +5,7 @@
 
     use Glowie\Core\Tools\Validator;
     use Glowie\Models\Users;
+    use Glowie\Controllers\Login;
 
     /**
      * Authentication middleware for Glowie application.
@@ -24,13 +25,7 @@
         public function handle(){
             // Validates session data
             $validator = new Validator();
-            $validationRules = [
-                'email' => ['required', 'email'],
-                'password' => 'required'
-            ];
-
-            // Performs data validation
-            if(!$validator->validateFields($this->session, $validationRules)) return false;
+            if(!$validator->validateFields($this->session, Login::VALIDATION_RULES)) return false;
 
             // Gets current user information
             $usersModel = new Users();
@@ -43,8 +38,18 @@
             if(!password_verify($this->session->password, $user->password)) return false;
 
             // Sends the authenticated user information to the controller
-            $this->controller->user = $user;
+            $this->controller->user = $usersModel->fill($user);
             return true;
+        }
+
+        /**
+         * Called if the middleware handler returns false.
+         */
+        public function fail(){
+            // Clear session data and redirect to login
+            $this->session->flush();
+            $this->session->setFlash('alert', 'Invalid login information!');
+            $this->response->redirectRoute('login');
         }
 
     }

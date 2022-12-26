@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body {
     margin: 0;
@@ -53,6 +54,74 @@ h2 {
 .info {
     font-size: 13px;
     opacity: 0.7;
+}
+
+.login {
+    background-color: white;
+    color: black;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 2px 2px 7px 2px rgb(0 0 0 / 20%);
+}
+
+.login input {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 7px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightgray;
+}
+
+.login .button {
+    background-color: #ed578b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    padding: 7px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.login .button.secondary {
+    background-color: #78909c;
+    margin-left: 5px;
+}
+
+.login .alert {
+    background-color: #fff59d;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.login #change-pw-form {
+    display: none;
+    margin-top: 20px;
+    background-color: #e5e5e5;
+    padding: 20px;
+    border: 1px solid gainsboro;
+}
+
+.login #change-pw-form h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+}
+
+.login #change-pw-form.show {
+    display: block;
 }
 
 @media (prefers-color-scheme: dark) {
