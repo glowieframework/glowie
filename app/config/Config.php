@@ -14,6 +14,9 @@
 
     return [
 
+        // Current environment name
+        'env' => Env::get('APP_ENV', 'development'),
+
         // Application maintenance mode
         'maintenance' => [
 

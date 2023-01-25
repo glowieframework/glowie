@@ -47,7 +47,7 @@
          */
         public function fail(){
             // Clear session data and redirect to login
-            $this->session->flush();
+            $this->session->remove(['email', 'password']);
             $this->session->setFlash('alert', 'Invalid login information!');
             $this->response->redirectRoute('login');
         }
