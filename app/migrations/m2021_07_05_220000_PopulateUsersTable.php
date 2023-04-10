@@ -10,7 +10,7 @@
      * @author Glowie
      * @copyright Copyright (c) Glowie
      * @license MIT
-     * @link https://glowie.tk
+     * @link https://eugabrielsilva.tk/glowie
      */
     class m2021_07_05_220000_PopulateUsersTable extends Migration{
 
@@ -32,7 +32,7 @@
                 ],
                 [
                     'name' => 'John Oliver',
-                    'email' => 'john_oliver@glowie.tk',
+                    'email' => 'john_oliver@hotmail.com',
                     'password' => password_hash('iloveburrito', PASSWORD_DEFAULT)
                 ]
             ]);

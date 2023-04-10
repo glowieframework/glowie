@@ -10,7 +10,7 @@
      * @author Glowie
      * @copyright Copyright (c) Glowie
      * @license MIT
-     * @link https://glowie.tk
+     * @link https://eugabrielsilva.tk/glowie
      */
     class m2021_07_05_210000_CreateUsersTable extends Migration{
 
