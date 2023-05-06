@@ -2,7 +2,6 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Http\Middleware;
-    use Glowie\Core\Http\Response;
     use Glowie\Core\Tools\Cache;
 
     /**

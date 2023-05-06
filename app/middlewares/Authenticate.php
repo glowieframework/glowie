@@ -2,7 +2,6 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Http\Middleware;
-
     use Glowie\Core\Tools\Validator;
     use Glowie\Models\Users;
     use Glowie\Controllers\Login;
@@ -17,6 +16,12 @@
      * @link https://eugabrielsilva.tk/glowie
      */
     class Authenticate extends Middleware{
+
+        /**
+         * Login controller.
+         * @var Login
+         */
+        protected $controller;
 
         /**
          * The middleware handler.

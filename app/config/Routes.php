@@ -17,10 +17,12 @@
     Rails::addRoute('/', Main::class, 'index');
 
     // Authentication Demo
-    Rails::addRoute('login', Login::class, 'login');
-    Rails::addProtectedRoute('submit-login', ValidateCsrfToken::class, Login::class, 'submitLogin', 'post');
-    Rails::addProtectedRoute('dashboard', Authenticate::class, Login::class, 'dashboard');
-    Rails::addProtectedRoute('change-password', [ValidateCsrfToken::class, Authenticate::class], Login::class, 'changePassword', 'post');
-    Rails::addRoute('logout', Login::class, 'logout');
+    Rails::groupRoutes('auth', function(){
+        Rails::addRoute('login', Login::class, 'login');
+        Rails::addProtectedRoute('submit-login', ValidateCsrfToken::class, Login::class, 'submitLogin', 'post');
+        Rails::addProtectedRoute('dashboard', Authenticate::class, Login::class, 'dashboard');
+        Rails::addProtectedRoute('change-password', [ValidateCsrfToken::class, Authenticate::class], Login::class, 'changePassword', 'post');
+        Rails::addRoute('logout', Login::class, 'logout');
+    });
 
 ?>
