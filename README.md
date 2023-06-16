@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/glowieframework/glowie"><img src="https://img.shields.io/github/v/release/glowieframework/glowie" alt="Latest Version"></a>
-    <a href="https://packagist.org/packages/glowieframework/glowie" target="_blank"><img src="https://img.shields.io/packagist/dt/glowieframework/glowie" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/glowieframework/glowie"><img src="https://img.shields.io/github/v/release/glowieframework/glowie-core" alt="Latest Version"></a>
+    <a href="https://packagist.org/packages/glowieframework/glowie" target="_blank"><img src="https://img.shields.io/packagist/dt/glowieframework/glowie-core" alt="Total Downloads"></a>
     <a href="https://packagist.org/packages/glowieframework/glowie" target="_blank"><img src="https://img.shields.io/github/license/glowieframework/glowie" alt="License"></a>
     <a href="https://packagist.org/packages/glowieframework/glowie" target="_blank"><img src="https://img.shields.io/packagist/php-v/glowieframework/glowie" alt="PHP Version"></a>
 </p>
