@@ -13,16 +13,26 @@
         Use the Rails class in order to configure routing.
     */
 
-    // Index
+    // Home
     Rails::addRoute('/', Main::class, 'index');
 
     // Authentication Demo
     Rails::groupRoutes('auth', function(){
+
+        // Login page
         Rails::addRoute('login', Login::class, 'login');
+
+        // Login submit handler
         Rails::addProtectedRoute('submit-login', ValidateCsrfToken::class, Login::class, 'submitLogin', 'post');
+
+        // Dashboard page (access to logged users only)
         Rails::addProtectedRoute('dashboard', Authenticate::class, Login::class, 'dashboard');
+
+        // Change password handler
         Rails::addProtectedRoute('change-password', [ValidateCsrfToken::class, Authenticate::class], Login::class, 'changePassword', 'post');
+
+        // Logout page
         Rails::addRoute('logout', Login::class, 'logout');
-    });
+    }, true);
 
 ?>

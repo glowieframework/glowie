@@ -29,8 +29,7 @@
          */
         public function handle(){
             // Validates session data
-            $validator = new Validator();
-            if(!$validator->validateFields($this->session, Login::VALIDATION_RULES)) return false;
+            if(!(new Validator())->validateFields($this->session, Login::VALIDATION_RULES)) return false;
 
             // Gets current user information
             $usersModel = new Users();

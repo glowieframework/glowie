@@ -42,8 +42,7 @@
          */
         public function login(){
             // Checks if user is already logged in
-            $validator = new Validator();
-            if($validator->validateFields($this->session, self::VALIDATION_RULES)){
+            if((new Validator())->validateFields($this->session, self::VALIDATION_RULES)){
                 return $this->response->redirectRoute('dashboard');
             }
 
@@ -59,8 +58,7 @@
          */
         public function submitLogin(){
             // Validate POST data
-            $validator = new Validator();
-            if(!$validator->validateFields($this->post, self::VALIDATION_RULES)){
+            if(!(new Validator())->validateFields($this->post, self::VALIDATION_RULES)){
                 $this->session->setFlash('alert', 'Invalid login information!');
                 return $this->response->redirectRoute('login');
             }
@@ -88,8 +86,7 @@
          */
         public function changePassword(){
             // Validate POST data
-            $validator = new Validator();
-            if(!$validator->validateMultiple([$this->post->password, $this->post->password_confirm], 'required')){
+            if(!(new Validator())->validateMultiple([$this->post->password, $this->post->password_confirm], 'required')){
                 $this->session->setFlash('alert', 'Passwords cannot be empty!');
                 return $this->response->redirectRoute('dashboard');
             }
@@ -115,7 +112,7 @@
          */
         public function logout(){
             // Clear session data and redirect to login
-            $this->session->flush();
+            $this->session->remove(['email', 'password']);
             $this->response->redirectRoute('login');
         }
 

@@ -3,6 +3,7 @@
 
     use Glowie\Core\Http\Middleware;
     use Glowie\Core\Tools\Cache;
+    use Babel;
 
     /**
      * Rate limiter middleware for Glowie application.
@@ -59,7 +60,15 @@
          * Called if the middleware handler returns false.
          */
         public function fail(){
+            // Set HTTP 429 status code
             $this->response->rateLimit();
+
+            // Renders 429 error page
+            $this->controller->renderLayout('default', 'error/error', [
+                'title' => 'Too Many Requests',
+                'code' => 429,
+                'message' => Babel::get('errors.rate_limit')
+            ]);
         }
 
     }
