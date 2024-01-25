@@ -2,6 +2,7 @@
     namespace Glowie\Controllers;
 
     use Glowie\Core\Tools\Validator;
+    use Glowie\Core\Tools\Authenticator;
 
     /**
      * Login controller for Glowie application.
@@ -42,7 +43,7 @@
          */
         public function login(){
             // Checks if user is already logged in
-            if((new Validator())->validateFields($this->session, self::VALIDATION_RULES)){
+            if((new Authenticator())->check()){
                 return $this->response->redirectRoute('dashboard');
             }
 
@@ -63,10 +64,26 @@
                 return $this->response->redirectRoute('login');
             }
 
-            // Save login data in the session
-            $this->session->email = trim(strtolower($this->post->email));
-            $this->session->password = $this->post->password;
-            $this->response->redirectRoute('dashboard');
+            // Perform user login
+            $auth = new Authenticator();
+            if($auth->login(trim(strtolower($this->post->email)), $this->post->password)){
+                // Login successful
+                $this->response->redirectRoute('dashboard');
+            }else{
+                // Show error message
+                switch ($auth->getError()) {
+                    case Authenticator::ERR_NO_USER:
+                        $this->session->setFlash('alert', 'This user does not exist!');
+                        break;
+
+                    case Authenticator::ERR_WRONG_PASSWORD:
+                        $this->session->setFlash('alert', 'Incorrect password!');
+                        break;
+                }
+
+                // Go back to login screen
+                $this->response->redirectRoute('login');
+            }
         }
 
         /**
@@ -97,10 +114,12 @@
                 return $this->response->redirectRoute('dashboard');
             }
 
-            // Save new password in database and session
+            // Save new password in database
             $this->user->password = password_hash($this->post->password, PASSWORD_DEFAULT);
-            $this->session->password = $this->post->password;
             $this->user->save();
+
+            // Refresh authenticated user data
+            (new Authenticator())->refresh();
 
             // Redirect back to the dashboard
             $this->session->setFlash('alert', 'Password changed!');
@@ -111,8 +130,8 @@
          * Logout action.
          */
         public function logout(){
-            // Clear session data and redirect to login
-            $this->session->remove(['email', 'password']);
+            // Logout and redirect back to login page
+            (new Authenticator())->logout();
             $this->response->redirectRoute('login');
         }
 

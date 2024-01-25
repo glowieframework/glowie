@@ -116,8 +116,22 @@
                 'db' => Env::get('DB_DATABASE', 'glowie'),
                 'port' => Env::get('DB_PORT', 3306),
                 'charset' => 'utf8',
-                'strict' => true
+                'strict' => false
             ]
+
+        ],
+
+        // Authentication settings
+        'auth' => [
+
+            // Users model
+            'model' => \Glowie\Models\Users::class,
+
+            // User field name
+            'user_field' => 'email',
+
+            // Password field name
+            'password_field' => 'password'
 
         ],
 
@@ -174,9 +188,11 @@
                 'Kraken' => \Glowie\Core\Database\Kraken::class,
                 'Model' => \Glowie\Core\Database\Model::class,
                 'Skeleton' => \Glowie\Core\Database\Skeleton::class,
+                'Cache' => \Glowie\Core\Tools\Cache::class,
                 'Crawler' => \Glowie\Core\Tools\Crawler::class,
                 'Mailer' => \Glowie\Core\Tools\Mailer::class,
                 'Validator' => \Glowie\Core\Tools\Validator::class,
+                'Collection' => \Glowie\Core\Collection::class,
                 'Element' => \Glowie\Core\Element::class
             ]
 

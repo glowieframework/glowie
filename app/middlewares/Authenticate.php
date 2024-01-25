@@ -2,9 +2,8 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Http\Middleware;
-    use Glowie\Core\Tools\Validator;
-    use Glowie\Models\Users;
     use Glowie\Controllers\Login;
+    use Glowie\Core\Tools\Authenticator;
 
     /**
      * Authentication middleware for Glowie application.
@@ -28,21 +27,12 @@
          * @return bool Should return true on success or false on fail.
          */
         public function handle(){
-            // Validates session data
-            if(!(new Validator())->validateFields($this->session, Login::VALIDATION_RULES)) return false;
-
-            // Gets current user information
-            $usersModel = new Users();
-            $user = $usersModel->findBy('email', $this->session->email);
-
-            // Checks if user exists
-            if(!$user) return false;
-
-            // Checks password
-            if(!password_verify($this->session->password, $user->password)) return false;
+            // Checks if user is authenticated
+            $auth = new Authenticator();
+            if(!$auth->check()) return false;
 
             // Sends the authenticated user information to the controller
-            $this->controller->user = $usersModel->fill($user);
+            $this->controller->user = $auth->getUser();
             return true;
         }
 
@@ -51,8 +41,8 @@
          */
         public function fail(){
             // Clear session data and redirect to login
-            $this->session->remove(['email', 'password']);
-            $this->session->setFlash('alert', 'Invalid login information!');
+            (new Authenticator())->logout();
+            $this->session->setFlash('alert', 'You must login first!');
             $this->response->redirectRoute('login');
         }
 
