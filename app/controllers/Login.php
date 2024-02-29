@@ -3,6 +3,7 @@
 
     use Glowie\Core\Tools\Validator;
     use Glowie\Core\Tools\Authenticator;
+    use Babel;
 
     /**
      * Login controller for Glowie application.
@@ -60,7 +61,7 @@
         public function submitLogin(){
             // Validate POST data
             if(!(new Validator())->validateFields($this->post, self::VALIDATION_RULES)){
-                $this->session->setFlash('alert', 'Invalid login information!');
+                $this->session->setFlash('alert', Babel::get('auth.invalid_login'));
                 return $this->response->redirectRoute('login');
             }
 
@@ -73,11 +74,11 @@
                 // Show error message
                 switch ($auth->getError()) {
                     case Authenticator::ERR_NO_USER:
-                        $this->session->setFlash('alert', 'This user does not exist!');
+                        $this->session->setFlash('alert', Babel::get('auth.invalid_user'));
                         break;
 
                     case Authenticator::ERR_WRONG_PASSWORD:
-                        $this->session->setFlash('alert', 'Incorrect password!');
+                        $this->session->setFlash('alert', Babel::get('auth.invalid_password'));
                         break;
                 }
 
@@ -104,13 +105,13 @@
         public function changePassword(){
             // Validate POST data
             if(!(new Validator())->validateMultiple([$this->post->password, $this->post->password_confirm], 'required')){
-                $this->session->setFlash('alert', 'Passwords cannot be empty!');
+                $this->session->setFlash('alert', Babel::get('auth.password_empty'));
                 return $this->response->redirectRoute('dashboard');
             }
 
             // Check if passwords match
             if($this->post->password !== $this->post->password_confirm){
-                $this->session->setFlash('alert', "Passwords don't match!");
+                $this->session->setFlash('alert', Babel::get('auth.password_mismatch'));
                 return $this->response->redirectRoute('dashboard');
             }
 
@@ -122,7 +123,7 @@
             (new Authenticator())->refresh();
 
             // Redirect back to the dashboard
-            $this->session->setFlash('alert', 'Password changed!');
+            $this->session->setFlash('alert', Babel::get('auth.password_changed'));
             $this->response->redirectRoute('dashboard');
         }
 

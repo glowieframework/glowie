@@ -2,6 +2,7 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Http\Middleware;
+    use Babel;
 
     /**
      * CSRF token validation middleware for Glowie application.
@@ -25,6 +26,21 @@
             // Validates the token
             if(empty($token)) return false;
             return $this->request->checkCsrfToken($token);
+        }
+
+        /**
+         * Called if the middleware handler returns false.
+         */
+        public function fail(){
+            // Set HTTP 403 status code
+            $this->response->deny();
+
+            // Renders 403 error page
+            $this->controller->renderLayout('default', 'error/error', [
+                'title' => 'Access Forbidden',
+                'code' => 403,
+                'message' => Babel::get('errors.forbidden')
+            ]);
         }
 
     }

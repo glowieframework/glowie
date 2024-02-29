@@ -4,6 +4,7 @@
     use Glowie\Core\Http\Middleware;
     use Glowie\Controllers\Login;
     use Glowie\Core\Tools\Authenticator;
+    use Babel;
 
     /**
      * Authentication middleware for Glowie application.
@@ -42,7 +43,7 @@
         public function fail(){
             // Clear session data and redirect to login
             (new Authenticator())->logout();
-            $this->session->setFlash('alert', 'You must login first!');
+            $this->session->setFlash('alert', Babel::get('auth.login_required'));
             $this->response->redirectRoute('login');
         }
 

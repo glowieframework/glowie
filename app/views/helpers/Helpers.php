@@ -14,7 +14,7 @@
 
         /**
          * Returns the page rendering time.
-         * @return float Page rendering time.
+         * @return string Page rendering time.
          */
         public function getRenderTime(){
             return round((microtime(true) - APP_START_TIME) * 1000, 2) . 'ms';

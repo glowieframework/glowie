@@ -1,7 +1,7 @@
 <?php
     namespace Glowie\Commands;
 
-    use Util;
+    use Glowie\Core\Collection;
     use Glowie\Core\CLI\Command;
 
     /**
@@ -20,7 +20,7 @@
          */
         public function run(){
             // Gets a random quote
-            $quote = Util::randomArray([
+            $quote = (new Collection([
                 '"Computers are fast; programmers keep it slow."',
                 '"Programming can be fun, and so can cryptography; however, they should not be combined."',
                 '"When we had no computers, we had no programming problems either."',
@@ -33,7 +33,7 @@
                 '"A good programmer is someone who always looks both ways before crossing a one-way street."',
                 '"Software and cathedrals are much the same — first we build them, then we pray."',
                 '"It\'s not a bug – it\'s an undocumented feature."'
-            ]);
+            ]))->random();
 
             // Prints the quote in the console
             $this->info($quote);

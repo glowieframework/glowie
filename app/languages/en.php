@@ -28,6 +28,32 @@
             // 503 error message
             'service_unavailable' => 'We will be back soon'
 
+        ],
+
+        // Auth demo messages
+        'auth' => [
+
+            // Login required
+            'login_required' => 'You must login first!',
+
+            // Invalid login info
+            'invalid_login' => 'Invalid login information!',
+
+            // User not found
+            'invalid_user' => 'This user does not exist!',
+
+            // Wrong password
+            'invalid_password' => 'Incorrect password!',
+
+            // Password validation
+            'password_empty' => 'Passwords cannot be empty!',
+
+            // Password confirm validation
+            'password_mismatch' => "Passwords don't match!",
+
+            // Password changed message
+            'password_changed' => 'Password changed!',
+
         ]
 
     ];

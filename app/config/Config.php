@@ -185,9 +185,11 @@
 
             // Sandbox class alias list
             'alias' => [
+                'Factory' => \Glowie\Core\Database\Factory::class,
                 'Kraken' => \Glowie\Core\Database\Kraken::class,
                 'Model' => \Glowie\Core\Database\Model::class,
                 'Skeleton' => \Glowie\Core\Database\Skeleton::class,
+                'Rails' => \Glowie\Core\Http\Rails::class,
                 'Cache' => \Glowie\Core\Tools\Cache::class,
                 'Crawler' => \Glowie\Core\Tools\Crawler::class,
                 'Mailer' => \Glowie\Core\Tools\Mailer::class,
@@ -201,14 +203,14 @@
         // Application miscellaneous settings
         'other' => [
 
+            // Application URL (for CLI route mocking only)
+            'url' => 'http://localhost',
+
             // Default language
             'language' => 'en',
 
             // Default timezone
-            'timezone' => 'America/Sao_Paulo',
-
-            // Request variables precedence
-            'request_vars' => 'GET_POST'
+            'timezone' => 'America/Sao_Paulo'
 
         ]
 
