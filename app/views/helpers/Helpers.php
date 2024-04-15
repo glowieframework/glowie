@@ -17,7 +17,11 @@
          * @return string Page rendering time.
          */
         public function getRenderTime(){
-            return round((microtime(true) - APP_START_TIME) * 1000, 2) . 'ms';
+            $time = round((microtime(true) - APP_START_TIME) * 1000, 2);
+            if($time <= 1000) return $time . 'ms';
+            if($time <= 60000) return round($time / 1000, 2) . 's';
+            if($time <= 3600000) return round($time / 60000, 2) . 'min';
+            return round($time / 3600000, 2) . 'h';
         }
 
     }

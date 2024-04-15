@@ -2,7 +2,6 @@
     namespace Glowie\Middlewares;
 
     use Glowie\Core\Http\Middleware;
-    use Glowie\Controllers\Login;
     use Glowie\Core\Tools\Authenticator;
     use Babel;
 
@@ -18,33 +17,30 @@
     class Authenticate extends Middleware{
 
         /**
-         * Login controller.
-         * @var Login
-         */
-        protected $controller;
-
-        /**
          * The middleware handler.
          * @return bool Should return true on success or false on fail.
          */
         public function handle(){
             // Checks if user is authenticated
-            $auth = new Authenticator();
-            if(!$auth->check()) return false;
-
-            // Sends the authenticated user information to the controller
-            $this->controller->user = $auth->getUser();
-            return true;
+            return (new Authenticator())->check();
         }
 
         /**
          * Called if the middleware handler returns false.
          */
         public function fail(){
-            // Clear session data and redirect to login
+            // Clear session data
             (new Authenticator())->logout();
-            $this->session->setFlash('alert', Babel::get('auth.login_required'));
-            $this->response->redirectRoute('login');
+
+            // Set HTTP 403 status code
+            $this->response->deny();
+
+            // Renders 403 error page
+            $this->controller->renderLayout('default', 'error/error', [
+                'title' => 'Access Forbidden',
+                'code' => 403,
+                'message' => Babel::get('errors.forbidden')
+            ]);
         }
 
     }

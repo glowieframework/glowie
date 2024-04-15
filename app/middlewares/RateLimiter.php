@@ -20,19 +20,19 @@
          * Unique identifier for this rate limiter.
          * @var string
          */
-        protected const UNIQUE_ID = 'r1';
+        private const UNIQUE_ID = 'r1';
 
         /**
          * Maximum number of attempts per interval.
          * @var int
          */
-        protected const MAX_ATTEMPTS = 100;
+        private const MAX_ATTEMPTS = 100;
 
         /**
          * Time limit interval (in seconds).
          * @var int
          */
-        protected const TIME_LIMIT = 60;
+        private const TIME_LIMIT = 60;
 
         /**
          * The middleware handler.
