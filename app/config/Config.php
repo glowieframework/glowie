@@ -124,14 +124,17 @@
         // Authentication settings
         'auth' => [
 
-            // Users model
-            'model' => \Glowie\Models\Users::class,
+            // Default auth guard
+            'default' => [
+                // Users model
+                'model' => \Glowie\Models\Users::class,
 
-            // User field name
-            'user_field' => 'email',
+                // User field name
+                'user_field' => 'email',
 
-            // Password field name
-            'password_field' => 'password'
+                // Password field name
+                'password_field' => 'password'
+            ]
 
         ],
 
