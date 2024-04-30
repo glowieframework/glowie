@@ -150,7 +150,7 @@
         'cache' => [
 
             // Cache file path
-            'path' => Util::location('storage/cache/cache.tmp')
+            'path' => Util::location('storage/cache/cache.db')
 
         ],
 
