@@ -12,6 +12,9 @@
         ---------------------------------------------
     */
 
+    // Change working directory
+    chdir(__DIR__);
+
     // Check Composer files
     if(!file_exists('vendor/autoload.php')){
         die('Composer packages were not found!' . PHP_EOL .
