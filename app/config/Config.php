@@ -146,6 +146,17 @@
 
         ],
 
+        // Queue settings
+        'queue' => [
+
+            // Queue jobs table name
+            'table' => 'queue',
+
+            // Max attempts to retry failed jobs
+            'max_attempts' => 3
+
+        ],
+
         // Cache settings
         'cache' => [
 
@@ -193,6 +204,7 @@
                 'Model' => \Glowie\Core\Database\Model::class,
                 'Skeleton' => \Glowie\Core\Database\Skeleton::class,
                 'Rails' => \Glowie\Core\Http\Rails::class,
+                'Queue' => \Glowie\Core\Queue\Queue::class,
                 'Cache' => \Glowie\Core\Tools\Cache::class,
                 'Crawler' => \Glowie\Core\Tools\Crawler::class,
                 'Mailer' => \Glowie\Core\Tools\Mailer::class,
@@ -207,7 +219,7 @@
         'other' => [
 
             // Application URL (for CLI route mocking only)
-            'url' => 'http://localhost',
+            'url' => Env::get('APP_URL', 'http://localhost'),
 
             // Default language
             'language' => 'en',

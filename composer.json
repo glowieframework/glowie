@@ -22,12 +22,13 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "^1.5"
+        "glowieframework/glowie-core": "^1.6"
     },
     "autoload": {
         "psr-4": {
             "Glowie\\Commands\\": "app/commands/",
             "Glowie\\Controllers\\": "app/controllers/",
+            "Glowie\\Jobs\\": "app/jobs/",
             "Glowie\\Middlewares\\": "app/middlewares/",
             "Glowie\\Migrations\\": "app/migrations/",
             "Glowie\\Models\\": "app/models/",
