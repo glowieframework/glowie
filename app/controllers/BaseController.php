@@ -1,26 +1,26 @@
 <?php
-    namespace Glowie\Controllers;
 
-    use Glowie\Core\Http\Controller;
+namespace Glowie\Controllers;
+
+use Glowie\Core\Http\Controller;
+
+/**
+ * Base controller for Glowie application.
+ * @category Controller
+ * @package glowieframework/glowie
+ * @author Glowie
+ * @copyright Copyright (c) Glowie
+ * @license MIT
+ * @link https://gabrielsilva.dev.br/glowie
+ */
+class BaseController extends Controller
+{
 
     /**
-     * Base controller for Glowie application.
-     * @category Controller
-     * @package glowieframework/glowie
-     * @author Glowie
-     * @copyright Copyright (c) Glowie
-     * @license MIT
-     * @link https://gabrielsilva.dev.br/glowie
+     * This method will be called before any other methods from this controller.
      */
-    class BaseController extends Controller{
-
-        /**
-         * This method will be called before any other methods from this controller.
-         */
-        public function init(){
-            //
-        }
-
+    public function init()
+    {
+        //
     }
-
-?>
+}
