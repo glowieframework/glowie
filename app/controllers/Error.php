@@ -52,19 +52,6 @@ class Error extends BaseController
     }
 
     /**
-     * Handler for 405 Method Not Allowed errors.
-     */
-    public function methodNotAllowed()
-    {
-        // Renders 405 error page
-        $this->renderLayout('default', 'error/error', [
-            'title' => 'Not Allowed',
-            'code' => 405,
-            'message' => Babel::get('errors.not_allowed')
-        ]);
-    }
-
-    /**
      * Handler for 503 Service Unavailable errors.
      */
     public function serviceUnavailable()
