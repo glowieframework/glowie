@@ -3,8 +3,6 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
-use Glowie\Core\Tools\Authenticator;
-use Babel;
 
 /**
  * Authentication middleware for Glowie application.
@@ -13,7 +11,7 @@ use Babel;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class Authenticate extends Middleware
 {
@@ -25,7 +23,7 @@ class Authenticate extends Middleware
     public function handle()
     {
         // Checks if user is authenticated
-        return (new Authenticator())->check();
+        return auth()->check();
     }
 
     /**
@@ -34,16 +32,16 @@ class Authenticate extends Middleware
     public function fail()
     {
         // Clear session data
-        (new Authenticator())->logout();
+        auth()->logout();
 
         // Set HTTP 403 status code
-        $this->response->deny();
+        response()->deny();
 
         // Renders 403 error page
-        $this->controller->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Access Forbidden',
             'code' => 403,
-            'message' => Babel::get('errors.forbidden')
+            'message' => translate('errors.forbidden')
         ]);
     }
 }

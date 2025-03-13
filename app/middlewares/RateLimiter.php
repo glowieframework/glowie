@@ -4,7 +4,6 @@ namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
 use Glowie\Core\Tools\Cache;
-use Babel;
 
 /**
  * Rate limiter middleware for Glowie application.
@@ -13,7 +12,7 @@ use Babel;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class RateLimiter extends Middleware
 {
@@ -65,13 +64,13 @@ class RateLimiter extends Middleware
     public function fail()
     {
         // Set HTTP 429 status code
-        $this->response->rateLimit();
+        response()->rateLimit();
 
         // Renders 429 error page
-        $this->controller->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Too Many Requests',
             'code' => 429,
-            'message' => Babel::get('errors.rate_limit')
+            'message' => translate('errors.rate_limit')
         ]);
     }
 }

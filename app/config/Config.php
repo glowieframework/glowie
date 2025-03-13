@@ -14,20 +14,23 @@
 
 return [
 
+    // Application name
+    'app_name' => 'Glowie',
+
     // Current environment name
-    'env' => Env::get('APP_ENV', 'development'),
+    'env' => env('APP_ENV', 'development'),
 
     // Application maintenance mode
     'maintenance' => [
 
         // Enable maintenance mode
         'enabled' => filter_var(
-            Env::get('APP_MAINTENANCE', false),
+            env('APP_MAINTENANCE', false),
             FILTER_VALIDATE_BOOLEAN
         ),
 
         // Maintenance mode bypass key
-        'bypass_key' => Env::get('MAINTENANCE_KEY')
+        'bypass_key' => env('MAINTENANCE_KEY')
 
     ],
 
@@ -41,7 +44,7 @@ return [
         'cache' => true,
 
         // Cache files location
-        'path' => Util::location('storage/cache')
+        'path' => storage_path('cache')
 
     ],
 
@@ -50,7 +53,7 @@ return [
 
         // Error reporting level
         'level' => filter_var(
-            Env::get('APP_DEBUG', true),
+            env('APP_DEBUG', true),
             FILTER_VALIDATE_BOOLEAN
         ) ? E_ALL : 0,
 
@@ -58,7 +61,7 @@ return [
         'logging' => true,
 
         // Error log file location
-        'file' => Util::location('storage/error.log')
+        'file' => storage_path('error.log')
 
     ],
 
@@ -75,7 +78,7 @@ return [
         'gc_cleaning' => 50,
 
         // Session files location
-        'path' => Util::location('storage/session'),
+        'path' => storage_path('session'),
 
         // Allow session usage only in secure connections (https)
         'secure' => false,
@@ -100,10 +103,10 @@ return [
     'secret' => [
 
         // Key used in encrypting functions
-        'app_key' => Env::get('APP_KEY'),
+        'app_key' => env('APP_KEY'),
 
         // Token used in encrypting functions
-        'app_token' => Env::get('APP_TOKEN')
+        'app_token' => env('APP_TOKEN')
 
     ],
 
@@ -112,11 +115,11 @@ return [
 
         // Default connection
         'default' => [
-            'host' => Env::get('DB_HOST', 'localhost'),
-            'username' => Env::get('DB_USERNAME', 'root'),
-            'password' => Env::get('DB_PASSWORD', ''),
-            'db' => Env::get('DB_DATABASE', 'glowie'),
-            'port' => Env::get('DB_PORT', 3306),
+            'host' => env('DB_HOST', 'localhost'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'db' => env('DB_DATABASE', 'glowie'),
+            'port' => env('DB_PORT', 3306),
             'charset' => 'utf8',
             'strict' => false
         ]
@@ -163,7 +166,7 @@ return [
     'cache' => [
 
         // Cache file path
-        'path' => Util::location('storage/cache/cache.db')
+        'path' => storage_path('cache/cache.db')
 
     ],
 
@@ -221,7 +224,7 @@ return [
     'other' => [
 
         // Application URL (for CLI route mocking only)
-        'url' => Env::get('APP_URL', 'http://localhost'),
+        'url' => env('APP_URL', 'http://localhost'),
 
         // Default language
         'language' => 'en',

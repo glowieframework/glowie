@@ -3,7 +3,6 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
-use Babel;
 
 /**
  * CSRF token validation middleware for Glowie application.
@@ -12,7 +11,7 @@ use Babel;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class ValidateCsrfToken extends Middleware
 {
@@ -24,11 +23,11 @@ class ValidateCsrfToken extends Middleware
     public function handle()
     {
         // Retrieves the token from POST field or header
-        $token = $this->post->_token ?? $this->request->getHeader('X-CSRF-TOKEN');
+        $token = $this->post->_token ?? request()->getHeader('X-CSRF-TOKEN');
 
         // Validates the token
         if (empty($token)) return false;
-        return $this->request->checkCsrfToken($token);
+        return request()->checkCsrfToken($token);
     }
 
     /**
@@ -37,13 +36,13 @@ class ValidateCsrfToken extends Middleware
     public function fail()
     {
         // Set HTTP 403 status code
-        $this->response->deny();
+        response()->deny();
 
         // Renders 403 error page
-        $this->controller->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Access Forbidden',
             'code' => 403,
-            'message' => Babel::get('errors.forbidden')
+            'message' => translate('errors.forbidden')
         ]);
     }
 }

@@ -11,7 +11,7 @@ use Glowie\Core\Database\Migration;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class m2021_07_05_220000_PopulateUsersTable extends Migration
 {

@@ -2,8 +2,6 @@
 
 namespace Glowie\Controllers;
 
-use Babel;
-
 /**
  * Error controller for Glowie application.
  * @category Controller
@@ -11,7 +9,7 @@ use Babel;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class Error extends BaseController
 {
@@ -31,10 +29,10 @@ class Error extends BaseController
     public function notFound()
     {
         // Renders 404 error page
-        $this->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Page Not Found',
             'code' => 404,
-            'message' => Babel::get('errors.not_found')
+            'message' => translate('errors.not_found')
         ]);
     }
 
@@ -44,10 +42,10 @@ class Error extends BaseController
     public function forbidden()
     {
         // Renders 403 error page
-        $this->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Access Forbidden',
             'code' => 403,
-            'message' => Babel::get('errors.forbidden')
+            'message' => translate('errors.forbidden')
         ]);
     }
 
@@ -57,10 +55,10 @@ class Error extends BaseController
     public function serviceUnavailable()
     {
         // Renders 503 error page
-        $this->renderLayout('default', 'error/error', [
+        return layout('default', 'error/error', [
             'title' => 'Service Unavailable',
             'code' => 503,
-            'message' => Babel::get('errors.service_unavailable')
+            'message' => translate('errors.service_unavailable')
         ]);
     }
 }

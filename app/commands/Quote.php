@@ -2,7 +2,6 @@
 
 namespace Glowie\Commands;
 
-use Glowie\Core\Collection;
 use Glowie\Core\CLI\Command;
 
 /**
@@ -12,7 +11,7 @@ use Glowie\Core\CLI\Command;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class Quote extends Command
 {
@@ -23,7 +22,7 @@ class Quote extends Command
     public function run()
     {
         // Gets a random quote
-        $quote = (new Collection([
+        $quote = collect([
             '"Computers are fast; programmers keep it slow."',
             '"Programming can be fun, and so can cryptography; however, they should not be combined."',
             '"When we had no computers, we had no programming problems either."',
@@ -36,7 +35,7 @@ class Quote extends Command
             '"A good programmer is someone who always looks both ways before crossing a one-way street."',
             '"Software and cathedrals are much the same — first we build them, then we pray."',
             '"It\'s not a bug – it\'s an undocumented feature."'
-        ]))->random();
+        ])->random();
 
         // Prints the quote in the console
         $this->info($quote);

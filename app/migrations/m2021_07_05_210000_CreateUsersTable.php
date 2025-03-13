@@ -12,7 +12,7 @@ use Glowie\Core\Database\Skeleton;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class m2021_07_05_210000_CreateUsersTable extends Migration
 {
@@ -28,6 +28,7 @@ class m2021_07_05_210000_CreateUsersTable extends Migration
             ->createColumn('name', Skeleton::TYPE_STRING, 255)
             ->createColumn('email', Skeleton::TYPE_STRING, 255)
             ->createColumn('password', Skeleton::TYPE_TEXT)
+            ->unique('email')
             ->createTimestamps()
             ->createSoftDeletes()
             ->ifNotExists()

@@ -9,7 +9,7 @@ namespace Glowie\Controllers;
  * @author Glowie
  * @copyright Copyright (c) Glowie
  * @license MIT
- * @link https://gabrielsilva.dev.br/glowie
+ * @link https://glowie.gabrielsilva.dev.br
  */
 class Main extends BaseController
 {
@@ -29,7 +29,7 @@ class Main extends BaseController
     public function index()
     {
         // Renders the starting page
-        $this->renderLayout('default', 'index', [
+        return layout('default', 'index', [
             'title' => 'Welcome to Glowie!'
         ]);
     }

@@ -8,7 +8,7 @@
         "glowie",
         "mvc"
     ],
-    "homepage": "https://gabrielsilva.dev.br/glowie",
+    "homepage": "https://glowie.gabrielsilva.dev.br",
     "support": {
         "issues": "https://github.com/glowieframework/glowie/issues",
         "source": "https://github.com/glowieframework/glowie"
@@ -17,12 +17,13 @@
         {
             "name": "Gabriel Silva",
             "email": "glowie@gabrielsilva.dev.br",
-            "homepage": "https://gabrielsilva.dev.br/glowie"
+            "homepage": "https://glowie.gabrielsilva.dev.br"
         }
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "^1.7"
+        "glowieframework/glowie-core": "^1.7",
+        "glowieframework/global-helpers": "^1.0"
     },
     "autoload": {
         "psr-4": {
