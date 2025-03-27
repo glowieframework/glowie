@@ -45,7 +45,7 @@ class RateLimiter extends Middleware
         $cache = new Cache();
 
         // Sets the rate limiter key with the IP address and unique identifier
-        $key = 'glowie.ratelimiter_' . self::UNIQUE_ID . '_' . $this->request->getIPAddress();
+        $key = 'app.ratelimiter_' . self::UNIQUE_ID . '_' . request()->getIPAddress();
 
         // Gets the current number of attempts
         $attempts = (int)$cache->get($key, 0);

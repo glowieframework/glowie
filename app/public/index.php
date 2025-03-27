@@ -15,7 +15,7 @@ use Glowie\Core\Application;
 
 // Check Composer files
 if (!file_exists('../../vendor/autoload.php')) {
-    die('<strong>Composer packages were not found!</strong><br>
+    die('<strong style="color:red;">Composer packages were not found!</strong><br>
         Have you tried running <i>composer install</i>?');
 }
 
