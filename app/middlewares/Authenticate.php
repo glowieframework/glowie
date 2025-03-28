@@ -41,7 +41,7 @@ class Authenticate extends Middleware
         return layout('default', 'error/error', [
             'title' => 'Access Forbidden',
             'code' => 403,
-            'message' => translate('errors.forbidden')
+            'message' => __('errors.forbidden')
         ]);
     }
 }

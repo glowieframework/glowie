@@ -10,6 +10,9 @@
 
 return [
 
+    // Welcome message
+    'welcome' => 'Welcome to Glowie!',
+
     // Error messages
     'errors' => [
 

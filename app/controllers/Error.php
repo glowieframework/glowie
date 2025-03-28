@@ -32,7 +32,7 @@ class Error extends BaseController
         return layout('default', 'error/error', [
             'title' => 'Page Not Found',
             'code' => 404,
-            'message' => translate('errors.not_found')
+            'message' => __('errors.not_found')
         ]);
     }
 
@@ -45,7 +45,7 @@ class Error extends BaseController
         return layout('default', 'error/error', [
             'title' => 'Access Forbidden',
             'code' => 403,
-            'message' => translate('errors.forbidden')
+            'message' => __('errors.forbidden')
         ]);
     }
 
@@ -58,7 +58,7 @@ class Error extends BaseController
         return layout('default', 'error/error', [
             'title' => 'Service Unavailable',
             'code' => 503,
-            'message' => translate('errors.service_unavailable')
+            'message' => __('errors.service_unavailable')
         ]);
     }
 }

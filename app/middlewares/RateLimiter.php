@@ -70,7 +70,7 @@ class RateLimiter extends Middleware
         return layout('default', 'error/error', [
             'title' => 'Too Many Requests',
             'code' => 429,
-            'message' => translate('errors.rate_limit')
+            'message' => __('errors.rate_limit')
         ]);
     }
 }

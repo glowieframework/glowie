@@ -30,7 +30,7 @@ class Main extends BaseController
     {
         // Renders the starting page
         return layout('default', 'index', [
-            'title' => 'Welcome to Glowie!'
+            'title' => __('welcome')
         ]);
     }
 }
