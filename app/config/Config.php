@@ -24,10 +24,7 @@ return [
     'maintenance' => [
 
         // Enable maintenance mode
-        'enabled' => filter_var(
-            env('APP_MAINTENANCE', false),
-            FILTER_VALIDATE_BOOLEAN
-        ),
+        'enabled' => env('APP_MAINTENANCE', false),
 
         // Maintenance mode bypass key
         'bypass_key' => env('MAINTENANCE_KEY')
@@ -52,10 +49,7 @@ return [
     'error_reporting' => [
 
         // Error reporting level
-        'level' => filter_var(
-            env('APP_DEBUG', true),
-            FILTER_VALIDATE_BOOLEAN
-        ) ? E_ALL : 0,
+        'level' => env('APP_DEBUG', true) ? E_ALL : 0,
 
         // Enable error logging
         'logging' => true,
@@ -115,13 +109,15 @@ return [
 
         // Default connection
         'default' => [
-            'host' => env('DB_HOST', 'localhost'),
+            'driver' => env('DB_DRIVER', 'mysql'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'db' => env('DB_DATABASE', 'glowie'),
-            'port' => env('DB_PORT', 3306),
+            'port' => (int) env('DB_PORT', 3306),
             'charset' => 'utf8',
-            'strict' => false
+            'strict' => false,
+            'options' => []
         ]
 
     ],
@@ -224,7 +220,7 @@ return [
     'other' => [
 
         // Application URL (for CLI route mocking only)
-        'url' => env('APP_URL', 'http://localhost'),
+        'url' => env('APP_URL', 'http://127.0.0.1'),
 
         // Default language
         'language' => 'en',
