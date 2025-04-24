@@ -51,7 +51,7 @@ class m2025_03_14_164410_CreateQueueTable extends Migration
             ->createColumn('job')->type(Skeleton::TYPE_TEXT)
             ->createColumn('queue')->type(Skeleton::TYPE_STRING)->size(255)
             ->createColumn('data')->type(Skeleton::TYPE_LONG_BLOB)->nullable()
-            ->createColumn('added_at')->type(Skeleton::TYPE_DATETIME)->default(Skeleton::raw('NOW()'))
+            ->createColumn('added_at')->type(Skeleton::TYPE_DATETIME)->defaultNow()
             ->createColumn('delayed_to')->type(Skeleton::TYPE_DATETIME)->nullable()
             ->createColumn('ran_at')->type(Skeleton::TYPE_DATETIME)->nullable()
             ->createColumn('attempts')->type(Skeleton::TYPE_INTEGER)->unsigned()->default('0')

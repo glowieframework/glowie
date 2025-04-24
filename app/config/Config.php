@@ -115,10 +115,17 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'db' => env('DB_DATABASE', 'glowie'),
             'port' => (int) env('DB_PORT', 3306),
-            'charset' => 'utf8',
+            'charset' => 'utf8mb4',
             'strict' => false,
             'options' => []
-        ]
+        ],
+
+        // SQLite connection
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'path' => storage_path('database.sqlite'),
+            'options' => []
+        ],
 
     ],
 
@@ -149,6 +156,9 @@ return [
 
     // Queue settings
     'queue' => [
+
+        // Queue database connection
+        'connection' => 'default',
 
         // Queue jobs table name
         'table' => 'queue',
