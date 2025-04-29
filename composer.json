@@ -22,18 +22,19 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "^1.8",
+        "glowieframework/glowie-core": "^1.9",
         "glowieframework/global-helpers": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Glowie\\Commands\\": "app/commands/",
             "Glowie\\Controllers\\": "app/controllers/",
+            "Glowie\\Helpers\\": "app/views/helpers/",
             "Glowie\\Jobs\\": "app/jobs/",
             "Glowie\\Middlewares\\": "app/middlewares/",
             "Glowie\\Migrations\\": "app/migrations/",
             "Glowie\\Models\\": "app/models/",
-            "Glowie\\Helpers\\": "app/views/helpers/"
+            "Glowie\\Services\\": "app/services/"
         }
     },
     "scripts": {
