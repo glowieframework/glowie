@@ -20,7 +20,9 @@ class Main extends BaseController
     public function init()
     {
         // Calls the BaseController init() method
-        if (is_callable([parent::class, 'init'])) parent::init();
+        if (is_callable([parent::class, 'init'])) {
+            parent::init();
+        }
     }
 
     /**
@@ -28,6 +30,14 @@ class Main extends BaseController
      */
     public function index()
     {
+        // Sets a JSON response
+        if (request()->acceptsJson()) {
+            return response()->setJson([
+                'status' => true,
+                'message' => __('welcome')
+            ]);
+        }
+
         // Renders the starting page
         return layout('default', 'index', [
             'title' => __('welcome')

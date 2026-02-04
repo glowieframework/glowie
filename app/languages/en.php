@@ -16,6 +16,9 @@ return [
     // Error messages
     'errors' => [
 
+        // 401 error message
+        'unauthorized' => 'You are not authenticated',
+
         // 403 error message
         'forbidden' => 'You are not allowed to access this page',
 

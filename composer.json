@@ -22,19 +22,21 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "glowieframework/glowie-core": "^1.9",
-        "glowieframework/global-helpers": "^1.0"
+        "glowieframework/glowie-core": "^1.10"
     },
     "autoload": {
         "psr-4": {
             "Glowie\\Commands\\": "app/commands/",
             "Glowie\\Controllers\\": "app/controllers/",
+            "Glowie\\Enums\\": "app/enums/",
             "Glowie\\Helpers\\": "app/views/helpers/",
+            "Glowie\\Interfaces\\": "app/interfaces/",
             "Glowie\\Jobs\\": "app/jobs/",
             "Glowie\\Middlewares\\": "app/middlewares/",
             "Glowie\\Migrations\\": "app/migrations/",
             "Glowie\\Models\\": "app/models/",
-            "Glowie\\Services\\": "app/services/"
+            "Glowie\\Services\\": "app/services/",
+            "Glowie\\Traits\\": "app/traits/"
         }
     },
     "scripts": {

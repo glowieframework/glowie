@@ -21,7 +21,7 @@ class RateLimiter extends Middleware
      * Unique identifier for this rate limiter.
      * @var string
      */
-    private const UNIQUE_ID = 'r1';
+    private const UNIQUE_ID = 'app.r1';
 
     /**
      * Maximum number of attempts per interval.
@@ -66,8 +66,16 @@ class RateLimiter extends Middleware
         // Set HTTP 429 status code
         response()->rateLimit();
 
+        // Sets a JSON response
+        if (request()->acceptsJson()) {
+            return response()->setJson([
+                'status' => false,
+                'error' =>  __('errors.rate_limit')
+            ]);
+        }
+
         // Renders 429 error page
-        return layout('default', 'error/error', [
+        return layout('default', 'error.error', [
             'title' => 'Too Many Requests',
             'code' => 429,
             'message' => __('errors.rate_limit')

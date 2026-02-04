@@ -3,9 +3,10 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
+use Glowie\Core\Tools\Authorizator;
 
 /**
- * Authentication middleware for Glowie application.
+ * API Authentication middleware for Glowie application.
  * @category Middleware
  * @package glowieframework/glowie
  * @author Glowie
@@ -13,7 +14,7 @@ use Glowie\Core\Http\Middleware;
  * @license MIT
  * @link https://glowie.gabrielsilva.dev.br
  */
-class Authenticate extends Middleware
+class AuthenticateApi extends Middleware
 {
 
     /**
@@ -22,8 +23,15 @@ class Authenticate extends Middleware
      */
     public function handle()
     {
-        // Checks if user is authenticated
-        return auth()->check();
+        // Gets the token from the Authorization header or request body
+        $auth = new Authorizator();
+        $token = $auth->getBearer() ?? $auth->getToken();
+
+        // Checks if the token exists
+        if (!$token) return false;
+
+        // Authorizes the token
+        return $auth->authorize($token);
     }
 
     /**
@@ -31,25 +39,13 @@ class Authenticate extends Middleware
      */
     public function fail()
     {
-        // Clear session data
-        auth()->logout();
-
         // Set HTTP 401 status code
         response()->unauthorized();
 
         // Sets a JSON response
-        if (request()->acceptsJson()) {
-            return response()->setJson([
-                'status' => false,
-                'error' => __('errors.unauthorized')
-            ]);
-        }
-
-        // Renders 401 error page
-        return layout('default', 'error.error', [
-            'title' => 'Unauthorized',
-            'code' => 401,
-            'message' => __('errors.unauthorized')
+        return response()->setJson([
+            'status' => false,
+            'error' => __('errors.unauthorized')
         ]);
     }
 }

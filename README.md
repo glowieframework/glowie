@@ -10,9 +10,11 @@
 </p>
 
 ## Powerful and lightweight PHP framework
+
 Glowie is a PHP framework designed to be as lightweight, fast, and powerful as possible, making it easy to develop applications and dynamic websites.
 
 ## Features
+
 - MVC structure with simple scaffolding
 - Powerful database ORM toolkit, migrations, query and schema builders
 - A set of tools for validating forms and handling request data
@@ -32,6 +34,7 @@ Glowie is a PHP framework designed to be as lightweight, fast, and powerful as p
 - ...and much more!
 
 ## Getting started
+
 ```shell
 composer create-project glowieframework/glowie
 ```
@@ -39,4 +42,5 @@ composer create-project glowieframework/glowie
 [Explore the documentation](https://glowie.gabrielsilva.dev.br/docs) to know how to start using Glowie to create something awesome.
 
 ## Credits
+
 Glowie is actively developed by [Gabriel Silva](https://gabrielsilva.dev.br).

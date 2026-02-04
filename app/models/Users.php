@@ -50,7 +50,11 @@ class Users extends Model
      * Table updatable fields.
      * @var array
      */
-    protected $_updatable = ['name', 'email', 'password'];
+    protected $_updatable = [
+        'name',
+        'email',
+        'password'
+    ];
 
     /**
      * Initial model attributes.

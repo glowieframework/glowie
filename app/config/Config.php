@@ -210,6 +210,7 @@ return [
 
         // Sandbox class alias list
         'alias' => [
+            'Application' => \Glowie\Core\Application::class,
             'Factory' => \Glowie\Core\Database\Factory::class,
             'Kraken' => \Glowie\Core\Database\Kraken::class,
             'Model' => \Glowie\Core\Database\Model::class,

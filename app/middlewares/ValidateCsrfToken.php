@@ -38,8 +38,16 @@ class ValidateCsrfToken extends Middleware
         // Set HTTP 403 status code
         response()->deny();
 
+        // Sets a JSON response
+        if (request()->acceptsJson()) {
+            return response()->setJson([
+                'status' => false,
+                'error' =>  __('errors.forbidden')
+            ]);
+        }
+
         // Renders 403 error page
-        return layout('default', 'error/error', [
+        return layout('default', 'error.error', [
             'title' => 'Access Forbidden',
             'code' => 403,
             'message' => __('errors.forbidden')
