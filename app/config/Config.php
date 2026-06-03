@@ -20,7 +20,7 @@ return [
     // Current environment name
     'env' => env('APP_ENV', 'development'),
 
-    // Application maintenance mode
+    // Maintenance mode settings
     'maintenance' => [
 
         // Enable maintenance mode
@@ -31,7 +31,7 @@ return [
 
     ],
 
-    // Skeltch templating engine
+    // Skeltch templating engine settings
     'skeltch' => [
 
         // Enable Skeltch compiler
@@ -40,12 +40,12 @@ return [
         // Enable views caching
         'cache' => true,
 
-        // Cache files location
+        // View cache files location
         'path' => storage_path('cache')
 
     ],
 
-    // Application error reporting
+    // Error reporting settings
     'error_reporting' => [
 
         // Error reporting level
@@ -59,7 +59,7 @@ return [
 
     ],
 
-    // Application session management
+    // Session settings
     'session' => [
 
         // Session cookie name
@@ -82,7 +82,7 @@ return [
 
     ],
 
-    // Application cookies management
+    // Cookies settings
     'cookies' => [
 
         // Allow cookies usage only through secure connections (https)
@@ -104,7 +104,7 @@ return [
 
     ],
 
-    // Application database connection settings
+    // Database connection settings
     'database' => [
 
         // Default connection
@@ -120,7 +120,7 @@ return [
             'options' => []
         ],
 
-        // SQLite connection
+        // SQLite connection (optional)
         'sqlite' => [
             'driver' => 'sqlite',
             'path' => storage_path('database.sqlite'),
@@ -134,6 +134,7 @@ return [
 
         // Default auth guard
         'default' => [
+
             // Users model
             'model' => \Glowie\Models\Users::class,
 
@@ -157,7 +158,7 @@ return [
     // Queue settings
     'queue' => [
 
-        // Queue database connection
+        // Queue database connection name
         'connection' => 'default',
 
         // Queue jobs table name
@@ -171,8 +172,17 @@ return [
     // Cache settings
     'cache' => [
 
-        // Cache file path
-        'path' => storage_path('cache/cache.db')
+        // Cache driver ("file" or "database")
+        'driver' => 'file',
+
+        // Cache table name
+        'table' => 'cache',
+
+        // Cache file path (for "file" driver only)
+        'path' => storage_path('cache/cache.db'),
+
+        // Cache database connection (for "database" driver only)
+        'connection' => 'default'
 
     ],
 

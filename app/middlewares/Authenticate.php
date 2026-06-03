@@ -3,6 +3,7 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
+use Glowie\Core\Http\Response;
 
 /**
  * Authentication middleware for Glowie application.
@@ -39,10 +40,10 @@ class Authenticate extends Middleware
 
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' => __('errors.unauthorized')
-            ]);
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
         // Renders 401 error page

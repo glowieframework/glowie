@@ -3,6 +3,7 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
+use Glowie\Core\Http\Response;
 use Glowie\Core\Tools\Cache;
 
 /**
@@ -41,20 +42,23 @@ class RateLimiter extends Middleware
      */
     public function handle()
     {
-        // Creates the cache instance
-        $cache = new Cache();
-
         // Sets the rate limiter key with the IP address and unique identifier
-        $key = 'app.ratelimiter_' . self::UNIQUE_ID . '_' . request()->getIPAddress();
+        $key = 'app.ratelimiter.' . self::UNIQUE_ID . '.' . request()->getIPAddress();
 
         // Gets the current number of attempts
-        $attempts = (int)$cache->get($key, 0);
+        $attempts = cache()->get($key);
 
         // Limits the attempts
-        if ($attempts >= self::MAX_ATTEMPTS) return false;
+        if ($attempts !== null && $attempts >= self::MAX_ATTEMPTS) return false;
 
         // Sets the new number of attempts
-        $cache->set($key, $attempts + 1, self::TIME_LIMIT);
+        if (is_null($attempts)) {
+            cache()->set($key, 1, self::TIME_LIMIT);
+        } else {
+            cache()->increment($key, 1);
+        }
+
+        // No rate limiting
         return true;
     }
 
@@ -68,10 +72,10 @@ class RateLimiter extends Middleware
 
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.rate_limit')
-            ]);
+            ], Response::HTTP_TOO_MANY_REQUESTS);
         }
 
         // Renders 429 error page

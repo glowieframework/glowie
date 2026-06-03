@@ -3,6 +3,7 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
+use Glowie\Core\Http\Response;
 use Glowie\Core\Tools\Authorizator;
 
 /**
@@ -39,13 +40,10 @@ class AuthenticateApi extends Middleware
      */
     public function fail()
     {
-        // Set HTTP 401 status code
-        response()->unauthorized();
-
         // Sets a JSON response
-        return response()->setJson([
+        return response([
             'status' => false,
             'error' => __('errors.unauthorized')
-        ]);
+        ], Response::HTTP_UNAUTHORIZED);
     }
 }

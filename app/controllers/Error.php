@@ -2,6 +2,8 @@
 
 namespace Glowie\Controllers;
 
+use Glowie\Core\Http\Response;
+
 /**
  * Error controller for Glowie application.
  * @category Controller
@@ -32,10 +34,10 @@ class Error extends BaseController
     {
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.not_found')
-            ]);
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // Renders 404 error page
@@ -53,10 +55,10 @@ class Error extends BaseController
     {
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.forbidden')
-            ]);
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Renders 403 error page
@@ -74,10 +76,10 @@ class Error extends BaseController
     {
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.not_allowed')
-            ]);
+            ], Response::HTTP_METHOD_NOT_ALLOWED);
         }
 
         return layout('default', 'error.error', [
@@ -94,10 +96,10 @@ class Error extends BaseController
     {
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.service_unavailable')
-            ]);
+            ], Response::HTTP_SERVICE_UNAVAILABLE);
         }
 
         // Renders 503 error page

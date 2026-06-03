@@ -2,6 +2,8 @@
 
 namespace Glowie\Controllers;
 
+use Glowie\Core\Http\Response;
+
 /**
  * Main controller for Glowie application.
  * @category Controller
@@ -32,10 +34,10 @@ class Main extends BaseController
     {
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => true,
                 'message' => __('welcome')
-            ]);
+            ], Response::HTTP_OK);
         }
 
         // Renders the starting page

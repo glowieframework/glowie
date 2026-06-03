@@ -77,7 +77,9 @@ class Users extends Model
      * Table fields data types to mutate.
      * @var array
      */
-    protected $_mutators = [];
+    protected $_mutators = [
+        'password' => 'password'
+    ];
 
     /**
      * Handle timestamp fields.
@@ -114,4 +116,12 @@ class Users extends Model
      * @var string
      */
     protected $_deletedField = 'deleted_at';
+
+    /**
+     * Initializes the model and its relations (if any).
+     */
+    public function init()
+    {
+        //
+    }
 }

@@ -3,6 +3,7 @@
 namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
+use Glowie\Core\Http\Response;
 
 /**
  * CSRF token validation middleware for Glowie application.
@@ -22,6 +23,10 @@ class ValidateCsrfToken extends Middleware
      */
     public function handle()
     {
+        // Checks the Sec-Fetch-Site header
+        $header = request()->getHeader('Sec-Fetch-Site');
+        if ($header === 'same-origin' || $header === 'same-site') return true;
+
         // Retrieves the token from POST field or header
         $token = $this->post->_token ?? request()->getHeader('X-CSRF-TOKEN');
 
@@ -40,10 +45,10 @@ class ValidateCsrfToken extends Middleware
 
         // Sets a JSON response
         if (request()->acceptsJson()) {
-            return response()->setJson([
+            return response([
                 'status' => false,
                 'error' =>  __('errors.forbidden')
-            ]);
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Renders 403 error page
