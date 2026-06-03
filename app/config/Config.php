@@ -215,6 +215,9 @@ return [
     // Application plugins
     'plugins' => [],
 
+    // Development plugins
+    'dev_plugins' => [],
+
     // Firefly Sandbox settings
     'sandbox' => [
 
