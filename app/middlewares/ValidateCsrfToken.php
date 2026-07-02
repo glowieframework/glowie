@@ -40,9 +40,6 @@ class ValidateCsrfToken extends Middleware
      */
     public function fail()
     {
-        // Set HTTP 403 status code
-        response()->deny();
-
         // Sets a JSON response
         if (request()->acceptsJson()) {
             return response([
@@ -50,6 +47,9 @@ class ValidateCsrfToken extends Middleware
                 'error' =>  __('errors.forbidden')
             ], Response::HTTP_FORBIDDEN);
         }
+
+        // Set HTTP 403 status code
+        response()->deny();
 
         // Renders 403 error page
         return layout('default', 'error.error', [

@@ -67,9 +67,6 @@ class RateLimiter extends Middleware
      */
     public function fail()
     {
-        // Set HTTP 429 status code
-        response()->rateLimit();
-
         // Sets a JSON response
         if (request()->acceptsJson()) {
             return response([
@@ -77,6 +74,9 @@ class RateLimiter extends Middleware
                 'error' =>  __('errors.rate_limit')
             ], Response::HTTP_TOO_MANY_REQUESTS);
         }
+
+        // Set HTTP 429 status code
+        response()->rateLimit();
 
         // Renders 429 error page
         return layout('default', 'error.error', [

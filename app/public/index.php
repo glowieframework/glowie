@@ -14,13 +14,13 @@ use Glowie\Core\Application;
 */
 
 // Check Composer files
-if (!file_exists('../../vendor/autoload.php')) {
+if (!file_exists(__DIR__ . '/../../vendor/autoload.php')) {
     die('<strong style="color:red;">Composer packages were not found!</strong><br>
         Have you tried running <i>composer install</i>?');
 }
 
 // Load Composer packages
-require('../../vendor/autoload.php');
+require(__DIR__ . '/../../vendor/autoload.php');
 
 // Run Glowie bootstrapper
 Application::run();

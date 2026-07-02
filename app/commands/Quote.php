@@ -17,6 +17,12 @@ class Quote extends Command
 {
 
     /**
+     * The command description (for help message).
+     * @var string
+     */
+    protected $description = 'Displays an inspirational quote';
+
+    /**
      * The command script.
      */
     public function run()

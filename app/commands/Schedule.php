@@ -1,0 +1,52 @@
+<?php
+
+namespace Glowie\Commands;
+
+use Glowie\Core\CLI\Command;
+use Glowie\Core\CLI\Scheduler;
+
+/**
+ * Task scheduler CLI command for Glowie application.
+ * @category Command
+ * @package glowieframework/glowie
+ * @author Glowie
+ * @copyright Copyright (c) Glowie
+ * @license MIT
+ * @link https://glowie.gabrielsilva.dev.br
+ * @see https://glowie.gabrielsilva.dev.br/docs/latest/extra/cli
+ */
+class Schedule extends Command
+{
+
+    /**
+     * The command description (for help message).
+     * @var string
+     */
+    protected $description = 'Runs the scheduled tasks';
+
+    /**
+     * The command args signature (for help message).
+     * @var string|null
+     */
+    protected $signature = '--time';
+
+    /**
+     * Sets if this command cannot run more than once at the same time.
+     * @var bool
+     */
+    protected $locked = false;
+
+    /**
+     * The command script.
+     */
+    public function run()
+    {
+        // Define your scheduled tasks here
+        Scheduler::schedule(function () {
+            // Your task
+        })->daily();
+
+        // At the end, call the run method
+        return Scheduler::run();
+    }
+}

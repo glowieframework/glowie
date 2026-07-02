@@ -35,9 +35,6 @@ class Authenticate extends Middleware
         // Clear session data
         auth()->logout();
 
-        // Set HTTP 401 status code
-        response()->unauthorized();
-
         // Sets a JSON response
         if (request()->acceptsJson()) {
             return response([
@@ -45,6 +42,9 @@ class Authenticate extends Middleware
                 'error' => __('errors.unauthorized')
             ], Response::HTTP_UNAUTHORIZED);
         }
+
+        // Set HTTP 401 status code
+        response()->unauthorized();
 
         // Renders 401 error page
         return layout('default', 'error.error', [
