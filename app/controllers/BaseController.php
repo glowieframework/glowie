@@ -21,6 +21,6 @@ class BaseController extends Controller
      */
     public function init()
     {
-        //
+        // Create something awesome
     }
 }

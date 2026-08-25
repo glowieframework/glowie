@@ -243,14 +243,17 @@ return [
     // Application miscellaneous settings
     'other' => [
 
-        // Application URL (for CLI route mocking only)
+        // Application URL (for CLI route generation)
         'url' => env('APP_URL', 'http://127.0.0.1'),
 
-        // Default language
+        // Default app language
         'language' => 'en',
 
         // Default timezone
-        'timezone' => 'America/Sao_Paulo'
+        'timezone' => 'America/Sao_Paulo',
+
+        // Default HTTP redirect code
+        'default_redirect_code' => \Glowie\Core\Http\Response::HTTP_FOUND
 
     ]
 

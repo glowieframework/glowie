@@ -2,7 +2,6 @@
 
 namespace Glowie\Migrations;
 
-use Config;
 use Glowie\Core\Database\Migration;
 use Glowie\Core\Database\Skeleton;
 
@@ -36,8 +35,8 @@ class m2025_03_14_164410_CreateQueueTable extends Migration
      */
     public function init()
     {
-        $this->database = Config::get('queue.connection', 'default');
-        $this->table = Config::get('queue.table', 'queue');
+        $this->database = config('queue.connection', 'default');
+        $this->table = config('queue.table', 'queue');
     }
 
     /**

@@ -44,6 +44,6 @@ class Quote extends Command
         ])->random();
 
         // Prints the quote in the console
-        $this->info($quote);
+        return $this->info($quote);
     }
 }

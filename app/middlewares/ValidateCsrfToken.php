@@ -44,18 +44,11 @@ class ValidateCsrfToken extends Middleware
         if (request()->acceptsJson()) {
             return response([
                 'status' => false,
-                'error' =>  __('errors.forbidden')
-            ], Response::HTTP_FORBIDDEN);
+                'error' =>  __('errors.page_expired')
+            ], Response::HTTP_PAGE_EXPIRED);
         }
 
-        // Set HTTP 403 status code
-        response()->deny();
-
-        // Renders 403 error page
-        return layout('default', 'error.error', [
-            'title' => 'Access Forbidden',
-            'code' => 403,
-            'message' => __('errors.forbidden')
-        ]);
+        // Sets a HTTP 419 response
+        abort(Response::HTTP_PAGE_EXPIRED);
     }
 }

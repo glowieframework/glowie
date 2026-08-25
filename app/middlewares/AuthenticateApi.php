@@ -19,13 +19,19 @@ class AuthenticateApi extends Middleware
 {
 
     /**
+     * Authentication guard to be used for this middleware.
+     * @var string
+     */
+    private const AUTH_GUARD = 'default';
+
+    /**
      * The middleware handler.
      * @return bool Should return true on success or false on fail.
      */
     public function handle()
     {
         // Gets the token from the Authorization header or request body
-        $auth = new Authorizator();
+        $auth = new Authorizator(self::AUTH_GUARD);
         $token = $auth->getBearer() ?? $auth->getToken();
 
         // Checks if the token exists

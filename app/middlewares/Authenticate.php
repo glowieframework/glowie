@@ -18,13 +18,19 @@ class Authenticate extends Middleware
 {
 
     /**
+     * Authentication guard to be used for this middleware.
+     * @var string
+     */
+    private const AUTH_GUARD = 'default';
+
+    /**
      * The middleware handler.
      * @return bool Should return true on success or false on fail.
      */
     public function handle()
     {
         // Checks if user is authenticated
-        return auth()->check();
+        return auth(self::AUTH_GUARD)->check();
     }
 
     /**
@@ -33,7 +39,7 @@ class Authenticate extends Middleware
     public function fail()
     {
         // Clear session data
-        auth()->logout();
+        auth(self::AUTH_GUARD)->logout();
 
         // Sets a JSON response
         if (request()->acceptsJson()) {
@@ -43,14 +49,7 @@ class Authenticate extends Middleware
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        // Set HTTP 401 status code
-        response()->unauthorized();
-
-        // Renders 401 error page
-        return layout('default', 'error.error', [
-            'title' => 'Unauthorized',
-            'code' => 401,
-            'message' => __('errors.unauthorized')
-        ]);
+        // Sets a HTTP 401 response
+        abort(Response::HTTP_UNAUTHORIZED);
     }
 }

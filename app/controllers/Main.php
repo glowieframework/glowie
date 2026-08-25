@@ -36,13 +36,13 @@ class Main extends BaseController
         if (request()->acceptsJson()) {
             return response([
                 'status' => true,
-                'message' => __('welcome')
+                'message' => __('index.title')
             ], Response::HTTP_OK);
         }
 
-        // Renders the starting page
+        // Renders the index page
         return layout('default', 'index', [
-            'title' => __('welcome')
+            'title' => config('app_name'),
         ]);
     }
 }

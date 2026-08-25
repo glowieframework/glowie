@@ -10,30 +10,26 @@
 
 return [
 
-    // Welcome message
-    'welcome' => 'Welcome to Glowie!',
+    // Index page messages
+    'index' => [
+
+        'title' => 'Welcome to Glowie!',
+
+        'subtitle' => 'You are ready to create something awesome'
+
+    ],
 
     // Error messages
     'errors' => [
 
-        // 401 error message
-        'unauthorized' => 'You are not authenticated',
+        'unauthorized' => 'You are not authenticated, please login to continue.',
 
-        // 403 error message
-        'forbidden' => 'You are not allowed to access this page',
+        'page_expired' => 'The page has expired, please try again.',
 
-        // 404 error message
-        'not_found' => 'The page you were looking for was not found',
+        'rate_limit' => 'Request limit reached, please wait a few seconds and try again.',
 
-        // 405 error message
-        'not_allowed' => 'The current method is not allowed',
+    ],
 
-        // 429 error message
-        'rate_limit' => 'Request limit reached, please wait',
-
-        // 503 error message
-        'service_unavailable' => 'We will be back soon'
-
-    ]
+    // Create additional messages and groups here
 
 ];

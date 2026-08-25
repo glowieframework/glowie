@@ -4,7 +4,6 @@ namespace Glowie\Middlewares;
 
 use Glowie\Core\Http\Middleware;
 use Glowie\Core\Http\Response;
-use Glowie\Core\Tools\Cache;
 
 /**
  * Rate limiter middleware for Glowie application.
@@ -22,13 +21,13 @@ class RateLimiter extends Middleware
      * Unique identifier for this rate limiter.
      * @var string
      */
-    private const UNIQUE_ID = 'app.r1';
+    private const UNIQUE_ID = 'default';
 
     /**
      * Maximum number of attempts per interval.
      * @var int
      */
-    private const MAX_ATTEMPTS = 100;
+    private const MAX_ATTEMPTS = 30;
 
     /**
      * Time limit interval (in seconds).
@@ -75,14 +74,7 @@ class RateLimiter extends Middleware
             ], Response::HTTP_TOO_MANY_REQUESTS);
         }
 
-        // Set HTTP 429 status code
-        response()->rateLimit();
-
-        // Renders 429 error page
-        return layout('default', 'error.error', [
-            'title' => 'Too Many Requests',
-            'code' => 429,
-            'message' => __('errors.rate_limit')
-        ]);
+        // Sets a HTTP 429 response
+        abort(Response::HTTP_TOO_MANY_REQUESTS);
     }
 }
